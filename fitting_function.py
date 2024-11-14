@@ -1,4 +1,6 @@
 # Definizione della funzione di fitting (tramite comunicazione con simulatore)
+
+# Modifica
 import socket
 def fitting_function(x):
      # Define the host and port to receive data (both decided by me)
