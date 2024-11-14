@@ -43,10 +43,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client : # creation of
     Therefore at each iteration the positions of the particles will be sent to the simulator, which runs the simulations,
     computes for each the fitness function (manipulability), and returns a vector of integers, where the i-th element represents 
     the value of manipulability (fitness) of the i-th particle'''
-
-    
-    
-    
+   
     while trigger_end < max_iterations -1 :
         print("\n")
         print(f" -*-*-*-*-*-*-*- The current simulation on TPS is the number: {trigger_end + 1} -*-*-*-*-*-*-*- ")
