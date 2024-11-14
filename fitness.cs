@@ -62,6 +62,7 @@ class Program
                 output.Write("The Key Performance Indicator(s) sent to Python are:\n");
                 output.Write(data.ToString());
                 output.Write("\n");
+         
  
                 // b) Get the new 'tentative' layout to run the new simulation
                 output.Write("sto aspettando le particelle\n");
@@ -88,9 +89,9 @@ class Program
                
 
                 // compute fitness and send it back to the python  code
-                output.Write("computing fitness\n");
+                /*output.Write("computing fitness\n");
                 int Num = ii;
-                int[] fitness = { Num, 2, 3, 4, 5, Num}; // pack the KPIs
+                int[] fitness = { Num, 2, 3, 4, 5 }; // pack the KPIs
                 output.Write("packing fitness\n");
                 string fitnes_s = string.Join(",", fitness); // convert tthe array into a string
                 output.Write("opening the stream\n");
@@ -100,19 +101,19 @@ class Program
                 stream2.Write(fitness_Vec, 0, fitness_Vec.Length); // Write on the stream
                 output.Write("the fitness is:\n");
                 output.Write(fitnes_s.ToString());
-                output.Write("\n");
+                output.Write("\n");*/
  
                 
  
                 // c) Send the varible trigger_end to python
  
-                //string trigger_end = ii.ToString(); // convert the current iteration index to string
-                //NetworkStream stream3 = client.GetStream(); // open the second stream
-                //byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end); // ASCII encoding           
-                //stream3.Write(byte_trigger_end, 0, byte_trigger_end.Length); // Write on the stream
-                //output.Write("The current iteration number is sent to Python and it is equal to:\n");
-                //output.Write(trigger_end.ToString());
-                //output.Write("\n");
+                /*string trigger_end = ii.ToString(); // convert the current iteration index to string
+                NetworkStream stream3 = client.GetStream(); // open the second stream
+                byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end); // ASCII encoding           
+                stream3.Write(byte_trigger_end, 0, byte_trigger_end.Length); // Write on the stream
+                output.Write("The current iteration number is sent to Python and it is equal to:\n");
+                output.Write(trigger_end.ToString());
+                output.Write("\n");*/
             }
  
             // Close the connection after the 'Nsim' simulations

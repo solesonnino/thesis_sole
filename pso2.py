@@ -59,29 +59,32 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client : # creation of
         kpi_vec = np.array(kpi)
         print(f"The time and RULA score for ergonomic assessment received from C# are: {kpi_vec}")
         
+        shape_trigger= np.array(trigger_end.shape, dtype=np.int32)
+        client.sendall(shape_trigger.tobytes())
+        client.sendall(trigger_end.to_bytes())
         # create the array of integers by concatening particles' positions
-        layout = np.array([[int(particle_positions[0]), int(particle_positions [1]),int(particle_positions [2]),int(particle_positions [3]),int(particle_positions [4])]])
-        shape_layout = np.array(layout.shape, dtype = np.int32)  
-        print(f"The shape of the command is : {shape_layout}")
+        #layout = np.array([[int(particle_positions[0]), int(particle_positions[1]),int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]])
+        #shape_layout = np.array(layout.shape, dtype = np.int32)  
+        #print(f"The shape of the command is : {shape_layout}")
         # Actual send of the data (in the future: try to remove the double send and try to send just one time)
-        client.sendall(shape_layout.tobytes())
-        client.sendall(layout.tobytes())
-        print(f"particle positions: {layout}")
+        #client.sendall(shape_layout.tobytes())
+        #client.sendall(layout[0].tobytes())
+        #print(f"particle positions: {layout}")
 
         #send to the simulator the positions
         
 
        #recieve the array of fitness
-        fitness = client.recv(1024).decode()
-        fitness = [int(num) for num in fitness.split(',')] # list variable
+        #fitness = client.recv(1024).decode()
+        #fitness = [int(num) for num in fitness.split(',')] # list variable
         # Transform the data into a numpy array
-        fitness_Vec = np.array(fitness)
-        print(f"Fitness: {fitness_Vec}") 
-        par =1
-        while par<=num_particles:
-            temp = particle_positions [par-1]
-            particle_positions[par-1]=temp+1
-            par = par+1
+        #fitness_Vec = np.array(fitness)
+        #print(f"Fitness: {fitness_Vec}") 
+        #par =1
+        #while par<=num_particles:
+            #temp = particle_positions [par-1]
+            #particle_positions[par-1]=temp+1
+            #par = par+1
 
         
         '''if trigger_end <1 : #only  at the firts iteration
@@ -122,16 +125,17 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client : # creation of
         #recieve the trigger_end
         #trigger_end = client.recv(1024).decode() 
         #trigger_end = int(''.join(map(str, trigger_end))) # transform the string into an integer
-        trigger_end= fitness_Vec[num_particles]
-        print(f"trigger_end value= {fitness_Vec[num_particles]}" )
+        #trigger_end= fitness_Vec[num_particles]
+        #print(f"trigger_end value= {fitness_Vec[num_particles]}" )
         
-        aspetta = np.array([[int(particle_positions[0])]])
-        shape_aspetta = np.array(aspetta.shape, dtype = np.int32)  
-        print(f"Taspetta shape: : {shape_layout}")
+        #aspetta = np.array([[int(particle_positions[0])]])
+        #shape_aspetta = np.array(aspetta.shape, dtype = np.int32)  
+        #print(f"Taspetta shape: : {shape_layout}")
         # Actual send of the data (in the future: try to remove the double send and try to send just one time)
-        client.sendall(shape_layout.tobytes())
-        client.sendall(layout.tobytes())
-        print(f"aspetta: {layout}")
+        #client.sendall(shape_layout.tobytes())
+        #client.sendall(layout.tobytes())
+        #print(f"aspetta: {layout}")
+        trigger_end=trigger_end +1
 
     # close the socket 
     client.close() 
