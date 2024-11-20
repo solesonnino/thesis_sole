@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using Tecnomatix.Engineering;
 using System.Collections.Generic;
 using Tecnomatix.Engineering.Olp;
-using System.Collections.Generic;
 using System.Linq;
 
 class Program
@@ -45,14 +44,15 @@ class Program
                 output.Write("\n");
 
                 //select each position 
-                for (int pos=0; pos < layout.length-1; pos++)
+                for (int pos=0; pos < 4; pos++)
                 {
                     //move the base of the robot in the defined position 
                     // move along x axis 
 				  TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
 				 selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
 				 var robot = selectedObjects[0] as ITxLocatableObject;
-                 move_X_Val= layout[pos];	
+                 double move_X_Val=0;
+                 move_X_Val= layout[pos, 0];	
 				 var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
 				  position.Translation = new TxVector(move_X_Val, 0, 0);
 				 robot.LocationRelativeToWorkingFrame = position;
