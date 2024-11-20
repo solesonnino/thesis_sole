@@ -23,7 +23,7 @@ class Program
         try
         {
             // Define the number of simulations
-            int Nsim = 5;
+            int Nsim = 2;
             int port = 12345;
 
             // Start listening for incoming connections
@@ -38,11 +38,29 @@ class Program
             // Loop for all the simulations
             for (int ii = 0; ii < Nsim - 1; ii++)
             {
-                // Receive sequence array
+                // Receive positions array
                 var layout = ReceiveNumpyArray(stream);
-                output.Write("layout: \n");
+                output.Write("positions: \n");
                 PrintArray(layout, output);
                 output.Write("\n");
+
+                //select each position 
+                for (int pos=0; pos < layout.length-1; pos++)
+                {
+                    //move the base of the robot in the defined position 
+                    // move along x axis 
+				  TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
+				 selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
+				 var robot = selectedObjects[0] as ITxLocatableObject;
+                 move_X_Val= layout[pos];	
+				 var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
+				  position.Translation = new TxVector(move_X_Val, 0, 0);
+				 robot.LocationRelativeToWorkingFrame = position;
+				 TxApplication.RefreshDisplay();
+				 output.Write("the current position is: \n");
+				 output.Write(move_X_Val.ToString());
+				 output.Write("\n");
+                }
 
                 //send fitness values
                 //int Num = ii;
