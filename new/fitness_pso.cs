@@ -22,7 +22,7 @@ class Program
         try
         {
             // Define the number of simulations
-            int Nsim = 2;
+            int Nsim = 4;
             int port = 12345;
 
             // Start listening for incoming connections
@@ -50,9 +50,9 @@ class Program
                     // move along x axis 
 				  TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
 				 selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
-				 var robot = selectedObjects[0] as ITxLocatableObject;
+				 var robot = selectedObjects[1] as ITxLocatableObject;
                  double move_X_Val=0;
-                 move_X_Val= layout[pos, 0];	
+                 move_X_Val= layout[0, pos];	
 				 var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
 				  position.Translation = new TxVector(move_X_Val, 0, 0);
 				 robot.LocationRelativeToWorkingFrame = position;

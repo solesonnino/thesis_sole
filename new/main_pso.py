@@ -25,7 +25,7 @@ def main():
     print("the connection has happened succesfully \n")
 
     # Number of simulations
-    Nsim = 2
+    Nsim = 4
     trigger_end = 0
     num_particles = 5        # Number of particles
     inertia_weight = 0.5         # inertia weight
