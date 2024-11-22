@@ -14,6 +14,7 @@ using System.Linq;
 using System.Collections;
 
 
+
 class Program 
 {
     static public void Main(ref StringWriter output)
@@ -21,10 +22,10 @@ class Program
         try
         {
         //an array that represents the one recieved by python 
-            int[] layout= {100};
+            int[] layout= {100, 200};
 
  
-            for (int pos=0; pos < 1; pos++)
+            for (int pos=0; pos < layout.Length; pos++)
             {
                 //move the base of the robot in the defined position 
                 // move along x axis 
@@ -67,7 +68,7 @@ class Program
                 TxOperationRoot opRoot = TxApplication.ActiveDocument.OperationRoot;
                         
                 TxObjectList allOps = opRoot.GetAllDescendants(opFilter);
-                TxContinuousRoboticOperation MyOp = allOps[0] as TxContinuousRoboticOperation; // The index may change
+                TxContinuousRoboticOperation MyOp = allOps[pos] as TxContinuousRoboticOperation; // The index may change
 
                 // Create all the necessary points       
                 TxRoboticViaLocationOperationCreationData Point1 = new TxRoboticViaLocationOperationCreationData();
@@ -216,16 +217,10 @@ class Program
 
 
                 //display jacobian 
-                /*
+                
 
-                using System;
-                using System.IO;
-                using System.Windows.Forms;
-                using Tecnomatix.Engineering;
-                public class MainScript
-                {
-                    // Define class-specific variables
-                    static StringWriter m_output;
+                
+                  
 
                     public static void Main(ref StringWriter output)   
                     {
@@ -439,14 +434,9 @@ class Program
                         m_output.Write(determinant.ToString() + m_output.NewLine);
                     
                     }
-
-                
-                }*/
-
-
-                
-
             }
+
+            
         }
         catch (Exception e)
         {
