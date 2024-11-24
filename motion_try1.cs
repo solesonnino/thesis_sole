@@ -22,7 +22,7 @@ class Program
         try
         {
         //an array that represents the one recieved by python 
-            int[] layout= {100, 200};
+            int[] layout= {100};
 
  
             for (int pos=0; pos < layout.Length; pos++)
@@ -31,7 +31,7 @@ class Program
                 // move along x axis 
                 TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
                 selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
-                var robot = selectedObjects[1] as ITxLocatableObject;
+                var robot = selectedObjects[0] as ITxLocatableObject;
                 double move_Y_Val=0;
                 move_Y_Val= layout[pos];	
                 var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
@@ -57,7 +57,7 @@ class Program
             
                 // Save the robot (the index may change)  	
                 TxObjectList objects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
-                var robot2 = objects[1] as TxRobot;
+                var robot2 = objects[0] as TxRobot;
                     
                 // Create the new operation    	
                 TxContinuousRoboticOperationCreationData data = new TxContinuousRoboticOperationCreationData(operation_name);
@@ -215,33 +215,37 @@ class Program
                 paramHandler.OnComplexValueChanged("Blend", new_blend, SixthPoint);
                 paramHandler.OnComplexValueChanged("Coord Type", new_coord, SixthPoint);
 
-
-                //display jacobian 
                 
-
                 
-                  
+                
+                StringWriter m_output = new StringWriter();
+                TxSimulationPlayer player = TxApplication.ActiveDocument.SimulationPlayer;
+                player.Rewind();
 
-                    public static void Main(ref StringWriter output)   
-                    {
-                    
-                        // Access the simulation player
-                        TxSimulationPlayer player = TxApplication.ActiveDocument.SimulationPlayer;
-                        player.Rewind();
-                        
-                        if (!player.IsSimulationRunning())
-                        {
-                            m_output = output; // Display the time output
+
+                       
+                if (!player.IsSimulationRunning())
+                {
+                    m_output = output; // Display the time output
                             
-                            player.TimeIntervalReached += new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);                      
-                            player.Play(); // Perform the simulation at the current time step 
-                            player.TimeIntervalReached -= new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);
-                        }
+                    //player.TimeIntervalReached += new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);                      
+                    player.Play(); // Perform the simulation at the current time step 
+                    //player.TimeIntervalReached -= new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);
+                }
                         
-                        // Rewind the simulation
-                        player.Rewind();
+                // Rewind the simulation
+                player.Rewind();
+            }
+        }
+        catch (Exception e)
+        {
+            output.Write("Exception: " + e.Message);
+        }    
+    }  
+
+    /*                  
                         
-                    }
+                    //}
                     
                     // Custom method to calculate the cross product of two vectors 
                     static double[] CrossProduct(double[] vectorA, double[] vectorB)
@@ -430,19 +434,11 @@ class Program
                         // Calculate the determinant calling the custom method 'CalculateDeterminant'  
                         double determinant = CalculateDeterminant(matrixData);
                         
+
                         // Display the current value of the determinant
-                        m_output.Write(determinant.ToString() + m_output.NewLine);
+                        StringWriter output = new StringWriter ();
+                        string det_string=determinant.ToString();
+                        output.Write("determinant is:" + det_string + output.NewLine);
                     
-                    }
-            }
-
-            
-        }
-        catch (Exception e)
-        {
-            output.Write("Exception: " + e.Message);
-        }
-
-    }    
-
+                    }*/
 }
