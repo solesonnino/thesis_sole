@@ -23,10 +23,11 @@ class Program
         {
         //an array that represents the one recieved by python 
             int[] layout= {100, 200};
+            int pos=0;
 
  
-            for (int pos=0; pos < layout.Length; pos++)
-            {
+            //for (int pos=0; pos < layout.Length; pos++)
+            //{
                 //move the base of the robot in the defined position 
                 // move along x axis 
                 TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
@@ -251,7 +252,7 @@ class Program
                         
                 // Rewind the simulation
                 player.Rewind();
-            }
+            //}
         }
         catch (Exception e)
         {
@@ -284,6 +285,9 @@ class Program
                     // Custom method to calculate the determinant  
                     static double CalculateDeterminant(double[,] matrix)
                     {
+
+                        StringWriter m_output = new StringWriter ();
+                        m_output.Write("ok sto calcolando il determinante \n");
                         // Check if the matrix is square
                         int rows = matrix.GetLength(0);
                         int cols = matrix.GetLength(1);
@@ -341,6 +345,8 @@ class Program
                     // Define a method to display the value of the determinant during the simulation
                     private static void player_TimeIntervalReached(object sender, TxSimulationPlayer_TimeIntervalReachedEventArgs args)
                     {
+                        StringWriter m_output = new StringWriter ();
+                        m_output.Write("ok sto calcolando lo jacobiano \n");
                     
                         // Ground		
                         TxFrame DH0 = TxApplication.ActiveDocument.
@@ -455,7 +461,6 @@ class Program
                         /*StringWriter output = new StringWriter ();
                         string det_string=determinant.ToString();
                         output.Write("determinant is:" + det_string + output.NewLine);*/
-                        StringWriter m_output = new StringWriter();
                         m_output.Write(determinant.ToString() + m_output.NewLine);
                     
                     }
