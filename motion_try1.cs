@@ -283,7 +283,6 @@ class Program
                     // Custom method to calculate the determinant  
                     static double CalculateDeterminant(double[,] matrix)
                     {
-                        m_output.Write("ok sto calcolando il determinante \n");
                         // Check if the matrix is square
                         int rows = matrix.GetLength(0);
                         int cols = matrix.GetLength(1);
@@ -341,7 +340,6 @@ class Program
                     // Define a method to display the value of the determinant during the simulation
                     private static void player_TimeIntervalReached(object sender, TxSimulationPlayer_TimeIntervalReachedEventArgs args)
                     {
-                        m_output.Write("ok sto calcolando lo jacobiano \n");
                     
                         // Ground		
                         TxFrame DH0 = TxApplication.ActiveDocument.
