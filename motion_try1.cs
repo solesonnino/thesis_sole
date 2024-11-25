@@ -22,7 +22,7 @@ class Program
         try
         {
         //an array that represents the one recieved by python 
-            int[] layout= {100};
+            int[] layout= {100, 200};
 
  
             for (int pos=0; pos < layout.Length; pos++)
@@ -216,21 +216,37 @@ class Program
                 paramHandler.OnComplexValueChanged("Coord Type", new_coord, SixthPoint);
 
                 
-                
-                
-                StringWriter m_output = new StringWriter();
+                var descendants = TxApplication.ActiveDocument.OperationRoot.GetAllDescendants(new TxTypeFilter(typeof(TxContinuousRoboticOperation)));
+
+                TxContinuousRoboticOperation op = null;
+
+                foreach (var descendant in descendants)
+                {
+                    if (descendant.Name.Equals("RoboticProgram_"+ pos_string))
+                    {
+                        op = descendant as TxContinuousRoboticOperation;
+                        break; // Exit loop after finding the first match
+                    }
+                }
+
+                TxApplication.ActiveDocument.CurrentOperation = op;
                 TxSimulationPlayer player = TxApplication.ActiveDocument.SimulationPlayer;
                 player.Rewind();
 
+                
+                StringWriter m_output = new StringWriter();
 
-                       
+
+            
                 if (!player.IsSimulationRunning())
                 {
-                    m_output = output; // Display the time output
-                            
-                    //player.TimeIntervalReached += new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);                      
+                    m_output = output; 
+                    output.Write("riga 244 ok \n");       
+                    player.TimeIntervalReached += new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);                      
+                    output.Write("riga 246 ok \n"); 
                     player.Play(); // Perform the simulation at the current time step 
-                    //player.TimeIntervalReached -= new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);
+                    output.Write("riga 248 ok \n"); 
+                    player.TimeIntervalReached -= new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);
                 }
                         
                 // Rewind the simulation
@@ -243,9 +259,9 @@ class Program
         }    
     }  
 
-    /*                  
+                     
                         
-                    //}
+                    
                     
                     // Custom method to calculate the cross product of two vectors 
                     static double[] CrossProduct(double[] vectorA, double[] vectorB)
@@ -436,9 +452,11 @@ class Program
                         
 
                         // Display the current value of the determinant
-                        StringWriter output = new StringWriter ();
+                        /*StringWriter output = new StringWriter ();
                         string det_string=determinant.ToString();
-                        output.Write("determinant is:" + det_string + output.NewLine);
+                        output.Write("determinant is:" + det_string + output.NewLine);*/
+                        StringWriter m_output = new StringWriter();
+                        m_output.Write(determinant.ToString() + m_output.NewLine);
                     
-                    }*/
+                    }
 }
