@@ -17,8 +17,11 @@ using System.Collections;
 
 class Program 
 {
+    static StringWriter m_output;
+
     static public void Main(ref StringWriter output)
     {
+        m_output = output;
         try
         {
         //an array that represents the one recieved by python 
@@ -233,11 +236,6 @@ class Program
                 TxApplication.ActiveDocument.CurrentOperation = op;
                 TxSimulationPlayer player = TxApplication.ActiveDocument.SimulationPlayer;
                 player.Rewind();
-
-                
-                StringWriter m_output = new StringWriter();
-
-
             
                 if (!player.IsSimulationRunning())
                 {
@@ -285,8 +283,6 @@ class Program
                     // Custom method to calculate the determinant  
                     static double CalculateDeterminant(double[,] matrix)
                     {
-
-                        StringWriter m_output = new StringWriter ();
                         m_output.Write("ok sto calcolando il determinante \n");
                         // Check if the matrix is square
                         int rows = matrix.GetLength(0);
@@ -345,7 +341,6 @@ class Program
                     // Define a method to display the value of the determinant during the simulation
                     private static void player_TimeIntervalReached(object sender, TxSimulationPlayer_TimeIntervalReachedEventArgs args)
                     {
-                        StringWriter m_output = new StringWriter ();
                         m_output.Write("ok sto calcolando lo jacobiano \n");
                     
                         // Ground		
@@ -458,9 +453,6 @@ class Program
                         
 
                         // Display the current value of the determinant
-                        /*StringWriter output = new StringWriter ();
-                        string det_string=determinant.ToString();
-                        output.Write("determinant is:" + det_string + output.NewLine);*/
                         m_output.Write(determinant.ToString() + m_output.NewLine);
                     
                     }
