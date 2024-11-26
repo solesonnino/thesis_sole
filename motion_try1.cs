@@ -18,6 +18,7 @@ using System.Collections;
 class Program 
 {
     static StringWriter m_output;
+    static double[] fitness;
 
     static public void Main(ref StringWriter output)
     {
@@ -26,11 +27,12 @@ class Program
         {
         //an array that represents the one recieved by python 
             int[] layout= {100, 200};
-            int pos=0;
 
  
-            //for (int pos=0; pos < layout.Length; pos++)
-            //{
+            for (int pos=0; pos < layout.Length; pos++)
+            {
+                determinantCounter=0;
+                determinantSum=0;
                 //move the base of the robot in the defined position 
                 // move along x axis 
                 TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
@@ -219,7 +221,7 @@ class Program
                 paramHandler.OnComplexValueChanged("Blend", new_blend, SixthPoint);
                 paramHandler.OnComplexValueChanged("Coord Type", new_coord, SixthPoint);
 
-                
+                // select the Robotic Program by name
                 var descendants = TxApplication.ActiveDocument.OperationRoot.GetAllDescendants(new TxTypeFilter(typeof(TxContinuousRoboticOperation)));
 
                 TxContinuousRoboticOperation op = null;
@@ -237,20 +239,24 @@ class Program
                 TxSimulationPlayer player = TxApplication.ActiveDocument.SimulationPlayer;
                 player.Rewind();
             
+                //display the determinant
                 if (!player.IsSimulationRunning())
                 {
-                    m_output = output; 
-                    output.Write("riga 244 ok \n");       
+                    m_output = output;        
                     player.TimeIntervalReached += new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);                      
-                    output.Write("riga 246 ok \n"); 
                     player.Play(); // Perform the simulation at the current time step 
-                    output.Write("riga 248 ok \n"); 
                     player.TimeIntervalReached -= new TxSimulationPlayer_TimeIntervalReachedEventHandler(player_TimeIntervalReached);
                 }
                         
                 // Rewind the simulation
                 player.Rewind();
-            //}
+                output.Write("fine simulazione " + pos_string + "\n");
+                double MeanDeterminant = determinantSum/determinantCounter;
+                output.Write("determinante medio della simulazione numero " + pos_string + " è di: " + MeanDeterminant.ToString() + "\n");
+                fitness[pos]=MeanDeterminant;
+            }
+            string fitnes_s = string.Join(",", fitness);
+            output.Write("fitness vector: " + fitnes_s + "\n");
         }
         catch (Exception e)
         {
@@ -449,9 +455,15 @@ class Program
                         // Calculate the determinant calling the custom method 'CalculateDeterminant'  
                         double determinant = CalculateDeterminant(matrixData);
                         
+                        determinantSum = determinantSum + determinant;
+                        determinantCounter= determinantCounter+1; 
 
                         // Display the current value of the determinant
-                        m_output.Write(determinant.ToString() + m_output.NewLine);
-                    
+                        //m_output.Write(determinant.ToString() + m_output.NewLine);
+                       
                     }
+
+                    static double determinantSum = 0;
+                    static double determinantCounter = 0;
+
 }
