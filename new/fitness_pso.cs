@@ -16,6 +16,10 @@ using System.Linq;
 
 class Program
 {
+    static StringWriter m_output;
+
+    static double determinantSum = 0;
+    static double determinantCounter = 0;
     static public void Main(ref StringWriter output)
     {
         TcpListener server = null;
