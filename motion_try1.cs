@@ -18,7 +18,9 @@ using System.Collections;
 class Program 
 {
     static StringWriter m_output;
-    static double[] fitness;
+
+    static double determinantSum = 0;
+    static double determinantCounter = 0;
 
     static public void Main(ref StringWriter output)
     {
@@ -27,6 +29,7 @@ class Program
         {
         //an array that represents the one recieved by python 
             int[] layout= {100, 200};
+            double[] fitness = {0, 0};
 
  
             for (int pos=0; pos < layout.Length; pos++)
@@ -260,7 +263,7 @@ class Program
         }
         catch (Exception e)
         {
-            output.Write("Exception: " + e.Message);
+            output.Write("Exception: " + e.Message + "\n");
         }    
     }  
 
@@ -463,7 +466,6 @@ class Program
                        
                     }
 
-                    static double determinantSum = 0;
-                    static double determinantCounter = 0;
+
 
 }
