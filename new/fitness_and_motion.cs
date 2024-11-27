@@ -28,7 +28,7 @@ class Program
         try
         {
             // Define the number of simulations
-            int Nsim = 4;
+            int Nsim = 2;
             int port = 12345;
             double[] fitness = {0, 0, 0, 0, 0};
 
@@ -42,7 +42,7 @@ class Program
             NetworkStream stream = client.GetStream();
 
             // Loop for all the simulations
-            for (int ii = 0; ii < Nsim - 1; ii++)
+            for (int ii = 0; ii < Nsim ; ii++)
             {
                 // Receive positions array
                 var layout = ReceiveNumpyArray(stream);
@@ -51,7 +51,7 @@ class Program
                 output.Write("\n");
 
                 //select each position 
-                for (int pos=0; pos < 4; pos++)
+                for (int pos=0; pos < 5; pos++)
                 {
                     determinantCounter=0;
                     determinantSum=0;
@@ -72,7 +72,7 @@ class Program
                     
                     // Define some variables
                     string pos_string = pos.ToString();    
-                    string operation_name = "RoboticProgram_" + pos_string;
+                    string operation_name = "RoboticProgram_" + ii.ToString()+ pos_string;
 
                     /// string new_tcp = "tcp_1";
                     string new_motion_type = "MoveL";
@@ -96,7 +96,7 @@ class Program
                     TxOperationRoot opRoot = TxApplication.ActiveDocument.OperationRoot;
                             
                     TxObjectList allOps = opRoot.GetAllDescendants(opFilter);
-                    TxContinuousRoboticOperation MyOp = allOps[pos] as TxContinuousRoboticOperation; // The index may change
+                    TxContinuousRoboticOperation MyOp = allOps[allOps.Count-1] as TxContinuousRoboticOperation; // The index may change
 
                     // Create all the necessary points       
                     TxRoboticViaLocationOperationCreationData Point1 = new TxRoboticViaLocationOperationCreationData();
@@ -250,7 +250,7 @@ class Program
 
                     foreach (var descendant in descendants)
                     {
-                        if (descendant.Name.Equals("RoboticProgram_"+ pos_string))
+                        if (descendant.Name.Equals("RoboticProgram_"+ ii.ToString() + pos_string))
                         {
                             op = descendant as TxContinuousRoboticOperation;
                             break; // Exit loop after finding the first match
@@ -273,10 +273,10 @@ class Program
                     // Rewind the simulation
                     player.Rewind();
                     output.Write("fine simulazione " + pos_string + "\n");
-                    double MeanDeterminant = determinantSum/determinantCounter;
+                    double MeanDeterminant = 1000*determinantSum/determinantCounter;
                     output.Write("determinante medio della simulazione numero " + pos_string + " è di: " + MeanDeterminant.ToString() + "\n");
-                    int fitness_int =(int)MeanDeterminant*1000;
-                    fitness[pos]=fitness_int;
+                    int fitness_int =(int)MeanDeterminant;
+                    fitness[pos]= fitness_int;
                     
                 }
 

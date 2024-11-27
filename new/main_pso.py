@@ -25,7 +25,7 @@ def main():
     print("the connection has happened succesfully \n")
 
     # Number of simulations
-    Nsim = 4
+    Nsim = 2
     trigger_end = 0
     num_particles = 5        # Number of particles
     inertia_weight = 0.5         # inertia weight
@@ -37,7 +37,7 @@ def main():
     particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
 
 
-    while trigger_end < Nsim - 1:
+    while trigger_end < Nsim:
 
         #send the particle positions
         layout = np.array([[int(particle_positions[0]), int(particle_positions[1]),int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
