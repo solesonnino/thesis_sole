@@ -28,7 +28,7 @@ class Program
         try
         {
             // Define the number of simulations
-            int Nsim = 2;
+            int Nsim = 5;
             int port = 12345;
             double[] fitness = {0, 0, 0, 0, 0};
 
@@ -273,7 +273,7 @@ class Program
                     // Rewind the simulation
                     player.Rewind();
                     output.Write("fine simulazione " + pos_string + "\n");
-                    double MeanDeterminant = 1000*determinantSum/determinantCounter;
+                    double MeanDeterminant = 100000*determinantSum/determinantCounter;
                     output.Write("determinante medio della simulazione numero " + pos_string + " è di: " + MeanDeterminant.ToString() + "\n");
                     int fitness_int =(int)MeanDeterminant;
                     fitness[pos]= fitness_int;

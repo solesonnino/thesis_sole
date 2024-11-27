@@ -25,7 +25,7 @@ def main():
     print("the connection has happened succesfully \n")
 
     # Number of simulations
-    Nsim = 2
+    Nsim = 5
     trigger_end = 0
     num_particles = 5        # Number of particles
     inertia_weight = 0.5         # inertia weight
@@ -67,20 +67,20 @@ def main():
             personal_best_scores =fitness_Vec.copy()
 
             # best (initial) global best position
-            global_best_position = personal_best_positions[np.argmin(personal_best_scores)]
-            global_best_score = np.min(personal_best_scores)
+            global_best_position = personal_best_positions[np.argmax(personal_best_scores)]
+            global_best_score = np.max(personal_best_scores)
 
         else :
             for i in range (num_particles):
                 current_fitting_value = fitness_Vec [i]
 
                  # update the personal best if it is necessary
-                if current_fitting_value < personal_best_scores[i]:
+                if current_fitting_value > personal_best_scores[i]:
                     personal_best_positions[i] = particle_positions[i]
                     personal_best_scores[i] = current_fitting_value
                 
                 # update the global best if necessary
-                if current_fitting_value < global_best_score:
+                if current_fitting_value > global_best_score:
                     global_best_position = particle_positions[i]
                     global_best_score = current_fitting_value
         #update particles            
