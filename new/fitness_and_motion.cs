@@ -131,7 +131,7 @@ class Program
                     FirstPoint.AbsoluteLocation = rotX;
                     
                     var pointA = new TxTransformation(FirstPoint.AbsoluteLocation);
-                    pointA.Translation = new TxVector(300, -300, 300);
+                    pointA.Translation = new TxVector(600, -300, 300);
                     FirstPoint.AbsoluteLocation = pointA;
                     
                     // Impose a position to the second waypoint		
@@ -141,7 +141,7 @@ class Program
                     SecondPoint.AbsoluteLocation = rotX2;
                     
                     var pointB = new TxTransformation(SecondPoint.AbsoluteLocation);
-                    pointB.Translation = new TxVector(300, -300, 25);
+                    pointB.Translation = new TxVector(600, -300, 25);
                     SecondPoint.AbsoluteLocation = pointB;
                     
                     // Impose a position to the third waypoint		
@@ -151,7 +151,7 @@ class Program
                     ThirdPoint.AbsoluteLocation = rotX3;
                     
                     var pointC = new TxTransformation(ThirdPoint.AbsoluteLocation);
-                    pointC.Translation = new TxVector(300, 300, 300);
+                    pointC.Translation = new TxVector(600, 300, 300);
                     ThirdPoint.AbsoluteLocation = pointC;
 
                     // Impose a position to the fourth waypoint		
@@ -161,7 +161,7 @@ class Program
                     FourthPoint.AbsoluteLocation = rotX4;
                     
                     var pointD = new TxTransformation(FourthPoint.AbsoluteLocation);
-                    pointD.Translation = new TxVector(300, 300, 25);
+                    pointD.Translation = new TxVector(600, 300, 25);
                     FourthPoint.AbsoluteLocation = pointD;
 
                     // Impose a position to the fifth waypoint		
@@ -171,7 +171,7 @@ class Program
                     FifthPoint.AbsoluteLocation = rotX5;
                     
                     var pointE = new TxTransformation(FifthPoint.AbsoluteLocation);
-                    pointE.Translation = new TxVector(300, 300, 300);
+                    pointE.Translation = new TxVector(600, 300, 300);
                     FifthPoint.AbsoluteLocation = pointE;
 
                     // Impose a position to the sixth waypoint		
@@ -181,7 +181,7 @@ class Program
                     SixthPoint.AbsoluteLocation = rotX6;
                     
                     var pointF = new TxTransformation(SixthPoint.AbsoluteLocation);
-                    pointF.Translation = new TxVector(300, 0, 300);
+                    pointF.Translation = new TxVector(600, 0, 300);
                     SixthPoint.AbsoluteLocation = pointF;
 
 
