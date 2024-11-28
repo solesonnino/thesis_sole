@@ -25,9 +25,9 @@ def main():
     print("the connection has happened succesfully \n")
 
     # Number of simulations
-    Nsim = 5
+    Nsim = 1
     trigger_end = 0
-    num_particles = 5        # Number of particles
+    num_particles = 5       # Number of particles
     inertia_weight = 0.5         # inertia weight
     cognitive_component = 1.5    # cognitive component
     social_component = 2.0 
