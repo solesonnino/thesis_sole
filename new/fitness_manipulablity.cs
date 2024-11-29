@@ -97,7 +97,7 @@ class Program
                     TxOperationRoot opRoot = TxApplication.ActiveDocument.OperationRoot;
                             
                     TxObjectList allOps = opRoot.GetAllDescendants(opFilter);
-                    TxContinuousRoboticOperation MyOp = allOps[allOps.Count-1] as TxContinuousRoboticOperation; // The index may change
+                    TxContinuousRoboticOperation MyOp = allOps[0] as TxContinuousRoboticOperation; // The index may change
                     
 
                     // Create all the necessary points       
