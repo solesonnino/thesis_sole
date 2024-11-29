@@ -28,9 +28,10 @@ class Program
         try
         {
             // Define the number of simulations
-            int Nsim = 5;
+            int Nsim = 1;
             int port = 12345;
-            double[] fitness = {0, 0, 0, 0, 0};
+            int particles=5;
+            double[] fitness = new double[particles];
 
             // Start listening for incoming connections
             server = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
@@ -97,6 +98,7 @@ class Program
                             
                     TxObjectList allOps = opRoot.GetAllDescendants(opFilter);
                     TxContinuousRoboticOperation MyOp = allOps[allOps.Count-1] as TxContinuousRoboticOperation; // The index may change
+                    
 
                     // Create all the necessary points       
                     TxRoboticViaLocationOperationCreationData Point1 = new TxRoboticViaLocationOperationCreationData();
@@ -109,20 +111,34 @@ class Program
                     Point3.Name = "point3"; // Third point
 
                     TxRoboticViaLocationOperationCreationData Point4 = new TxRoboticViaLocationOperationCreationData();
-                    Point4.Name = "point4"; // First point
+                    Point4.Name = "point4"; // fourth point
                     
                     TxRoboticViaLocationOperationCreationData Point5 = new TxRoboticViaLocationOperationCreationData();
-                    Point5.Name = "point5"; // Second point
+                    Point5.Name = "point5"; // fifth point
                     
                     TxRoboticViaLocationOperationCreationData Point6 = new TxRoboticViaLocationOperationCreationData();
-                    Point6.Name = "point6"; // Third point
+                    Point6.Name = "point6"; // sixth point
+
+                    TxRoboticViaLocationOperationCreationData Point7 = new TxRoboticViaLocationOperationCreationData();
+                    Point7.Name = "point7"; // seventh point
                     
+                    TxRoboticViaLocationOperationCreationData Point8 = new TxRoboticViaLocationOperationCreationData();
+                    Point8.Name = "point8"; // eighth point
+                    
+
                     TxRoboticViaLocationOperation FirstPoint = MyOp.CreateRoboticViaLocationOperation(Point1);
                     TxRoboticViaLocationOperation SecondPoint = MyOp.CreateRoboticViaLocationOperationAfter(Point2, FirstPoint);
                     TxRoboticViaLocationOperation ThirdPoint = MyOp.CreateRoboticViaLocationOperationAfter(Point3, SecondPoint);
                     TxRoboticViaLocationOperation FourthPoint = MyOp.CreateRoboticViaLocationOperationAfter(Point4, ThirdPoint);
                     TxRoboticViaLocationOperation FifthPoint = MyOp.CreateRoboticViaLocationOperationAfter(Point5, FourthPoint);
                     TxRoboticViaLocationOperation SixthPoint = MyOp.CreateRoboticViaLocationOperationAfter(Point6, FifthPoint);
+                    TxRoboticViaLocationOperation SeventhPoint = MyOp.CreateRoboticViaLocationOperationAfter(Point7, SixthPoint);
+                    TxRoboticViaLocationOperation EighthPoint = MyOp.CreateRoboticViaLocationOperationAfter(Point8, SeventhPoint);
+
+                    //save the initial position of the tcp in EighthPoint
+                    TxFrame TCPpose1 = TxApplication.ActiveDocument.GetObjectsByName("TCPF")[0] as TxFrame;
+                    var TCP_pose1 = new TxTransformation(TCPpose1.LocationRelativeToWorkingFrame); 
+                    EighthPoint.LocationRelativeToWorkingFrame = TCP_pose1;
 
                     // Impose a position to the new waypoint		
                     double rotVal = Math.PI;
@@ -151,7 +167,7 @@ class Program
                     ThirdPoint.AbsoluteLocation = rotX3;
                     
                     var pointC = new TxTransformation(ThirdPoint.AbsoluteLocation);
-                    pointC.Translation = new TxVector(600, 300, 300);
+                    pointC.Translation = new TxVector(600, -300, 300);
                     ThirdPoint.AbsoluteLocation = pointC;
 
                     // Impose a position to the fourth waypoint		
@@ -161,7 +177,7 @@ class Program
                     FourthPoint.AbsoluteLocation = rotX4;
                     
                     var pointD = new TxTransformation(FourthPoint.AbsoluteLocation);
-                    pointD.Translation = new TxVector(600, 300, 25);
+                    pointD.Translation = new TxVector(600, 300, 300);
                     FourthPoint.AbsoluteLocation = pointD;
 
                     // Impose a position to the fifth waypoint		
@@ -171,7 +187,7 @@ class Program
                     FifthPoint.AbsoluteLocation = rotX5;
                     
                     var pointE = new TxTransformation(FifthPoint.AbsoluteLocation);
-                    pointE.Translation = new TxVector(600, 300, 300);
+                    pointE.Translation = new TxVector(600, 300, 25);
                     FifthPoint.AbsoluteLocation = pointE;
 
                     // Impose a position to the sixth waypoint		
@@ -181,8 +197,32 @@ class Program
                     SixthPoint.AbsoluteLocation = rotX6;
                     
                     var pointF = new TxTransformation(SixthPoint.AbsoluteLocation);
-                    pointF.Translation = new TxVector(600, 0, 300);
+                    pointF.Translation = new TxVector(600,300,300);
                     SixthPoint.AbsoluteLocation = pointF;
+
+
+
+                    // Impose a position to the seventh waypoint --> go back to initial position		
+                    /*double rotVal7 = Math.PI;
+                    TxTransformation rotX7 = new TxTransformation(new TxVector(rotVal7, 0, 0), 
+                    TxTransformation.TxRotationType.RPY_XYZ);
+                    SeventhPoint.AbsoluteLocation = rotX7;
+
+                    var pointG = new TxTransformation(SeventhPoint.AbsoluteLocation);
+                    pointG.Translation = new TxVector(EighthPoint.LocationRelativeToWorkingFrame);*/
+                    SeventhPoint.AbsoluteLocation = EighthPoint.LocationRelativeToWorkingFrame;
+
+                    // Impose a position to the eighth waypoint		
+                    /*double rotVal8 = Math.PI;
+                    TxTransformation rotX8 = new TxTransformation(new TxVector(rotVal8, 0, 0), 
+                    TxTransformation.TxRotationType.RPY_XYZ);
+                    EighthPoint.AbsoluteLocation = rotX8;
+                    
+                    var pointF = new TxTransformation(EighthPoint.AbsoluteLocation);
+                    pointF.Translation = new TxVector(pointA);
+                    EighthPoint.AbsoluteLocation = pointG;*/
+
+
 
 
                     //move the robot
@@ -243,6 +283,13 @@ class Program
                     paramHandler.OnComplexValueChanged("Blend", new_blend, SixthPoint);
                     paramHandler.OnComplexValueChanged("Coord Type", new_coord, SixthPoint);
 
+                    //	paramHandler.OnComplexValueChanged("Tool", new_tcp, Seventh);
+                   paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, SeventhPoint);
+                    paramHandler.OnComplexValueChanged("Speed", new_speed, SeventhPoint);
+                    paramHandler.OnComplexValueChanged("Accel", new_accel, SeventhPoint);
+                    paramHandler.OnComplexValueChanged("Blend", new_blend, SeventhPoint);
+                    paramHandler.OnComplexValueChanged("Coord Type", new_coord, SeventhPoint);
+
                     // select the Robotic Program by name
                     var descendants = TxApplication.ActiveDocument.OperationRoot.GetAllDescendants(new TxTypeFilter(typeof(TxContinuousRoboticOperation)));
 
@@ -275,8 +322,11 @@ class Program
                     output.Write("fine simulazione " + pos_string + "\n");
                     double MeanDeterminant = 100000*determinantSum/determinantCounter;
                     output.Write("determinante medio della simulazione numero " + pos_string + " è di: " + MeanDeterminant.ToString() + "\n");
+                    string Time = op.Duration.ToString();
+		            output.Write("tempo della simulazione numero " + pos_string + " è di: " + Time + "\n");
                     int fitness_int =(int)MeanDeterminant;
                     fitness[pos]= fitness_int;
+                    MyOp.Delete();
                     
                 }
 
