@@ -29,3 +29,5 @@ public class MainScript
         FirstPoint.LocationRelativeToWorkingFrame = TCP_pose1;
      }   
 }
+
+//nomevariabileprogramma(myop).clear()
