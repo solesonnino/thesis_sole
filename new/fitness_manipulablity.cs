@@ -81,6 +81,7 @@ class Program
                     string new_accel = "1200";
                     string new_blend = "0";
                     string new_coord = "Cartesian";
+                    string new_tcp = "T_gripper";
                     
                     bool verbose = false; // Controls some display options
                 
@@ -247,20 +248,23 @@ class Program
                     paramHandler.OnComplexValueChanged("Accel", new_accel, FirstPoint);
                     paramHandler.OnComplexValueChanged("Blend", new_blend, FirstPoint);
                     paramHandler.OnComplexValueChanged("Coord Type", new_coord, FirstPoint);
-                    
+                    paramHandler.OnComplexValueChanged("Tool", new_tcp, FirstPoint);
+
                     //	paramHandler.OnComplexValueChanged("Tool", new_tcp, SecondPoint);
                     paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, SecondPoint);
                     paramHandler.OnComplexValueChanged("Speed", new_speed, SecondPoint);
                     paramHandler.OnComplexValueChanged("Accel", new_accel, SecondPoint);
                     paramHandler.OnComplexValueChanged("Blend", new_blend, SecondPoint);
                     paramHandler.OnComplexValueChanged("Coord Type", new_coord, SecondPoint);
-                    
+                    paramHandler.OnComplexValueChanged("Tool", new_tcp, SecondPoint);
+
                     //	paramHandler.OnComplexValueChanged("Tool", new_tcp, ThirdPoint);
                     paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, ThirdPoint);
                     paramHandler.OnComplexValueChanged("Speed", new_speed, ThirdPoint);
                     paramHandler.OnComplexValueChanged("Accel", new_accel, ThirdPoint);
                     paramHandler.OnComplexValueChanged("Blend", new_blend, ThirdPoint);
                     paramHandler.OnComplexValueChanged("Coord Type", new_coord, ThirdPoint);
+                    paramHandler.OnComplexValueChanged("Tool", new_tcp, ThirdPoint);
 
                     //	paramHandler.OnComplexValueChanged("Tool", new_tcp, FourthPoint);
                     paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, FourthPoint);
@@ -268,6 +272,7 @@ class Program
                     paramHandler.OnComplexValueChanged("Accel", new_accel, FourthPoint);
                     paramHandler.OnComplexValueChanged("Blend", new_blend, FourthPoint);
                     paramHandler.OnComplexValueChanged("Coord Type", new_coord, FourthPoint);
+                    paramHandler.OnComplexValueChanged("Tool", new_tcp, FourthPoint);
 
                     //	paramHandler.OnComplexValueChanged("Tool", new_tcp, FifthPoint);
                     paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, FifthPoint);
@@ -275,6 +280,7 @@ class Program
                     paramHandler.OnComplexValueChanged("Accel", new_accel, FifthPoint);
                     paramHandler.OnComplexValueChanged("Blend", new_blend, FifthPoint);
                     paramHandler.OnComplexValueChanged("Coord Type", new_coord, FifthPoint);
+                    paramHandler.OnComplexValueChanged("Tool", new_tcp, FifthPoint);
 
                     //	paramHandler.OnComplexValueChanged("Tool", new_tcp, SixthPoint);
                     paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, SixthPoint);
@@ -282,13 +288,182 @@ class Program
                     paramHandler.OnComplexValueChanged("Accel", new_accel, SixthPoint);
                     paramHandler.OnComplexValueChanged("Blend", new_blend, SixthPoint);
                     paramHandler.OnComplexValueChanged("Coord Type", new_coord, SixthPoint);
+                    paramHandler.OnComplexValueChanged("Tool", new_tcp, SixthPoint);
 
                     //	paramHandler.OnComplexValueChanged("Tool", new_tcp, Seventh);
-                   paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, SeventhPoint);
+                    paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, SeventhPoint);
                     paramHandler.OnComplexValueChanged("Speed", new_speed, SeventhPoint);
                     paramHandler.OnComplexValueChanged("Accel", new_accel, SeventhPoint);
                     paramHandler.OnComplexValueChanged("Blend", new_blend, SeventhPoint);
                     paramHandler.OnComplexValueChanged("Coord Type", new_coord, SeventhPoint);
+                    paramHandler.OnComplexValueChanged("Tool", new_tcp, SeventhPoint);
+
+                    // Save the second point to close the gripper		
+                    TxRoboticViaLocationOperation Waypoint =  TxApplication.ActiveDocument.
+                    GetObjectsByName("point2")[0] as TxRoboticViaLocationOperation;
+
+                    // Save the gripper "Camozzi gripper" 	
+                    ITxObject Gripper = TxApplication.ActiveDocument.
+                    GetObjectsByName("Robotiq_hande_Bonserio")[0] as TxGripper;
+                    
+                    // Save the pose "Gripper Closed"  		
+                    ITxObject Pose = TxApplication.ActiveDocument.
+                    GetObjectsByName("CLOSE")[0] as TxPose;
+                    
+                    // Save the reference frame of the gripper 		
+                    ITxObject tGripper = TxApplication.ActiveDocument.
+                    GetObjectsByName("tf_T_gripper")[0] as TxFrame;
+                    
+                    // Create an array called "elements" and the command to be written in it
+                    ArrayList elements1 = new ArrayList();
+                    ArrayList elements2 = new ArrayList();
+                    ArrayList elements3 = new ArrayList();
+                    ArrayList elements4 = new ArrayList();
+                    ArrayList elements5 = new ArrayList();
+                
+                    var myCmd1 = new TxRoboticCompositeCommandStringElement("# Destination");
+                    var myCmd11 = new TxRoboticCompositeCommandTxObjectElement(Gripper);
+
+                    var myCmd2 = new TxRoboticCompositeCommandStringElement("# Drive");
+                    var myCmd21 = new TxRoboticCompositeCommandTxObjectElement(Pose);
+
+                    var myCmd3 = new TxRoboticCompositeCommandStringElement("# Destination");
+                    var myCmd31 = new TxRoboticCompositeCommandTxObjectElement(Gripper);
+
+                    var myCmd4 = new TxRoboticCompositeCommandStringElement("# WaitDevice");
+                    var myCmd41 = new TxRoboticCompositeCommandTxObjectElement(Pose);
+
+                    var myCmd5 = new TxRoboticCompositeCommandStringElement("# Grip");
+                    var myCmd51 = new TxRoboticCompositeCommandTxObjectElement(tGripper);
+                
+                    // First line of command	
+                    elements1.Add(myCmd1);
+                    elements1.Add(myCmd11);
+                    
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData1 =
+                    new TxRoboticCompositeCommandCreationData(elements1);
+                
+                    Waypoint.CreateCompositeCommand(txRoboticCompositeCommandCreationData1);
+                    
+                    // Second line of command
+                    elements2.Add(myCmd2);
+                    elements2.Add(myCmd21);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData2 =
+                    new TxRoboticCompositeCommandCreationData(elements2);
+                
+                    Waypoint.CreateCompositeCommand(txRoboticCompositeCommandCreationData2);
+                    
+                    // Third line of command
+                    elements3.Add(myCmd3);
+                    elements3.Add(myCmd31);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData3 =
+                    new TxRoboticCompositeCommandCreationData(elements3);
+                
+                    Waypoint.CreateCompositeCommand(txRoboticCompositeCommandCreationData3);
+                    
+                    // Fourth line of command
+                    elements4.Add(myCmd4);
+                    elements4.Add(myCmd41);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData4 =
+                    new TxRoboticCompositeCommandCreationData(elements4);
+                
+                    Waypoint.CreateCompositeCommand(txRoboticCompositeCommandCreationData4);
+                    
+                    // Fifth line of command	
+                    elements5.Add(myCmd5);
+                    elements5.Add(myCmd51);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData5 =
+                    new TxRoboticCompositeCommandCreationData(elements5);
+                
+                    Waypoint.CreateCompositeCommand(txRoboticCompositeCommandCreationData5);                    
+
+                    // Save the fifth point to close the gripper		
+                    TxRoboticViaLocationOperation Waypoint2 =  TxApplication.ActiveDocument.
+                    GetObjectsByName("point5")[0] as TxRoboticViaLocationOperation;
+
+                    // Save the gripper "Camozzi gripper" 	
+                    ITxObject Gripper2 = TxApplication.ActiveDocument.
+                    GetObjectsByName("Robotiq_hande_Bonserio")[0] as TxGripper;
+
+                    // Save the pose "Gripper Closed"  		
+                    ITxObject Pose2 = TxApplication.ActiveDocument.
+                    GetObjectsByName("OPEN")[0] as TxPose;
+                    
+                    // Save the reference frame of the gripper 		
+                    ITxObject tGripper2 = TxApplication.ActiveDocument.
+                    GetObjectsByName("tf_T_gripper")[0] as TxFrame;
+
+                    // Create an array called "elements" and the command to be written in it
+                    ArrayList elements6 = new ArrayList();
+                    ArrayList elements7 = new ArrayList();
+                    ArrayList elements8 = new ArrayList();
+                    ArrayList elements9 = new ArrayList();
+                    ArrayList elements10 = new ArrayList();
+                
+                    var myCmd6 = new TxRoboticCompositeCommandStringElement("# Destination");
+                    var myCmd61 = new TxRoboticCompositeCommandTxObjectElement(Gripper2);
+
+                    var myCmd7 = new TxRoboticCompositeCommandStringElement("# Drive");
+                    var myCmd71 = new TxRoboticCompositeCommandTxObjectElement(Pose2);
+
+                    var myCmd8 = new TxRoboticCompositeCommandStringElement("# Destination");
+                    var myCmd81 = new TxRoboticCompositeCommandTxObjectElement(Gripper2);
+
+                    var myCmd9 = new TxRoboticCompositeCommandStringElement("# WaitDevice");
+                    var myCmd91 = new TxRoboticCompositeCommandTxObjectElement(Pose2);
+
+                    var myCmd10 = new TxRoboticCompositeCommandStringElement("# Release");
+                    var myCmd101 = new TxRoboticCompositeCommandTxObjectElement(tGripper2);
+                
+                    // First line of command	
+                    elements6.Add(myCmd6);
+                    elements6.Add(myCmd61);
+                    
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData6 =
+                    new TxRoboticCompositeCommandCreationData(elements6);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData6);
+                    
+                    // Second line of command
+                    elements7.Add(myCmd7);
+                    elements7.Add(myCmd71);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData7 =
+                    new TxRoboticCompositeCommandCreationData(elements7);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData7);
+                    
+                    // Third line of command
+                    elements8.Add(myCmd8);
+                    elements8.Add(myCmd81);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData8 =
+                    new TxRoboticCompositeCommandCreationData(elements8);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData8);
+                    
+                    // Fourth line of command
+                    elements9.Add(myCmd9);
+                    elements9.Add(myCmd91);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData9 =
+                    new TxRoboticCompositeCommandCreationData(elements9);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData9);
+                    
+                    // Fifth line of command	
+                    elements10.Add(myCmd10);
+                    elements10.Add(myCmd101);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData10 =
+                    new TxRoboticCompositeCommandCreationData(elements10);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData10);
+
 
                     // select the Robotic Program by name
                     var descendants = TxApplication.ActiveDocument.OperationRoot.GetAllDescendants(new TxTypeFilter(typeof(TxContinuousRoboticOperation)));
