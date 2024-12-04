@@ -490,7 +490,7 @@ class Program
                     string Time_string = op.Duration.ToString();
 		            output.Write("tempo della simulazione numero " + pos_string + " è di: " + Time_string + "\n");
                     double time = op.Duration;
-                    double time_inv=10000/time;
+                    double time_inv=1000000/time;
                     int fitness_int =(int)time_inv;
                     fitness[pos]= fitness_int;
                     MyOp.Delete();

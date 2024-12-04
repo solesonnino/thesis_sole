@@ -28,7 +28,7 @@ class Program
         try
         {
             // Define the number of simulations
-            int Nsim = 1;
+            int Nsim = 8;
             int port = 12345;
             int particles=5;
             double[] fitness = new double[particles];

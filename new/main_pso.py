@@ -40,7 +40,7 @@ def main():
     while trigger_end < Nsim:
 
         #send the particle positions
-        layout = np.array([[int(particle_positions[0]), int(particle_positions[1]),int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
+        layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
 
         # Actual send of the data (in the future: try to remove the double send and try to send just one time)
         send_array(s,layout)
