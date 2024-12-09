@@ -1,5 +1,5 @@
 /*
-Test1: more than one array is sent to C# (in sequence)
+codice per il calcolo della fitness in termini di tempo totale per svolgere l'operazione
 */
 
 using System;
@@ -28,14 +28,31 @@ class Program
         try
         {
             // Define the number of simulations
-            
+            int Nsim = 8;
+            int port = 12345;
             int particles=5;
             double[] fitness = new double[particles];
-            int[] layout={10, 15};
-        
+
+            // Start listening for incoming connections
+            server = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
+            server.Start();
+            output.Write("Server started...");
+
+            // Accept a client connection
+            TcpClient client = server.AcceptTcpClient();
+            NetworkStream stream = client.GetStream();
+
+            // Loop for all the simulations
+            for (int ii = 0; ii < Nsim ; ii++)
+            {
+                // Receive positions array
+                var layout = ReceiveNumpyArray(stream);
+                output.Write("positions: \n");
+                PrintArray(layout, output);
+                output.Write("\n");
 
                 //select each position 
-                for (int pos=0; pos < 2; pos++)
+                for (int pos=0; pos < 5; pos++)
                 {
                     determinantCounter=0;
                     determinantSum=0;
@@ -45,7 +62,7 @@ class Program
                     selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
                     var robot = selectedObjects[0] as ITxLocatableObject;
                     double move_Y_Val=0;
-                    move_Y_Val= layout[pos];	
+                    move_Y_Val= layout[0,pos];	
                     var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
                     position.Translation = new TxVector(0, move_Y_Val, 0);
                     robot.LocationRelativeToWorkingFrame = position;
@@ -56,7 +73,7 @@ class Program
                     
                     // Define some variables
                     string pos_string = pos.ToString();    
-                    string operation_name = "RoboticProgram_" + pos_string;
+                    string operation_name = "RoboticProgram_" + ii.ToString()+ pos_string;
 
                     /// string new_tcp = "tcp_1";
                     string new_motion_type = "MoveL";
@@ -81,7 +98,7 @@ class Program
                     TxOperationRoot opRoot = TxApplication.ActiveDocument.OperationRoot;
                             
                     TxObjectList allOps = opRoot.GetAllDescendants(opFilter);
-                    TxContinuousRoboticOperation MyOp = allOps[0] as TxContinuousRoboticOperation; // The index may change
+                    TxContinuousRoboticOperation MyOp = allOps[allOps.Count-1] as TxContinuousRoboticOperation; // The index may change
                     
 
                     // Create all the necessary points       
@@ -187,8 +204,30 @@ class Program
 
 
                     // Impose a position to the seventh waypoint --> go back to initial position		
-                
+                    /*double rotVal7 = Math.PI;
+                    TxTransformation rotX7 = new TxTransformation(new TxVector(rotVal7, 0, 0), 
+                    TxTransformation.TxRotationType.RPY_XYZ);
+                    SeventhPoint.AbsoluteLocation = rotX7;
+
+                    var pointG = new TxTransformation(SeventhPoint.AbsoluteLocation);
+                    pointG.Translation = new TxVector(EighthPoint.LocationRelativeToWorkingFrame);*/
                     SeventhPoint.AbsoluteLocation = EighthPoint.LocationRelativeToWorkingFrame;
+
+                    // Impose a position to the eighth waypoint		
+                    /*double rotVal8 = Math.PI;
+                    TxTransformation rotX8 = new TxTransformation(new TxVector(rotVal8, 0, 0), 
+                    TxTransformation.TxRotationType.RPY_XYZ);
+                    EighthPoint.AbsoluteLocation = rotX8;
+                    
+                    var pointF = new TxTransformation(EighthPoint.AbsoluteLocation);
+                    pointF.Translation = new TxVector(pointA);
+                    EighthPoint.AbsoluteLocation = pointG;*/
+
+
+
+
+                    //move the robot
+
 
                     // NOTE: you must associate the robot to the operation!
                     MyOp.Robot = robot2; 
@@ -252,7 +291,7 @@ class Program
                     paramHandler.OnComplexValueChanged("Tool", new_tcp, SixthPoint);
 
                     //	paramHandler.OnComplexValueChanged("Tool", new_tcp, Seventh);
-                   paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, SeventhPoint);
+                    paramHandler.OnComplexValueChanged("Motion Type", new_motion_type, SeventhPoint);
                     paramHandler.OnComplexValueChanged("Speed", new_speed, SeventhPoint);
                     paramHandler.OnComplexValueChanged("Accel", new_accel, SeventhPoint);
                     paramHandler.OnComplexValueChanged("Blend", new_blend, SeventhPoint);
@@ -408,8 +447,8 @@ class Program
                     Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData8);
                     
                     // Fourth line of command
-                    elements8.Add(myCmd9);
-                    elements8.Add(myCmd91);
+                    elements9.Add(myCmd9);
+                    elements9.Add(myCmd91);
 
                     TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData9 =
                     new TxRoboticCompositeCommandCreationData(elements9);
@@ -425,6 +464,7 @@ class Program
                 
                     Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData10);
 
+
                     // select the Robotic Program by name
                     var descendants = TxApplication.ActiveDocument.OperationRoot.GetAllDescendants(new TxTypeFilter(typeof(TxContinuousRoboticOperation)));
 
@@ -432,7 +472,7 @@ class Program
 
                     foreach (var descendant in descendants)
                     {
-                        if (descendant.Name.Equals("RoboticProgram_"+  pos_string))
+                        if (descendant.Name.Equals("RoboticProgram_"+ ii.ToString() + pos_string))
                         {
                             op = descendant as TxContinuousRoboticOperation;
                             break; // Exit loop after finding the first match
@@ -450,7 +490,7 @@ class Program
                     string Time_string = op.Duration.ToString();
 		            output.Write("tempo della simulazione numero " + pos_string + " è di: " + Time_string + "\n");
                     double time = op.Duration;
-                    double time_inv=10000/time;
+                    double time_inv=1000000000/time;
                     int fitness_int =(int)time_inv;
                     fitness[pos]= fitness_int;
                     MyOp.Delete();
@@ -460,11 +500,23 @@ class Program
                 //send fitness values
                 
                 string fitnes_s = string.Join(",", fitness);
+                byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
+                stream.Write(fitness_Vec, 0, fitness_Vec.Length);
                 output.Write("The fitness is:\n" + fitnes_s + "\n");
 
-            
-            
+                // Separate the display information on the terminal
+                output.Write("\n");
 
+                // Send the trigger_end back to Python
+                string trigger_end = (ii + 1).ToString();
+                byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end);
+                stream.Write(byte_trigger_end, 0, byte_trigger_end.Length);
+            }
+
+            // Close all the instances
+            stream.Close();
+            client.Close();
+            server.Stop();
         }
         catch (Exception e)
         {
@@ -472,4 +524,39 @@ class Program
         }
     }
 
+    // Definition of custom functions   
+    static int[,] ReceiveNumpyArray(NetworkStream stream)
+    {
+        // Receive the shape of the array
+        byte[] shapeBuffer = new byte[8]; // Assuming the shape is of two int32 values
+        stream.Read(shapeBuffer, 0, shapeBuffer.Length);
+        int rows = BitConverter.ToInt32(shapeBuffer, 0);
+        int cols = BitConverter.ToInt32(shapeBuffer, 4);
+
+        // Receive the array data
+        int arraySize = rows * cols * sizeof(int); // Assuming int32 values
+        byte[] arrayBuffer = new byte[arraySize];
+        stream.Read(arrayBuffer, 0, arrayBuffer.Length);
+
+        // Convert byte array to int array
+        int[,] array = new int[rows, cols];
+        Buffer.BlockCopy(arrayBuffer, 0, array, 0, arrayBuffer.Length);
+
+        return array;
+    }
+
+    static void PrintArray(int[,] array, StringWriter m_output)
+    {
+        int rows = array.GetLength(0);
+        int cols = array.GetLength(1);
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                m_output.Write(array[i, j] + " ");
+            }
+            m_output.Write("\n");
+        }
+    }
+   
 }
