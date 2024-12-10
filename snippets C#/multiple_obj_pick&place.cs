@@ -31,7 +31,7 @@ class Program
 
             int num_objects=2;
             int particles=5;
-            double[,] fitness = new double[num_objects, particles];
+            double[] fitness = new double[particles];
             int[] layout={10, 15};
 
 
@@ -39,28 +39,31 @@ class Program
                 //select each position 
                 for (int pos=0; pos < 1; pos++)
                 {
+                    int fitness_int=0;
+                    TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
+                    selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
+                    var robot = selectedObjects[0] as ITxLocatableObject;
+                    double move_Y_Val=0;
+                    move_Y_Val= layout[pos];	
+                    var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
+                    position.Translation = new TxVector(0, move_Y_Val, 0);
+                    robot.LocationRelativeToWorkingFrame = position;
+                    TxApplication.RefreshDisplay();
+                    output.Write("the current position is: \n");
+                    output.Write(move_Y_Val.ToString());
+                    output.Write("\n");
+
                     for (int obj=0; obj<num_objects; obj++)    
                     {
                         determinantCounter=0;
                         determinantSum=0;
                         //move the base of the robot in the defined position 
                         // move along x axis 
-                        TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
-                        selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
-                        var robot = selectedObjects[0] as ITxLocatableObject;
-                        double move_Y_Val=0;
-                        move_Y_Val= layout[pos];	
-                        var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
-                        position.Translation = new TxVector(0, move_Y_Val, 0);
-                        robot.LocationRelativeToWorkingFrame = position;
-                        TxApplication.RefreshDisplay();
-                        output.Write("the current position is: \n");
-                        output.Write(move_Y_Val.ToString());
-                        output.Write("\n");
+                        
                         
                         // Define some variables
                         string pos_string = pos.ToString();    
-                        string operation_name = "RoboticProgram_" + pos_string;
+                        string operation_name = "RoboticProgram_" + pos_string + obj.ToString();
 
                         /// string new_tcp = "tcp_1";
                         string new_motion_type = "MoveL";
@@ -127,13 +130,27 @@ class Program
                         output.Write("punti definiti \n");
 
                         //save the position of the object to be picked
-                        TxRoboticViaLocationOperationCreationData SaveObjectPos = new TxRoboticViaLocationOperationCreationData();
+                        /*TxRoboticViaLocationOperationCreationData SaveObjectPos = new TxRoboticViaLocationOperationCreationData();
                         SaveObjectPos.Name = "saveobjectpos"; // position of the point
                         TxRoboticViaLocationOperation ObjPoint = MyOp.CreateRoboticViaLocationOperationAfter(SaveObjectPos,FirstPoint);
                         TxFrame ObjectPose = TxApplication.ActiveDocument.GetObjectsByName("YAOSC_cube0")[0] as TxFrame;
                         var Object_Pose = new TxTransformation(ObjectPose.LocationRelativeToWorkingFrame); 
                         ObjPoint.LocationRelativeToWorkingFrame = Object_Pose;
-                        output.Write("salvata \n");
+                        output.Write("salvata \n");*/
+
+                        // define the to be picked and the pick point
+                        TxObjectList selectedObject = TxApplication.ActiveSelection.GetItems();
+                        selectedObject = TxApplication.ActiveDocument.GetObjectsByName("YAOSC_cube"+obj.ToString());
+                        var Cube = selectedObject[0] as ITxLocatableObject;
+                        var cube_name = Cube.Name; // Save the name of the object
+                        var pick_point = new TxVector(Cube.LocationRelativeToWorkingFrame.Translation);
+
+                        //define the place point of the object --> varies depending on the object
+                        var place_point_offset = new TxVector(0, 600, 0); 
+
+                        //define the point above the pick/place point
+                        var zoffset = new TxVector(0, 0, 100);
+
                         //save the initial position of the tcp in EighthPoint
                         TxFrame TCPpose1 = TxApplication.ActiveDocument.GetObjectsByName("TCPF")[0] as TxFrame;
                         var TCP_pose1 = new TxTransformation(TCPpose1.LocationRelativeToWorkingFrame); 
@@ -146,11 +163,19 @@ class Program
                         FirstPoint.AbsoluteLocation = rotX;
                         
                         var pointA = new TxTransformation(FirstPoint.AbsoluteLocation);
-                        pointA.Translation = new TxVector(600, -300, 300);
+                        pointA.Translation = new TxVector(pick_point+zoffset);
                         FirstPoint.AbsoluteLocation = pointA;
                         
                         // Impose a position to the second waypoint		
-                        SecondPoint.AbsoluteLocation=ObjPoint.LocationRelativeToWorkingFrame;
+                        double rotVal2 = Math.PI;
+                        TxTransformation rotX2 = new TxTransformation(new TxVector(rotVal2, 0, 0), 
+                        TxTransformation.TxRotationType.RPY_XYZ);
+                        SecondPoint.AbsoluteLocation = rotX2;
+                        
+                        var pointB = new TxTransformation(SecondPoint.AbsoluteLocation);
+                        pointB.Translation = new TxVector(pick_point);
+                        SecondPoint.AbsoluteLocation = pointB;
+                    
                         
                         // Impose a position to the third waypoint		
                         double rotVal3 = Math.PI;
@@ -159,7 +184,7 @@ class Program
                         ThirdPoint.AbsoluteLocation = rotX3;
                         
                         var pointC = new TxTransformation(ThirdPoint.AbsoluteLocation);
-                        pointC.Translation = new TxVector(600, -300, 300);
+                        pointC.Translation = new TxVector(pick_point+ zoffset);
                         ThirdPoint.AbsoluteLocation = pointC;
 
                         // Impose a position to the fourth waypoint		
@@ -169,7 +194,7 @@ class Program
                         FourthPoint.AbsoluteLocation = rotX4;
                         
                         var pointD = new TxTransformation(FourthPoint.AbsoluteLocation);
-                        pointD.Translation = new TxVector(600, 300, 300);
+                        pointD.Translation = new TxVector(place_point_offset+pick_point +zoffset);
                         FourthPoint.AbsoluteLocation = pointD;
 
                         // Impose a position to the fifth waypoint		
@@ -179,7 +204,7 @@ class Program
                         FifthPoint.AbsoluteLocation = rotX5;
                         
                         var pointE = new TxTransformation(FifthPoint.AbsoluteLocation);
-                        pointE.Translation = new TxVector(600, 300, 25);
+                        pointE.Translation = new TxVector(place_point_offset+pick_point);
                         FifthPoint.AbsoluteLocation = pointE;
 
                         // Impose a position to the sixth waypoint		
@@ -189,13 +214,10 @@ class Program
                         SixthPoint.AbsoluteLocation = rotX6;
                         
                         var pointF = new TxTransformation(SixthPoint.AbsoluteLocation);
-                        pointF.Translation = new TxVector(600,300,300);
+                        pointF.Translation = new TxVector(place_point_offset+pick_point +zoffset);
                         SixthPoint.AbsoluteLocation = pointF;
 
-
-
                         // Impose a position to the seventh waypoint --> go back to initial position		
-                    
                         SeventhPoint.AbsoluteLocation = EighthPoint.LocationRelativeToWorkingFrame;
 
                         // NOTE: you must associate the robot to the operation!
@@ -440,7 +462,7 @@ class Program
 
                         foreach (var descendant in descendants)
                         {
-                            if (descendant.Name.Equals("RoboticProgram_"+  pos_string))
+                            if (descendant.Name.Equals("RoboticProgram_"+  pos_string+obj.ToString()))
                             {
                                 op = descendant as TxContinuousRoboticOperation;
                                 break; // Exit loop after finding the first match
@@ -454,25 +476,23 @@ class Program
                             
                         // Rewind the simulation
                         player.Rewind();
-                        output.Write("fine simulazione " + pos_string + "\n");
+                        output.Write("fine simulazione " + pos_string + " per l'oggetto " + obj.ToString() + "\n");
                         string Time_string = op.Duration.ToString();
-                        output.Write("tempo della simulazione numero " + pos_string + " è di: " + Time_string + "\n");
-                        double time = op.Duration;
-                        double time_inv=10000/time;
-                        int fitness_int =(int)time_inv;
-                        fitness[obj,pos]= fitness_int;
+                        output.Write("tempo della simulazione numero " + pos_string +" per l'oggetto " + obj.ToString() + " è di: " + Time_string + "\n");
+                        double time_partial = op.Duration;
+                        double time_neg_partial=-time_partial*100000;
+                        int fitness_int_partial =(int)time_neg_partial;
+                        fitness_int= fitness_int+fitness_int_partial;
+                        
                         MyOp.Delete();
                     }    
-                    
+                    fitness[pos]= fitness_int;
                 }
 
                 //send fitness values
                 
                 string fitnes_s = string.Join(",", fitness);
                 output.Write("The fitness is:\n" + fitnes_s + "\n");
-
-        
-            
 
         }
         catch (Exception e)

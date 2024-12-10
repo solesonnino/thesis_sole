@@ -27,7 +27,7 @@ def main():
     # Number of simulations
     Nsim = 8
     trigger_end = 0
-    num_particles = 5       # Number of particles
+    num_particles = 3      # Number of particles
     inertia_weight = 0.5         # inertia weight
     cognitive_component = 1.5    # cognitive component
     social_component = 2.0 
@@ -40,8 +40,8 @@ def main():
     while trigger_end < Nsim:
 
         #send the particle positions
-        layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
-
+        #layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
+        layout= np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2])]], dtype=np.int32)
         # Actual send of the data (in the future: try to remove the double send and try to send just one time)
         send_array(s,layout)
         print(f"particle positions: {layout}")
@@ -95,7 +95,7 @@ def main():
             particle_positions[i] += particle_velocities[i]
             particle_positions[i] = int(particle_positions[i])  # conversione a intero
     print (f"global best position: {global_best_position}") 
-    print (f"global best score: {global_best_score}")  
+    print (f"global best score: {-global_best_score/100000}")  
 
 
     # Close the connection
