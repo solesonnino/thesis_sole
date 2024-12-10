@@ -103,11 +103,15 @@ def main():
                 # update the position of the particle
                 particle_positions[i] += particle_velocities[i]
                 particle_positions[i] = int(particle_positions[i])  # conversione a intero
+
         print (f"global best position: {global_best_position}") 
         print (f"global best score: {-global_best_score/100000}")  
         #salva in un array le posizioni ottimali della base per i vari oggetti
         optimal_positions[trigger_end2]=global_best_position
-        trigger_end = int(s.recv(1024).decode())
+        #manda qualcosa per questioni di sincronizzazione
+        helper=np.array([[0, 0]], dtype=np.int32)
+        send_array(s,helper)
+        trigger_end2 = int(s.recv(1024).decode())
 
 
     #print the final positions 

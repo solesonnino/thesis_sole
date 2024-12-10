@@ -506,11 +506,13 @@ class Program
                     byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end);
                     stream.Write(byte_trigger_end, 0, byte_trigger_end.Length);
                 }
+                
+                var helper = ReceiveNumpyArray(stream);
                 //finite il numero di simulationi per un oggetto, passo all'oggetto succesivo mandando un trigger
                 // Send the second trigger_end back to Python
-                    string trigger_end2 = (obj + 1).ToString();
-                    byte[] byte_trigger_end2 = Encoding.ASCII.GetBytes(trigger_end2);
-                    stream.Write(byte_trigger_end2, 0, byte_trigger_end2.Length);
+                string trigger_end2 = (obj + 1).ToString();
+                byte[] byte_trigger_end2 = Encoding.ASCII.GetBytes(trigger_end2);
+                stream.Write(byte_trigger_end2, 0, byte_trigger_end2.Length);
 
             }
 
