@@ -26,7 +26,7 @@ def main():
 
     # Number of simulations
     Nsim = 2
-    trigger_end = 0
+   
     trigger_end2 = 0
     num_particles = 3      # Number of particles
     inertia_weight = 0.5         # inertia weight
@@ -39,6 +39,7 @@ def main():
 #fisso un oggetto
     while trigger_end2 < num_objects:
         
+        trigger_end = 0
         #initialization of the vector
         optimal_positions= np.zeros(num_objects)
         #initialization of the pso particles 
