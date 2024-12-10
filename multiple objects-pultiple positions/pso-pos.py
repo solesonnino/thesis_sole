@@ -106,7 +106,7 @@ def main():
                 particle_positions[i] = int(particle_positions[i])  # conversione a intero
 
         print (f"global best position: {global_best_position}") 
-        print (f"global best score: {-global_best_score/100000}")  
+        print (f"global best score: {global_best_score/100000}")  
         #salva in un array le posizioni ottimali della base per i vari oggetti
         optimal_positions[trigger_end2]=global_best_position
         #manda qualcosa per questioni di sincronizzazione

@@ -27,7 +27,7 @@ class Program
         TcpListener server = null;
         try
         {
-            // Define the number of simulations
+           // Define the number of simulations
             int Nsim = 2;
             int port = 12345;
             int particles=3;
@@ -42,36 +42,35 @@ class Program
             // Accept a client connection
             TcpClient client = server.AcceptTcpClient();
             NetworkStream stream = client.GetStream();
-
+ 
             // Loop for all the simulations
-            for (int ii = 0; ii < Nsim ; ii++)
+            for (int obj=0; obj<num_objects; obj++)
             {
-                // Receive positions array
-                var layout = ReceiveNumpyArray(stream);
-                output.Write("positions: \n");
-                PrintArray(layout, output);
-                output.Write("\n");
-
                 //select each position 
-                for (int pos=0; pos < particles; pos++)
+                for (int ii = 0; ii < Nsim ; ii++)    
                 {
-                     //move the base of the robot in the defined position 
-                    int fitness_int=0;
-                    TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
-                    selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
-                    var robot = selectedObjects[1] as ITxLocatableObject;
-                    double move_Y_Val=0;
-                    move_Y_Val= layout[0,pos];	
-                    var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
-                    position.Translation = new TxVector(0, move_Y_Val, 0);
-                    robot.LocationRelativeToWorkingFrame = position;
-                    TxApplication.RefreshDisplay();
-                    output.Write("the current position is: \n");
-                    output.Write(move_Y_Val.ToString());
+                    // Receive positions array
+                    var layout = ReceiveNumpyArray(stream);
+                    output.Write("positions: \n");
+                    PrintArray(layout, output);
                     output.Write("\n");
-
-                    for (int obj=0; obj<num_objects; obj++)    
+                    for (int pos=0; pos < particles; pos++)
                     {
+                     //move the base of the robot in the defined position 
+                        int fitness_int=0;
+                        TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
+                        selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
+                        var robot = selectedObjects[1] as ITxLocatableObject;
+                        double move_Y_Val=0;
+                        move_Y_Val= layout[0,pos];	
+                        var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
+                        position.Translation = new TxVector(0, move_Y_Val, 0);
+                        robot.LocationRelativeToWorkingFrame = position;
+                        TxApplication.RefreshDisplay();
+                        output.Write("the current position is: \n");
+                        output.Write(move_Y_Val.ToString());
+                        output.Write("\n");
+
                         determinantCounter=0;
                         determinantSum=0;
                        
@@ -496,26 +495,34 @@ class Program
                         fitness_int= fitness_int+fitness_int_partial;
                         
                         MyOp.Delete();
+                        fitness[pos]=fitness_int;
                     }
-                    fitness[pos]= fitness_int;
+                    //send fitness values
+                    
+                    string fitnes_s = string.Join(",", fitness);
+                    byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
+                    stream.Write(fitness_Vec, 0, fitness_Vec.Length);
+                    output.Write("The fitness is:\n" + fitnes_s + "\n");
+
+                    // Separate the display information on the terminal
+                    output.Write("\n");
+
+                    // Send the trigger_end back to Python
+                    string trigger_end = (ii + 1).ToString();
+                    byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end);
+                    stream.Write(byte_trigger_end, 0, byte_trigger_end.Length);
                 }
 
-                //send fitness values
-                
-                string fitnes_s = string.Join(",", fitness);
-                byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
-                stream.Write(fitness_Vec, 0, fitness_Vec.Length);
-                output.Write("The fitness is:\n" + fitnes_s + "\n");
+                var helper = ReceiveNumpyArray(stream);
+                //finite il numero di simulationi per un oggetto, passo all'oggetto succesivo mandando un trigger
+                // Send the second trigger_end back to Python
+                string trigger_end2 = (obj + 1).ToString();
+                byte[] byte_trigger_end2 = Encoding.ASCII.GetBytes(trigger_end2);
+                stream.Write(byte_trigger_end2, 0, byte_trigger_end2.Length);
 
-                // Separate the display information on the terminal
-                output.Write("\n");
-
-                // Send the trigger_end back to Python
-                string trigger_end = (ii + 1).ToString();
-                byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end);
-                stream.Write(byte_trigger_end, 0, byte_trigger_end.Length);
             }
 
+        
             // Close all the instances
             stream.Close();
             client.Close();
