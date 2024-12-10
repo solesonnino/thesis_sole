@@ -17,8 +17,7 @@ using System.Collections;
 
 class Program
 {
-     static StringWriter m_output;
-
+    static StringWriter m_output;
     static double determinantSum = 0;
     static double determinantCounter = 0;
     static public void Main(ref StringWriter output)
@@ -77,7 +76,6 @@ class Program
                         //move the base of the robot in the defined position 
                         // move along x axis 
                         
-                        
                         // Define some variables
                         string pos_string = pos.ToString();    
                         string operation_name = "RoboticProgram_" +ii.ToString()+ pos_string + obj.ToString();
@@ -106,7 +104,6 @@ class Program
                                 
                         TxObjectList allOps = opRoot.GetAllDescendants(opFilter);
                         TxContinuousRoboticOperation MyOp = allOps[0] as TxContinuousRoboticOperation; // The index may change
-                        
 
                         // Create all the necessary points       
                         TxRoboticViaLocationOperationCreationData Point1 = new TxRoboticViaLocationOperationCreationData();
