@@ -25,7 +25,7 @@ def main():
     print("the connection has happened succesfully \n")
 
     # Number of simulations
-    Nsim = 8
+    Nsim = 2
     trigger_end = 0
     num_particles = 3      # Number of particles
     inertia_weight = 0.5         # inertia weight
@@ -95,7 +95,7 @@ def main():
             particle_positions[i] += particle_velocities[i]
             particle_positions[i] = int(particle_positions[i])  # conversione a intero
     print (f"global best position: {global_best_position}") 
-    print (f"global best score: {-global_best_score/100000}")  
+    print (f"global best score: {global_best_score/100000}")  
 
 
     # Close the connection
