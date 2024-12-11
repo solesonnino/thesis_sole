@@ -60,7 +60,7 @@ public class MainScript
   		
   		// Store the reference frame "tgripper_tf" 		
   		ITxObject tGripper = TxApplication.ActiveDocument.
-		GetObjectsByName("tf_tcp_1")[0] as TxFrame;
+		GetObjectsByName("tf_T_gripper")[0] as TxFrame;
 
         // Object to be picked
         TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();

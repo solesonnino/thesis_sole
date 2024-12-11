@@ -1,0 +1,84 @@
+// Create an array called "elements" and the command to be written in it
+                    ArrayList elements6 = new ArrayList();
+                    ArrayList elements7 = new ArrayList();
+                    ArrayList elements8 = new ArrayList();
+                    ArrayList elements9 = new ArrayList();
+                    ArrayList elements10 = new ArrayList();
+                
+                    var myCmd6 = new TxRoboticCompositeCommandStringElement("# Destination2");
+                    var myCmd61 = new TxRoboticCompositeCommandTxObjectElement(Gripper2);
+
+                    var myCmd7 = new TxRoboticCompositeCommandStringElement("# Drive2");
+                    var myCmd71 = new TxRoboticCompositeCommandTxObjectElement(Pose2);
+
+                    var myCmd8 = new TxRoboticCompositeCommandStringElement("# Destination2");
+                    var myCmd81 = new TxRoboticCompositeCommandTxObjectElement(Gripper2);
+
+                    var myCmd9 = new TxRoboticCompositeCommandStringElement("# WaitDevice2");
+                    var myCmd91 = new TxRoboticCompositeCommandTxObjectElement(Pose2);
+
+                    var myCmd10 = new TxRoboticCompositeCommandStringElement("# Grip2");
+                    var myCmd101 = new TxRoboticCompositeCommandTxObjectElement(tGripper2);
+                
+                    // First line of command	
+                    elements6.Add(myCmd6);
+                    elements6.Add(myCmd61);
+                    
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData6 =
+                    new TxRoboticCompositeCommandCreationData(elements6);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData6);
+                    
+                    // Second line of command
+                    elements7.Add(myCmd7);
+                    elements7.Add(myCmd71);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData7 =
+                    new TxRoboticCompositeCommandCreationData(elements7);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData7);
+                    
+                    // Third line of command
+                    elements8.Add(myCmd8);
+                    elements8.Add(myCmd81);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData8 =
+                    new TxRoboticCompositeCommandCreationData(elements8);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData8);
+                    
+                    // Fourth line of command
+                    elements8.Add(myCmd9);
+                    elements8.Add(myCmd91);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData9 =
+                    new TxRoboticCompositeCommandCreationData(elements9);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData9);
+                    
+                    // Fifth line of command	
+                    elements10.Add(myCmd10);
+                    elements10.Add(myCmd101);
+
+                    TxRoboticCompositeCommandCreationData txRoboticCompositeCommandCreationData10 =
+                    new TxRoboticCompositeCommandCreationData(elements10);
+                
+                    Waypoint2.CreateCompositeCommand(txRoboticCompositeCommandCreationData10);
+
+
+
+// Save the second point to close the gripper		
+                    TxRoboticViaLocationOperation Waypoint2 =  TxApplication.ActiveDocument.
+                    GetObjectsByName("point5")[0] as TxRoboticViaLocationOperation;
+
+                    // Save the gripper "Camozzi gripper" 	
+                    ITxObject Gripper2 = TxApplication.ActiveDocument.
+                    GetObjectsByName("Robotiq_hande_Bonserio")[0] as TxGripper;
+
+                    // Save the pose "Gripper Closed"  		
+                    ITxObject Pose2 = TxApplication.ActiveDocument.
+                    GetObjectsByName("OPEN")[0] as TxPose;
+                    
+                    // Save the reference frame of the gripper 		
+                    ITxObject tGripper2 = TxApplication.ActiveDocument.
+                    GetObjectsByName("tf_T_gripper")[0] as TxFrame;

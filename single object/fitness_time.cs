@@ -1,5 +1,5 @@
 /*
-Test1: more than one array is sent to C# (in sequence)
+codice per il calcolo della fitness in termini di tempo totale per svolgere l'operazione
 */
 
 using System;
