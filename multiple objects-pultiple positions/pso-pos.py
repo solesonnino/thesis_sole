@@ -43,7 +43,7 @@ def main():
         #initialization of the vector
         optimal_positions= np.zeros(num_objects)
         #initialization of the pso particles 
-        particle_positions = np.random.uniform(-50, 50, num_particles)  # initial positions
+        particle_positions = np.random.uniform(-100, 100, num_particles)  # initial positions
         particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
     
         #per ogni oggetto runno il pso
@@ -120,6 +120,10 @@ def main():
 
     # Close the connection
     s.close()
+    optimal_positions.sort()
+    print(f"optimal positions reordered: {optimal_positions}")
+
+
 
 if __name__ == "__main__":
 
