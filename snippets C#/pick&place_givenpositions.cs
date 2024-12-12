@@ -56,8 +56,7 @@ class Program
                     output.Write("\n");*/
                     int[] layout= {15,20,18};
                     //considera il cubo 26x26
-                    int[,] cube_placement = {0, 0, 0;
-                                            50,50,50};
+                    int[,] cube_placement = {{400, 100, 100 },{600,200,200}};
 
                     for (int pos=0; pos < particles; pos++)
                     {
@@ -66,7 +65,7 @@ class Program
                         selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
                         var robot = selectedObjects[0] as ITxLocatableObject;
                         double move_Y_Val=0;
-                        move_Y_Val= layout[0,pos];	
+                        move_Y_Val= layout[pos];	
                         var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
                         position.Translation = new TxVector(0, move_Y_Val, 0);
                         robot.LocationRelativeToWorkingFrame = position;
@@ -83,7 +82,7 @@ class Program
                         
                         // Define some variables
                         string pos_string = pos.ToString();    
-                        string operation_name = "RoboticProgram_" +ii.ToString()+ pos_string + obj.ToString();
+                        string operation_name = "RoboticProgram_" + pos_string + obj.ToString();
 
                         /// string new_tcp = "tcp_1";
                         string new_motion_type = "MoveL";
@@ -473,7 +472,7 @@ class Program
 
                         foreach (var descendant in descendants)
                         {
-                            if (descendant.Name.Equals("RoboticProgram_"+ ii.ToString()+ pos_string+obj.ToString()))
+                            if (descendant.Name.Equals("RoboticProgram_"+ pos_string+obj.ToString()))
                             {
                                 op = descendant as TxContinuousRoboticOperation;
                                 break; // Exit loop after finding the first match
@@ -502,17 +501,17 @@ class Program
                     //send fitness values
                     
                     string fitnes_s = string.Join(",", fitness);
-                    byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
+                    /*byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
                     stream.Write(fitness_Vec, 0, fitness_Vec.Length);
-                    output.Write("The fitness is:\n" + fitnes_s + "\n");
+                    output.Write("The fitness is:\n" + fitnes_s + "\n");*/
 
                     // Separate the display information on the terminal
-                    output.Write("\n");
+                    //output.Write("\n");
 
                     // Send the trigger_end back to Python
-                    string trigger_end = (ii + 1).ToString();
+                    /*string trigger_end = (ii + 1).ToString();
                     byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end);
-                    stream.Write(byte_trigger_end, 0, byte_trigger_end.Length);
+                    stream.Write(byte_trigger_end, 0, byte_trigger_end.Length);*/
                 /*}
                 
                 var helper = ReceiveNumpyArray(stream);
@@ -525,9 +524,9 @@ class Program
             }
 
             // Close all the instances
-            stream.Close();
+            /*stream.Close();
             client.Close();
-            server.Stop();
+            server.Stop();*/
         }
         catch (Exception e)
         {
