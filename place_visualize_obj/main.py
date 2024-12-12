@@ -5,6 +5,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 DEFAULT_NUMBER_OF_DECIMALS = 3
 START_POSITION = [0, 0, 0]
+BOX_LOWER_LEFT_CORNER = [0, 0, 0]
 
 
 class Item:
@@ -52,20 +53,20 @@ class Item:
             dimension = [self.width, self.depth, self.height]
         else:
             dimension = []
-
         return dimension
+    
     def get_vertices(self):
         x, y, z = self.position
         l, h, p = self.width, self.height, self.depth
         return [
-            (float(x),float(y),float(z)),
-            (float(x + l),float( y),float( z)),
-            (float(x + l),float(y + h),float( z)),
-            (float(x),float(y + h),float( z)),
-            (float(x),float( y),float(z + p)),
-            (float(x + l),float(y),float(z + p)),
-            (float(x + l),float( y + h),float(z + p)),
-            (float(x),float(y + h),float(z + p))
+            (float(x),     float(y),     float(z)),
+            (float(x + l), float(y),     float(z)),
+            (float(x + l), float(y + h), float(z)),
+            (float(x),     float(y + h), float(z)),
+            (float(x),     float(y),     float(z + p)),
+            (float(x + l), float(y),     float(z + p)),
+            (float(x + l), float(y + h), float(z + p)),
+            (float(x),     float(y + h), float(z + p))
         ]
    
     
@@ -81,6 +82,7 @@ class Bin:
         self.items = []
         self.unfitted_items = []
         self.number_of_decimals = DEFAULT_NUMBER_OF_DECIMALS
+        self.position=BOX_LOWER_LEFT_CORNER
 
     def format_numbers(self, number_of_decimals):
         self.width = set_to_decimal(self.width, number_of_decimals)
@@ -146,6 +148,20 @@ class Bin:
             item.position = valid_item_position
 
         return fit
+    
+    def get_vertices(self):
+        x, y, z = self.position
+        l, h, p = self.width, self.height, self.depth
+        return [
+            (float(x),     float(y),     float(z)),
+            (float(x + l), float(y),     float(z)),
+            (float(x + l), float(y + h), float(z)),
+            (float(x),     float(y + h), float(z)),
+            (float(x),     float(y),     float(z + p)),
+            (float(x + l), float(y),     float(z + p)),
+            (float(x + l), float(y + h), float(z + p)),
+            (float(x),     float(y + h), float(z + p))
+        ]
 
 
 class Packer:
@@ -242,7 +258,7 @@ class Scene:
         self.fig = plt.figure()
         self.ax = self.fig.add_subplot(111, projection='3d')
 
-    def add_object_to_scene(self, item):
+    def add_object_to_scene(self, item, red):
         """
         Aggiunge un cubo alla scena.
         :param cubo: Oggetto Cubo da disegnare
@@ -259,7 +275,12 @@ class Scene:
         ]
 
         # Aggiunta delle facce al grafico
-        self.ax.add_collection3d(Poly3DCollection(facce, facecolors='cyan', linewidths=1, edgecolors='r', alpha=0.6))
+        if red == True:
+            self.ax.add_collection3d(Poly3DCollection(facce, facecolors='red', linewidths=1, edgecolors='r', alpha=0.6))
+
+        else:
+            self.ax.add_collection3d(Poly3DCollection(facce, facecolors='cyan', linewidths=1, edgecolors='r', alpha=0.6))
+   
 
     def show_scene(self):
         """
