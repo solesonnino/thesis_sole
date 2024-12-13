@@ -22,9 +22,13 @@ for b in packer.bins:
     scene.add_object_to_scene(b, False)
 
     print("FITTED ITEMS:")
+    place_points=[]
     for item in b.items:
         print("====> ", item.string())
         scene.add_object_to_scene(item, False)
+        place_points.append(item.get_center())
+        print(item.get_center())
+    
 
 
     print("UNFITTED ITEMS:")

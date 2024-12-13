@@ -68,7 +68,13 @@ class Item:
             (float(x + l), float(y + h), float(z + p)),
             (float(x),     float(y + h), float(z + p))
         ]
-   
+    
+    def get_center(self):
+        x,y,z =self.position
+        l, h, p = self.width, self.height, self.depth
+        return[
+            float(x+l/2), float(y+h/2), float(z+p/2)
+        ]
     
 
 
@@ -162,7 +168,12 @@ class Bin:
             (float(x + l), float(y + h), float(z + p)),
             (float(x),     float(y + h), float(z + p))
         ]
-
+    def get_center(self):
+        x,y,z =self.position
+        l, h, p = self.width, self.height, self.depth
+        return[
+            float(x+l/2), float(y+h/2), float(z+p/2)
+        ]
 
 class Packer:
     def __init__(self):
