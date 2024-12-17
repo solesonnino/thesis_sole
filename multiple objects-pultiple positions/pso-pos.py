@@ -4,6 +4,34 @@ Test1: more than one array is sent to C# (in sequence)
 
 import socket
 import numpy as np
+from place_visualize_obj import Scene, Packer, Bin, Item
+
+packer = Packer()
+packer.add_bin(Bin('small-envelope', 78, 78, 78, 10))
+packer.add_item(Item('50g [powder 1]', 26,26,26, 1))
+packer.add_item(Item('50g [powder 2]', 26,26,26, 1))
+packer.add_item(Item('50g [powder 3]', 26,26,26, 1))
+packer.pack()
+scene = Scene()
+
+for b in packer.bins:
+    print(":::::::::::", b.string())
+    scene.add_object_to_scene(b, False)
+    print("FITTED ITEMS:")
+    place_points=[]
+    for item in b.items:
+        print("====> ", item.string())
+        scene.add_object_to_scene(item, False)
+        place_points.append(item.get_center())
+        print(item.get_center())
+    
+    print("UNFITTED ITEMS:")
+    for item in b.unfitted_items:
+        print("====> ", item.string())
+
+    print("***************************************************")
+    print("***************************************************")
+scene.show_scene()
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -24,28 +52,28 @@ def main():
     s.connect((host, port))
     print("the connection has happened succesfully \n")
 
+    #send all the place positions
+    send_array(s,place_points)
+
     # Number of simulations
     Nsim = 2
-   
     trigger_end2 = 0
     num_particles = 3      # Number of particles
     inertia_weight = 0.5         # inertia weight
     cognitive_component = 1.5    # cognitive component
     social_component = 2.0 
-
-    
     num_objects = 2 #objects in the scene
 
 #fisso un oggetto
     while trigger_end2 < num_objects:
         
-        trigger_end = 0
+        trigger_end = 0 
         #initialization of the vector
         optimal_positions= np.zeros(num_objects)
         #initialization of the pso particles 
         particle_positions = np.random.uniform(-100, 100, num_particles)  # initial positions
         particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
-    
+        
         #per ogni oggetto runno il pso
         while trigger_end<Nsim:
 

@@ -42,7 +42,15 @@ class Program
             // Accept a client connection
             TcpClient client = server.AcceptTcpClient();
             NetworkStream stream = client.GetStream();
- 
+            //recieve all the place points of the objects from python 
+            place_positions=ReceiveNumpyArray(stream);
+
+            //send something back to python to not compromize the synchronization
+            string helper2= 'ok';
+            byte[] helper2_vec = Encoding.ASCII.GetBytes(helper2);
+            stream.Write(helper2_vec, 0, helper2.Length);
+
+
             // Loop for all the simulations
             for (int obj=0; obj<num_objects; obj++)
             {
@@ -96,7 +104,8 @@ class Program
                             
                         // Create the new operation    	
                         TxContinuousRoboticOperationCreationData data = new TxContinuousRoboticOperationCreationData(operation_name);
-                        TxApplication.ActiveDocument.OperationRoot.CreateContinuousRoboticOperation(data);
+                        TxA
+                        pplication.ActiveDocument.OperationRoot.CreateContinuousRoboticOperation(data);
                         
                         // Get the created operation
                         TxTypeFilter opFilter = new TxTypeFilter(typeof(TxContinuousRoboticOperation));
@@ -149,7 +158,7 @@ class Program
                         var pick_point = new TxVector(Cube.LocationRelativeToWorkingFrame.Translation);
 
                         //define the place point of the object --> varies depending on the object
-                        var place_point_offset = new TxVector(0, 600, 0); 
+                        var place_point = place_positions[obj]; 
 
                         //define the point above the pick/place point
                         var zoffset = new TxVector(0, 0, 100);
@@ -197,7 +206,7 @@ class Program
                         FourthPoint.AbsoluteLocation = rotX4;
                         
                         var pointD = new TxTransformation(FourthPoint.AbsoluteLocation);
-                        pointD.Translation = new TxVector(place_point_offset+pick_point +zoffset);
+                        pointD.Translation = new TxVector(place_point+zoffset);
                         FourthPoint.AbsoluteLocation = pointD;
 
                         // Impose a position to the fifth waypoint		
@@ -207,7 +216,7 @@ class Program
                         FifthPoint.AbsoluteLocation = rotX5;
                         
                         var pointE = new TxTransformation(FifthPoint.AbsoluteLocation);
-                        pointE.Translation = new TxVector(place_point_offset+pick_point);
+                        pointE.Translation = new TxVector(place_point);
                         FifthPoint.AbsoluteLocation = pointE;
 
                         // Impose a position to the sixth waypoint		
@@ -217,7 +226,7 @@ class Program
                         SixthPoint.AbsoluteLocation = rotX6;
                         
                         var pointF = new TxTransformation(SixthPoint.AbsoluteLocation);
-                        pointF.Translation = new TxVector(place_point_offset+pick_point +zoffset);
+                        pointF.Translation = new TxVector(place_point+zoffset);
                         SixthPoint.AbsoluteLocation = pointF;
 
                         // Impose a position to the seventh waypoint --> go back to initial position		
