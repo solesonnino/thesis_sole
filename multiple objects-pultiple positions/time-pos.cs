@@ -500,9 +500,9 @@ class Program
                             
                         // Rewind the simulation
                         player.Rewind();
-                        output.Write("fine simulazione " + pos_string + " per l'oggetto " + obj.ToString() + "\n");
+                        output.Write("fine simulazione associata alla posizione " + pos_string + " per l'oggetto " + obj.ToString() + "\n");
                         string Time_string = op.Duration.ToString();
-                        output.Write("tempo della simulazione numero " + pos_string +" per l'oggetto " + obj.ToString() + " è di: " + Time_string + "\n");
+                        output.Write("tempo : " + Time_string + "\n");
                         double time_partial = op.Duration;
                         double time_neg_partial=-time_partial*100000;
                         int fitness_int_partial =(int)time_neg_partial;
@@ -517,9 +517,6 @@ class Program
                     byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
                     stream.Write(fitness_Vec, 0, fitness_Vec.Length);
                     output.Write("The fitness is:\n" + fitnes_s + "\n");
-
-                    // Separate the display information on the terminal
-                    output.Write("\n");
 
                     // Send the trigger_end back to Python
                     string trigger_end = (ii + 1).ToString();
