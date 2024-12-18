@@ -31,7 +31,8 @@ for b in packer.bins:
 
     print("***************************************************")
     print("***************************************************")
-scene.show_scene()
+#scene.show_scene()
+print(f"the objects will be placed in the following positions: {place_points} \n")
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -53,7 +54,8 @@ def main():
     print("the connection has happened succesfully \n")
 
     #send all the place positions
-    send_array(s,place_points)
+    # place_points_send= np.array ([place_points], dtype=np.int32)
+    # send_array(s,place_points_send)
 
     # Number of simulations
     Nsim = 2
@@ -73,8 +75,21 @@ def main():
         #initialization of the pso particles 
         particle_positions = np.random.uniform(-100, 100, num_particles)  # initial positions
         particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
-        
-        #per ogni oggetto runno il pso
+
+        # for the object I'm considering, i send the place position
+        # take the place point which corrensponds to the object I'm considering 
+        place_x = place_points [trigger_end2][0]
+        place_y = place_points [trigger_end2][1]
+        place_z = place_points [trigger_end2][2]
+        # send the place point
+        place_point_send= np.array ([[place_x, place_y, place_z]], dtype=np.int32)
+        send_array(s,place_point_send)
+
+        # wait for helper2, for synchronizaion purposes
+        helper2=s.recv(1024).decode()
+
+
+        # for each object, run the pso
         while trigger_end<Nsim:
 
             #send the particle positions
@@ -135,9 +150,10 @@ def main():
 
         print (f"global best position: {global_best_position}") 
         print (f"global best score: {global_best_score/100000}")  
-        #salva in un array le posizioni ottimali della base per i vari oggetti
+
+        # save into an array the optimal positions of the base for each object
         optimal_positions[trigger_end2]=global_best_position
-        #manda qualcosa per questioni di sincronizzazione
+        # send helper for synchronization purposes
         helper=np.array([[0, 0]], dtype=np.int32)
         send_array(s,helper)
         trigger_end2 = int(s.recv(1024).decode())

@@ -73,7 +73,7 @@ class Item:
         x,y,z =self.position
         l, h, p = self.width, self.height, self.depth
         return[
-            float(x+l/2), float(y+h/2), float(z+p/2)
+            int(x+l/2), int(y+h/2), int(z+p/2)
         ]
     
 

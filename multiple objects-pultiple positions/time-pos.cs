@@ -25,6 +25,11 @@ class Program
         m_output = output;
         TcpListener server = null;
 
+        //define the position of the lower left corner of the box and use it as an offset fot placing the objects
+        int box_offset_x = 80;
+        int box_offset_y = 200; 
+        int box_offset_z= 100;
+
         try
         {
             // Define the number of simulations
@@ -37,23 +42,27 @@ class Program
             // Start listening for incoming connections
             server = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
             server.Start();
-            output.Write("Server started...");
+            output.Write("Server started...\n");
 
             // Accept a client connection
             TcpClient client = server.AcceptTcpClient();
             NetworkStream stream = client.GetStream();
-            //recieve all the place points of the objects from python 
-            place_positions=ReceiveNumpyArray(stream);
-
-            //send something back to python to not compromize the synchronization
-            string helper2= 'ok';
-            byte[] helper2_vec = Encoding.ASCII.GetBytes(helper2);
-            stream.Write(helper2_vec, 0, helper2.Length);
-
 
             // Loop for all the simulations
             for (int obj=0; obj<num_objects; obj++)
-            {
+            {   
+                //recieve the place point for the object I'm considering
+                var place_position_recieved = ReceiveNumpyArray(stream);
+                output.Write("la posizione di place per l'oggetto " + obj.ToString() + "è: ");
+                PrintArray(place_position_recieved, output);
+                output.Write("\n");
+
+                //send helper2 for synchronization puposes
+                string helper2= "ok";
+                output.Write(helper2 + "\n");
+                byte[] helper2_vec = Encoding.ASCII.GetBytes(helper2);
+                stream.Write(helper2_vec, 0, helper2.Length);
+
                 //select each position 
                 for (int ii = 0; ii < Nsim ; ii++)    
                 {
@@ -104,8 +113,7 @@ class Program
                             
                         // Create the new operation    	
                         TxContinuousRoboticOperationCreationData data = new TxContinuousRoboticOperationCreationData(operation_name);
-                        TxA
-                        pplication.ActiveDocument.OperationRoot.CreateContinuousRoboticOperation(data);
+                        TxApplication.ActiveDocument.OperationRoot.CreateContinuousRoboticOperation(data);
                         
                         // Get the created operation
                         TxTypeFilter opFilter = new TxTypeFilter(typeof(TxContinuousRoboticOperation));
@@ -158,7 +166,11 @@ class Program
                         var pick_point = new TxVector(Cube.LocationRelativeToWorkingFrame.Translation);
 
                         //define the place point of the object --> varies depending on the object
-                        var place_point = place_positions[obj]; 
+                        
+                        var place_point_x=place_position_recieved[0, 0] + box_offset_x;
+                        var place_point_y=place_position_recieved[0, 1] + box_offset_y;
+                        var place_point_z=place_position_recieved[0, 2] + box_offset_z;
+                        var place_point = new TxVector (place_point_x, place_point_y, place_point_z);
 
                         //define the point above the pick/place point
                         var zoffset = new TxVector(0, 0, 100);
@@ -501,7 +513,6 @@ class Program
                     }    
 
                     //send fitness values
-                    
                     string fitnes_s = string.Join(",", fitness);
                     byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
                     stream.Write(fitness_Vec, 0, fitness_Vec.Length);
