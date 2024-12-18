@@ -25,6 +25,12 @@ class Program
     {
         m_output = output;
         TcpListener server = null;
+
+        //define the position of the lower left corner of the box and use it as an offset fot placing the objects
+        int box_offset_x = 80;
+        int box_offset_y = 200; 
+        int box_offset_z= 100;
+
         try
         {
            // Define the number of simulations
@@ -46,6 +52,17 @@ class Program
             // Loop for all the simulations
             for (int obj=0; obj<num_objects; obj++)
             {
+                //recieve the place point for the object I'm considering
+                var place_position_recieved = ReceiveNumpyArray(stream);
+                output.Write("la posizione di place per l'oggetto " + obj.ToString() + " è: ");
+                PrintArray(place_position_recieved, output);
+                output.Write("\n");
+
+                //send helper2 for synchronization puposes
+                string helper2= "ok";
+                byte[] helper2_vec = Encoding.ASCII.GetBytes(helper2);
+                stream.Write(helper2_vec, 0, helper2.Length);
+
                 //select each position 
                 for (int ii = 0; ii < Nsim ; ii++)    
                 {
@@ -67,7 +84,7 @@ class Program
                         position.Translation = new TxVector(0, move_Y_Val, 0);
                         robot.LocationRelativeToWorkingFrame = position;
                         TxApplication.RefreshDisplay();
-                        output.Write("the current position is: \n");
+                        output.Write("\n the current position is: \n");
                         output.Write(move_Y_Val.ToString());
                         output.Write("\n");
 
@@ -149,7 +166,10 @@ class Program
                         var pick_point = new TxVector(Cube.LocationRelativeToWorkingFrame.Translation);
 
                         //define the place point of the object --> varies depending on the object
-                        var place_point_offset = new TxVector(0, 600, 0); 
+                        var place_point_x=place_position_recieved[0, 0] + box_offset_x;
+                        var place_point_y=place_position_recieved[0, 1] + box_offset_y;
+                        var place_point_z=place_position_recieved[0, 2] + box_offset_z;
+                        var place_point = new TxVector (place_point_x, place_point_y, place_point_z);
 
                         //define the point above the pick/place point
                         var zoffset = new TxVector(0, 0, 100);
@@ -166,7 +186,7 @@ class Program
                         FirstPoint.AbsoluteLocation = rotX;
                         
                         var pointA = new TxTransformation(FirstPoint.AbsoluteLocation);
-                        pointA.Translation = new TxVector(pick_point+zoffset);
+                        pointA.Translation = new TxVector(pick_point + zoffset);
                         FirstPoint.AbsoluteLocation = pointA;
                         
                         // Impose a position to the second waypoint		
@@ -187,7 +207,7 @@ class Program
                         ThirdPoint.AbsoluteLocation = rotX3;
                         
                         var pointC = new TxTransformation(ThirdPoint.AbsoluteLocation);
-                        pointC.Translation = new TxVector(pick_point+ zoffset);
+                        pointC.Translation = new TxVector(pick_point + zoffset);
                         ThirdPoint.AbsoluteLocation = pointC;
 
                         // Impose a position to the fourth waypoint		
@@ -197,7 +217,7 @@ class Program
                         FourthPoint.AbsoluteLocation = rotX4;
                         
                         var pointD = new TxTransformation(FourthPoint.AbsoluteLocation);
-                        pointD.Translation = new TxVector(place_point_offset+pick_point +zoffset);
+                        pointD.Translation = new TxVector(place_point + zoffset);
                         FourthPoint.AbsoluteLocation = pointD;
 
                         // Impose a position to the fifth waypoint		
@@ -207,7 +227,7 @@ class Program
                         FifthPoint.AbsoluteLocation = rotX5;
                         
                         var pointE = new TxTransformation(FifthPoint.AbsoluteLocation);
-                        pointE.Translation = new TxVector(place_point_offset+pick_point);
+                        pointE.Translation = new TxVector(place_point);
                         FifthPoint.AbsoluteLocation = pointE;
 
                         // Impose a position to the sixth waypoint		
@@ -217,7 +237,7 @@ class Program
                         SixthPoint.AbsoluteLocation = rotX6;
                         
                         var pointF = new TxTransformation(SixthPoint.AbsoluteLocation);
-                        pointF.Translation = new TxVector(place_point_offset+pick_point +zoffset);
+                        pointF.Translation = new TxVector(place_point + zoffset);
                         SixthPoint.AbsoluteLocation = pointF;
 
                         // Impose a position to the seventh waypoint --> go back to initial position		
@@ -486,14 +506,13 @@ class Program
                                 
                         // Rewind the simulation
                         player.Rewind();
-                        output.Write("fine simulazione " + pos_string + "\n");
+                        output.Write("fine simulazione corrispondente alla posizione: " + pos_string + "\n");
                         double MeanDeterminant = 100000*determinantSum/determinantCounter;
-                        output.Write("determinante medio della simulazione numero " + pos_string + " è di: " + MeanDeterminant.ToString() + "\n");
+                        output.Write("determinante medio: " + MeanDeterminant.ToString() + "\n");
                         string Time = op.Duration.ToString();
-                        output.Write("tempo della simulazione numero " + pos_string + " è di: " + Time + "\n");
+                        output.Write("tempo: " + Time + "\n");
                         int fitness_int_partial =(int)MeanDeterminant;
                         fitness_int= fitness_int+fitness_int_partial;
-                        
                         MyOp.Delete();
                         fitness[pos]=fitness_int;
                     }
@@ -502,10 +521,7 @@ class Program
                     string fitnes_s = string.Join(",", fitness);
                     byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
                     stream.Write(fitness_Vec, 0, fitness_Vec.Length);
-                    output.Write("The fitness is:\n" + fitnes_s + "\n");
-
-                    // Separate the display information on the terminal
-                    output.Write("\n");
+                    output.Write("\n The fitness is:\n" + fitnes_s + "\n");
 
                     // Send the trigger_end back to Python
                     string trigger_end = (ii + 1).ToString();

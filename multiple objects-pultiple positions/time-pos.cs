@@ -53,7 +53,7 @@ class Program
             {   
                 //recieve the place point for the object I'm considering
                 var place_position_recieved = ReceiveNumpyArray(stream);
-                output.Write("la posizione di place per l'oggetto " + obj.ToString() + "è: ");
+                output.Write("la posizione di place per l'oggetto " + obj.ToString() + " è: ");
                 PrintArray(place_position_recieved, output);
                 output.Write("\n");
 
