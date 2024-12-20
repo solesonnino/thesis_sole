@@ -14,6 +14,16 @@ scene = Scene()
 v_max=20
 a=10
 
+#parameters of the pso
+  # Number of simulations
+Nsim = 2
+trigger_end2 = 0
+num_particles = 3      # Number of particles
+inertia_weight = 0.5         # inertia weight
+cognitive_component = 1.5    # cognitive component
+social_component = 2.0 
+num_objects = 2 #objects in the scene
+
 items=[] #array in which i'll store all the items
 for b in packer.bins:
     print(":::::::::::", b.string())
