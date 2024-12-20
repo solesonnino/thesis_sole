@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
-
 class Cubo:
     def __init__(self, vertice, lunghezza, altezza, profondità):
         """
