@@ -85,8 +85,8 @@ def main():
         print(f"currently finding the item number: {counter} \n")
         current_pos=0 #initialize the current position of the base of the robot in y=0
         pick_objects = [0,1,2] #items i have to pack, pick side
-
-        while items:
+        i=0
+        while i<num_objects:
             #run the pso for all the items inside the list items --> need to pack all the items in the bin
 
             #send to c# the place position associated to the item to be packed (assume all items identical)
@@ -103,7 +103,7 @@ def main():
             min_time=10000 #arbitrarly large number
             
 
-            while pick_objects: #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
+            while c<num_objects: #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
                 trigger_end = 0 
                 #initialization of the vector
                 optimal_positions= np.zeros(num_objects)
@@ -186,16 +186,16 @@ def main():
                     next_position = global_best_position
                     next_item=c
 
-                c=c+1 #it tells me which object (pick side) i'm considering    
+                #move to the next
+                c=s.recv(1024).decode()
 
             #once i've found the association between the item that i have to pick and the place position of it,
             # i move to the next place position and look for the next item to pack
-            items.remove(items[counter])
-            pick_objects.remove(pick_objects[next_item])
             current_pos=next_position 
             counter=counter+1
             print(f"object: {next_item} \n has been positioned inside the box {b} at the position: {current_item.get_center()}")
             print(f"the optimal position of the base is: {current_pos}")
+            i= s.recv(1024).decode()
             #i've moved the base and performed the pick and place operation, so i remove:
             # - the place point because it is taken
             # - the item pick side because it has been placed
