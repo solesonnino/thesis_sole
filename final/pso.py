@@ -34,7 +34,6 @@ for b in packer.bins:
     for item in b.items:
         print("====> ", item.string())
         scene.add_object_to_scene(item, False)
-        place_points.append(item.get_center())
         print(item.get_center())
         items.append(item) #store into an array all the items to be picked and placed
     
@@ -69,10 +68,10 @@ def main():
     for b in packer.bins: 
        
         for item in b.items:
-             items.append(item) #store into an array all the items to be picked and placed in the considered bin
-         
-        #take the first item (place side)
-        current_item = items[0]
+            items.append(item) #store into an array all the items to be picked and placed in the considered bin
+            place_points.append(item.get_center())
+
+
         # run the pso for all the items not packed yet, evaluate them in terms of manipulability
         # once you 've found the best position of the base, for all the several objects, 
         # choose the one that takes the minimum time to be reached from the current position of the base and call it current
@@ -81,6 +80,9 @@ def main():
         # repeat until items is empty
 
         counter=0 #counter is needed to know which item i'm packing (if it is the first, the second...) place side
+        #take the first item (place side)
+        current_item = items[counter]
+        print(f"currently finding the item number: {counter} \n")
         current_pos=0 #initialize the current position of the base of the robot in y=0
         pick_objects = [0,1,2] #items i have to pack, pick side
 
@@ -188,27 +190,22 @@ def main():
 
             #once i've found the association between the item that i have to pick and the place position of it,
             # i move to the next place position and look for the next item to pack
-            items.remove(items[0])
+            items.remove(items[counter])
             pick_objects.remove(pick_objects[next_item])
             current_pos=next_position 
-            
+            counter=counter+1
+            print(f"object: {next_item} \n has been positioned inside the box {b} at the position: {current_item.get_center()}")
+            print(f"the optimal position of the base is: {current_pos}")
             #i've moved the base and performed the pick and place operation, so i remove:
             # - the place point because it is taken
             # - the item pick side because it has been placed
             # Finally i update the position of the base of the robot,
             # now it is at the best position found bu the pso for that item and that place point 
-            
-
-
-
-    #print the final positions 
-    print (f"positions: {optimal_positions}")
 
     # Close the connection
     s.close()
     optimal_positions.sort()
     print(f"optimal positions reordered: {optimal_positions}")
-
 
 
 if __name__ == "__main__":
