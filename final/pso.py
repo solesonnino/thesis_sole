@@ -2,13 +2,6 @@ import socket
 import numpy as np
 from place_visualize_obj import Scene, Packer, Bin, Item
 
-packer = Packer()
-packer.add_bin(Bin('small-envelope', 78, 78, 78, 10))
-packer.add_item(Item('50g [powder 1]', 26,26,26, 1))
-packer.add_item(Item('50g [powder 2]', 26,26,26, 1))
-packer.add_item(Item('50g [powder 3]', 26,26,26, 1))
-packer.pack()
-scene = Scene()
 
 #max velocity and acceleration of the base in cm
 v_max=20
@@ -24,27 +17,6 @@ cognitive_component = 1.5    # cognitive component
 social_component = 2.0 
 num_objects = 2 #objects in the scene
 
-items=[] #array in which i'll store all the items
-for b in packer.bins:
-    print(":::::::::::", b.string())
-    scene.add_object_to_scene(b, False)
-    print("FITTED ITEMS:")
-    place_points=[]
-    
-    for item in b.items:
-        print("====> ", item.string())
-        scene.add_object_to_scene(item, False)
-        print(item.get_center())
-        items.append(item) #store into an array all the items to be picked and placed
-    
-    print("UNFITTED ITEMS:")
-    for item in b.unfitted_items:
-        print("====> ", item.string())
-
-    print("***************************************************")
-    print("***************************************************")
-#scene.show_scene()
-print(f"the objects will be placed in the following positions: {place_points} \n")
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -65,12 +37,42 @@ def main():
     s.connect((host, port))
     print("the connection has happened succesfully \n")
 
-    for b in packer.bins: 
+    packer = Packer()
+    packer.add_bin(Bin('small-envelope', 78, 78, 78, 10))
+    packer.add_item(Item('50g [powder 1]', 26,26,26, 1))
+    packer.add_item(Item('50g [powder 2]', 26,26,26, 1))
+    #packer.add_item(Item('50g [powder 3]', 26,26,26, 1))
+    packer.pack()
+    scene = Scene()
+    items=[] #array in which i'll store all the items
+    for b in packer.bins:
+        print(":::::::::::", b.string())
+        scene.add_object_to_scene(b, False)
+        print("FITTED ITEMS:")
+        place_points=[]
+        
+        for item in b.items:
+            print("====> ", item.string())
+            scene.add_object_to_scene(item, False)
+            print(item.get_center())
+            items.append(item) #store into an array all the items to be picked and placed
+        
+        print("UNFITTED ITEMS:")
+        for item in b.unfitted_items:
+            print("====> ", item.string())
+
+        print("***************************************************")
+        print("***************************************************")
+        #scene.show_scene()
+    bin=0
+    num_bins=1
+    while bin<num_bins: 
        
+        b = packer.bins[bin]
         for item in b.items:
             items.append(item) #store into an array all the items to be picked and placed in the considered bin
             place_points.append(item.get_center())
-
+        print(f"the objects will be placed in the following positions: {place_points} \n")
 
         # run the pso for all the items not packed yet, evaluate them in terms of manipulability
         # once you 've found the best position of the base, for all the several objects, 
@@ -99,6 +101,7 @@ def main():
 
             # wait for helper2, for synchronizaion purposes
             helper2=s.recv(1024).decode()
+            print(helper2)
             c=0 #it tells me which object (pick side) i'm considering    
             min_time=10000 #arbitrarly large number
             
@@ -201,6 +204,8 @@ def main():
             # - the item pick side because it has been placed
             # Finally i update the position of the base of the robot,
             # now it is at the best position found bu the pso for that item and that place point 
+
+        bin=s.recv(1024).decode()       
 
     # Close the connection
     s.close()
