@@ -106,7 +106,8 @@ def main():
             min_time=10000 #arbitrarly large number
             
 
-            while c<num_objects: #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
+            while c<num_objects: 
+                #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
                 trigger_end = 0 
                 #initialization of the vector
                 optimal_positions= np.zeros(num_objects)
@@ -131,6 +132,11 @@ def main():
                     # Transform the data into a numpy array
                     fitness_Vec= np.array(fitness)
                     print(f"the fitness values are: {fitness_Vec} \n")
+
+                    #send something just to see
+                    helper3= np.array([[0]], dtype=np.int32)
+                    # Actual send of the data (in the future: try to remove the double send and try to send just one time)
+                    send_array(s,helper3)
 
                     # Receive the variable 'trigger_end' from C# code
                     trigger_end = int(s.recv(1024).decode())
@@ -189,8 +195,15 @@ def main():
                     next_position = global_best_position
                     next_item=c
 
+
+                #send something just to see
+                helper3= np.array([[0]], dtype=np.int32)
+                # Actual send of the data (in the future: try to remove the double send and try to send just one time)
+                send_array(s,helper3)    
+
                 #move to the next
-                c=s.recv(1024).decode()
+                c= int(s.recv(1024).decode())
+                print(f"c is {c}")
 
             #once i've found the association between the item that i have to pick and the place position of it,
             # i move to the next place position and look for the next item to pack
@@ -198,14 +211,22 @@ def main():
             counter=counter+1
             print(f"object: {next_item} \n has been positioned inside the box {b} at the position: {current_item.get_center()}")
             print(f"the optimal position of the base is: {current_pos}")
-            i= s.recv(1024).decode()
+            #send something just to see
+            helper3= np.array([[0]], dtype=np.int32)
+            # Actual send of the data (in the future: try to remove the double send and try to send just one time)
+            send_array(s,helper3)
+            i= int(s.recv(1024).decode())
             #i've moved the base and performed the pick and place operation, so i remove:
             # - the place point because it is taken
             # - the item pick side because it has been placed
             # Finally i update the position of the base of the robot,
             # now it is at the best position found bu the pso for that item and that place point 
 
-        bin=s.recv(1024).decode()       
+        #send something just to see
+        helper3= np.array([[0]], dtype=np.int32)
+        # Actual send of the data (in the future: try to remove the double send and try to send just one time)
+        send_array(s,helper3)
+        bin= int(s.recv(1024).decode())       
 
     # Close the connection
     s.close()

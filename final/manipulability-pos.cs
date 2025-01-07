@@ -66,7 +66,7 @@ class Program
                     byte[] helper2_vec = Encoding.ASCII.GetBytes(helper2);
                     stream.Write(helper2_vec, 0, helper2.Length);
 
-                    var pick_object = ReceiveNumpyArray(stream);
+                  
                     // Loop for all the objects, pick side
                     for (int c=0; c<num_objects; c++)
                     { //for all the objects (pick side) perform the pso
@@ -530,23 +530,38 @@ class Program
                             stream.Write(fitness_Vec, 0, fitness_Vec.Length);
                             output.Write("\n The fitness is:\n" + fitnes_s + "\n");
 
+                            //recieve something just to see if it works
+                            var helper3= ReceiveNumpyArray(stream);
+
                             // Send the trigger_end back to Python
+
                             string trigger_end = (ii + 1).ToString();
+                            output.Write(trigger_end + "\n");
                             byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end);
                             stream.Write(byte_trigger_end, 0, byte_trigger_end.Length);
                         }
+
+                        //recieve something just to see if it works
+                        var helper4= ReceiveNumpyArray(stream);
                         //send c+1 to python
                         string c_str = (c + 1).ToString();
+                        output.Write("c  "+ c_str+ "\n");
                         byte[] byte_c = Encoding.ASCII.GetBytes(c_str);
                         stream.Write(byte_c, 0, byte_c.Length);
 
                     }
-                //send i+1 to python
-                string i_str = (i + 1).ToString();
-                byte[] byte_i = Encoding.ASCII.GetBytes(i_str);
-                stream.Write(byte_i, 0, byte_i.Length);
+
+                    //recieve something just to see if it works
+                    var helper5= ReceiveNumpyArray(stream);    
+                    //send i+1 to python
+                    string i_str = (i + 1).ToString();
+                    byte[] byte_i = Encoding.ASCII.GetBytes(i_str);
+                    stream.Write(byte_i, 0, byte_i.Length);
 
                 }  
+
+                //recieve something just to see if it works
+                var helper6= ReceiveNumpyArray(stream);
 
                 //send bin+1 to python
                 string bin_str = (bin + 1).ToString();
