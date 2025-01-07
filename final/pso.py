@@ -80,137 +80,141 @@ def main():
         # change the current position of the base and position it in the above said position called current
         # delete current from the list of items
         # repeat until items is empty
-
-        counter=0 #counter is needed to know which item i'm packing (if it is the first, the second...) place side
-        #take the first item (place side)
-        current_item = items[counter]
-        print(f"currently finding the item number: {counter} \n")
+        
         current_pos=0 #initialize the current position of the base of the robot in y=0
-        pick_objects = [0,1,2] #items i have to pack, pick side
+        pick_objects = [] #array in which i'll store the objects, pick side, that i've already picked and placed
         i=0
         while i<num_objects:
             #run the pso for all the items inside the list items --> need to pack all the items in the bin
+            print(f"currently finding the item number: {i} \n")
 
             #send to c# the place position associated to the item to be packed (assume all items identical)
-            place_x = place_points [counter][0]
-            place_y = place_points [counter][1]
-            place_z = place_points [counter][2]
+            place_x = place_points [i][0]
+            place_y = place_points [i][1]
+            place_z = place_points [i][2]
             # send the place point
             place_point_send= np.array ([[place_x, place_y, place_z]], dtype=np.int32)
             send_array(s,place_point_send)
 
             # wait for helper2, for synchronizaion purposes
             helper2=s.recv(1024).decode()
-            print(helper2)
             c=0 #it tells me which object (pick side) i'm considering    
             min_time=10000 #arbitrarly large number
             
 
             while c<num_objects: 
                 #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
-                trigger_end = 0 
-                #initialization of the vector
-                optimal_positions= np.zeros(num_objects)
-                #initialization of the pso particles 
-                particle_positions = np.random.uniform(-100, 100, num_particles)  # initial positions
-                particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
-                
-                # for each object, run the pso 
-                # --> finished this loop i know the best position of the base of the robot associated to the pick of the considered item and its placement to the position i'm considering in the bin
-                while trigger_end<Nsim:
+                if c not in pick_objects : 
+                    #if the object has not ever been picked, then send skip=0, and perform all the computations    
+                    skip=np.array([[0]], np.int32)
+                    send_array(s,skip)
+                    #recieve something
+                    helper=s.recv(1024).decode()
+                    trigger_end = 0 
+                    #initialization of the pso particles 
+                    particle_positions = np.random.uniform(-100, 100, num_particles)  # initial positions
+                    particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
+                    
+                    # for each object, run the pso 
+                    # --> finished this loop i know the best position of the base of the robot associated to the pick of the considered item and its placement to the position i'm considering in the bin
+                    while trigger_end<Nsim:
 
-                    #send the particle positions
-                    #layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
-                    layout= np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2])]], dtype=np.int32)
-                    # Actual send of the data (in the future: try to remove the double send and try to send just one time)
-                    send_array(s,layout)
-                    print(f"particle positions: {layout}")
+                        #send the particle positions
+                        #layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
+                        layout= np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2])]], dtype=np.int32)
+                        # Actual send of the data (in the future: try to remove the double send and try to send just one time)
+                        send_array(s,layout)
+                        print(f"particle positions: {layout}")
 
-                    #recieve the fitness
-                    fitness = s.recv(1024).decode()
-                    fitness = [int(num) for num in fitness.split(',')] # list variable
-                    # Transform the data into a numpy array
-                    fitness_Vec= np.array(fitness)
-                    print(f"the fitness values are: {fitness_Vec} \n")
+                        #recieve the fitness
+                        fitness = s.recv(1024).decode()
+                        fitness = [int(num) for num in fitness.split(',')] # list variable
+                        # Transform the data into a numpy array
+                        fitness_Vec= np.array(fitness)
+                        print(f"the fitness values are: {fitness_Vec} \n")
+
+                        #send something just to see
+                        helper3= np.array([[0]], dtype=np.int32)
+                        # Actual send of the data (in the future: try to remove the double send and try to send just one time)
+                        send_array(s,helper3)
+
+                        # Receive the variable 'trigger_end' from C# code
+                        trigger_end = int(s.recv(1024).decode())
+                        print(f"Trigger end: {trigger_end}")
+
+                        #update the particles positions 
+
+                        #set pbest and gbest
+                        if trigger_end ==1 : #only  at the firts iteration
+                            # best personal position of each particle
+                            personal_best_positions = particle_positions.copy()
+                            personal_best_scores =fitness_Vec.copy()
+
+                            # best (initial) global best position
+                            global_best_position = personal_best_positions[np.argmax(personal_best_scores)]
+                            global_best_score = np.max(personal_best_scores)
+
+                        else :
+                            for i in range (num_particles):
+                                current_fitting_value = fitness_Vec [i]
+
+                                # update the personal best if it is necessary
+                                if current_fitting_value > personal_best_scores[i]:
+                                    personal_best_positions[i] = particle_positions[i]
+                                    personal_best_scores[i] = current_fitting_value
+                                
+                                # update the global best if necessary
+                                if current_fitting_value > global_best_score:
+                                    global_best_position = particle_positions[i]
+                                    global_best_score = current_fitting_value
+
+                        #update particles            
+                        for i in range (num_particles):
+                            # update the velocity according to the formula
+                            inertia = inertia_weight * particle_velocities[i]
+                            cognitive = cognitive_component * np.random.random() * (personal_best_positions[i] - particle_positions[i])
+                            social = social_component * np.random.random() * (global_best_position - particle_positions[i])
+                            particle_velocities[i] = inertia + cognitive + social
+                                
+                            # update the position of the particle
+                            particle_positions[i] += particle_velocities[i]
+                            particle_positions[i] = int(particle_positions[i])  # conversione a intero
+
+                    
+                    # evaluate the time needed to move the base from the current position to the one i'm evaluating
+                    d = abs(current_pos-global_best_position)
+                    d_acc= pow(v_max,2)/a
+                    d_cost = d-2*d_acc
+                    if (d_cost <=0) : #triangular velocity profile
+                        t=v_max/a
+                    else:
+                        t=2*(v_max/a)+d_cost/v_max    
+                    
+                    if (t < min_time): #if the current motion is better, update
+                        min_time=t
+                        next_position = global_best_position
+                        next_item=c
 
                     #send something just to see
                     helper3= np.array([[0]], dtype=np.int32)
                     # Actual send of the data (in the future: try to remove the double send and try to send just one time)
-                    send_array(s,helper3)
+                    send_array(s,helper3)    
 
-                    # Receive the variable 'trigger_end' from C# code
-                    trigger_end = int(s.recv(1024).decode())
-                    print(f"Trigger end: {trigger_end}")
+                else :
+                    skip= np.array([[1]], dtype=np.int32)
+                    send_array(s,skip)
 
-                    #update the particles positions 
-
-                    #set pbest and gbest
-                    if trigger_end ==1 : #only  at the firts iteration
-                        # best personal position of each particle
-                        personal_best_positions = particle_positions.copy()
-                        personal_best_scores =fitness_Vec.copy()
-
-                        # best (initial) global best position
-                        global_best_position = personal_best_positions[np.argmax(personal_best_scores)]
-                        global_best_score = np.max(personal_best_scores)
-
-                    else :
-                        for i in range (num_particles):
-                            current_fitting_value = fitness_Vec [i]
-
-                            # update the personal best if it is necessary
-                            if current_fitting_value > personal_best_scores[i]:
-                                personal_best_positions[i] = particle_positions[i]
-                                personal_best_scores[i] = current_fitting_value
-                            
-                            # update the global best if necessary
-                            if current_fitting_value > global_best_score:
-                                global_best_position = particle_positions[i]
-                                global_best_score = current_fitting_value
-
-                    #update particles            
-                    for i in range (num_particles):
-                        # update the velocity according to the formula
-                        inertia = inertia_weight * particle_velocities[i]
-                        cognitive = cognitive_component * np.random.random() * (personal_best_positions[i] - particle_positions[i])
-                        social = social_component * np.random.random() * (global_best_position - particle_positions[i])
-                        particle_velocities[i] = inertia + cognitive + social
-                            
-                        # update the position of the particle
-                        particle_positions[i] += particle_velocities[i]
-                        particle_positions[i] = int(particle_positions[i])  # conversione a intero
-
-                
-                # evaluate the time needed to move the base from the current position to the one i'm evaluating
-                d = abs(current_pos-global_best_position)
-                d_acc= pow(v_max,2)/a
-                d_cost = d-2*d_acc
-                if (d_cost <=0) : #triangular velocity profile
-                    t=v_max/a
-                else:
-                    t=2*(v_max/a)+d_cost/v_max    
-                
-                if (t < min_time): #if the current motion is better, update
-                    min_time=t
-                    next_position = global_best_position
-                    next_item=c
-
-
-                #send something just to see
-                helper3= np.array([[0]], dtype=np.int32)
-                # Actual send of the data (in the future: try to remove the double send and try to send just one time)
-                send_array(s,helper3)    
 
                 #move to the next
                 c= int(s.recv(1024).decode())
-                print(f"c is {c}")
 
             #once i've found the association between the item that i have to pick and the place position of it,
             # i move to the next place position and look for the next item to pack
             current_pos=next_position 
-            counter=counter+1
-            print(f"object: {next_item} \n has been positioned inside the box {b} at the position: {current_item.get_center()}")
+            print(f"object: {next_item} \n has been positioned inside the box {bin} at the position: {current_item.get_center()}")
             print(f"the optimal position of the base is: {current_pos}")
+            #once chosen, add the item in the list of the objects already picked
+            pick_objects.append(next_item)
             #send something just to see
             helper3= np.array([[0]], dtype=np.int32)
             # Actual send of the data (in the future: try to remove the double send and try to send just one time)
@@ -230,8 +234,6 @@ def main():
 
     # Close the connection
     s.close()
-    optimal_positions.sort()
-    print(f"optimal positions reordered: {optimal_positions}")
 
 
 if __name__ == "__main__":
