@@ -87,6 +87,7 @@ def main():
         while i<num_objects:
             #run the pso for all the items inside the list items --> need to pack all the items in the bin
             print(f"currently finding the item number: {i} \n")
+            current_item=items[i]
 
             #send to c# the place position associated to the item to be packed (assume all items identical)
             place_x = place_points [i][0]
