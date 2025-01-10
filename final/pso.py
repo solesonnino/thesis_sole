@@ -9,13 +9,13 @@ a=10
 
 #parameters of the pso
   # Number of simulations
-Nsim = 2
+Nsim = 4
 trigger_end2 = 0
 num_particles = 3      # Number of particles
 inertia_weight = 0.5         # inertia weight
 cognitive_component = 1.5    # cognitive component
 social_component = 2.0 
-num_objects = 2 #objects in the scene
+num_objects = 4 #objects in the scene
 
 
 def send_array(sock, array):
@@ -40,6 +40,8 @@ def main():
     packer = Packer()
     packer.add_bin(Bin('small-envelope', 78, 78, 78, 10))
     packer.add_item(Item('50g [powder 1]', 26,26,26, 1))
+    packer.add_item(Item('50g [powder 2]', 26,26,26, 1))
+    packer.add_item(Item('50g [powder 2]', 26,26,26, 1))
     packer.add_item(Item('50g [powder 2]', 26,26,26, 1))
     #packer.add_item(Item('50g [powder 3]', 26,26,26, 1))
     packer.pack()
@@ -83,6 +85,7 @@ def main():
         
         current_pos=0 #initialize the current position of the base of the robot in y=0
         pick_objects = [] #array in which i'll store the objects, pick side, that i've already picked and placed
+        base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
         i=0
         while i<num_objects:
             #run the pso for all the items inside the list items --> need to pack all the items in the bin
@@ -194,6 +197,7 @@ def main():
                     if (t < min_time): #if the current motion is better, update
                         min_time=t
                         next_position = global_best_position
+                        print(f"\npartial computation: {next_position}\n")
                         next_item=c
 
                     #send something just to see
@@ -214,8 +218,13 @@ def main():
             current_pos=next_position 
             print(f"object: {next_item} \n has been positioned inside the box {bin} at the position: {current_item.get_center()}")
             print(f"the optimal position of the base is: {current_pos}")
+
             #once chosen, add the item in the list of the objects already picked
             pick_objects.append(next_item)
+
+            #the position of the base
+            base_position_sequence.append(current_pos)
+
             #send something just to see
             helper3= np.array([[0]], dtype=np.int32)
             # Actual send of the data (in the future: try to remove the double send and try to send just one time)
@@ -235,6 +244,9 @@ def main():
 
     # Close the connection
     s.close()
+
+    #summarize all the choices 
+    print(f"the sequence at which the objects will be taken in order to minimize the time of motion of the base is: {pick_objects} and the sequence of positions of the base is: {base_position_sequence}")
 
 
 if __name__ == "__main__":

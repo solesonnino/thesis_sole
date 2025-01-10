@@ -38,7 +38,7 @@ class Program
             int port = 12345;
             int particles=3;
             double[] fitness = new double[particles];
-            int num_objects=2;
+            int num_objects=4;
             int num_bins = 1;
 
             output.Write("ok iniziamo...");
@@ -77,12 +77,12 @@ class Program
                         //if it is 0 then perform all the operations, otherwise
                         //move to the next pick object
                         
-                        if (skip==0)
+                        if (skip[0,0]==0)
                         {
                             //send something for synchronization purposes
                             string helper= "ok";
                             byte[] helper_vec = Encoding.ASCII.GetBytes(helper);
-                            stream.Write(helper _vec, 0, helper_vec.Length);
+                            stream.Write(helper_vec, 0, helper_vec.Length);
 
                             //run the pso
                             for (int ii = 0; ii < Nsim ; ii++)    
