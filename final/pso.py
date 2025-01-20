@@ -9,13 +9,13 @@ a=10
 
 #parameters of the pso
   # Number of simulations
-Nsim = 4
+Nsim = 2
 trigger_end2 = 0
-num_particles = 3      # Number of particles
+num_particles = 5      # Number of particles
 inertia_weight = 0.5         # inertia weight
 cognitive_component = 1.5    # cognitive component
 social_component = 2.0 
-num_objects = 4 #objects in the scene
+num_objects = 10 #objects in the scene
 
 
 def send_array(sock, array):
@@ -38,12 +38,17 @@ def main():
     print("the connection has happened succesfully \n")
 
     packer = Packer()
-    packer.add_bin(Bin('small-envelope', 78, 78, 78, 10))
-    packer.add_item(Item('50g [powder 1]', 26,26,26, 1))
-    packer.add_item(Item('50g [powder 2]', 26,26,26, 1))
-    packer.add_item(Item('50g [powder 2]', 26,26,26, 1))
-    packer.add_item(Item('50g [powder 2]', 26,26,26, 1))
-    #packer.add_item(Item('50g [powder 3]', 26,26,26, 1))
+    packer.add_bin(Bin('small-envelope', 100, 100, 100, 20))
+    packer.add_item(Item('50g [powder 1]', 25,25,25, 1))
+    packer.add_item(Item('50g [powder 2]', 25,25,25, 1))
+    packer.add_item(Item('50g [powder 2]', 25,25,25, 1))
+    packer.add_item(Item('50g [powder 2]', 25,25,25, 1))
+    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
+    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
+    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
+    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
+    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
+    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
     packer.pack()
     scene = Scene()
     items=[] #array in which i'll store all the items
@@ -124,8 +129,7 @@ def main():
                     while trigger_end<Nsim:
 
                         #send the particle positions
-                        #layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
-                        layout= np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2])]], dtype=np.int32)
+                        layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
                         # Actual send of the data (in the future: try to remove the double send and try to send just one time)
                         send_array(s,layout)
                         print(f"particle positions: {layout}")

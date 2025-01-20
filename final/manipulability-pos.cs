@@ -36,9 +36,9 @@ class Program
            // Define the number of simulations
             int Nsim = 2;
             int port = 12345;
-            int particles=3;
+            int particles=5;
             double[] fitness = new double[particles];
-            int num_objects=4;
+            int num_objects=10;
             int num_bins = 1;
 
             output.Write("ok iniziamo...");
