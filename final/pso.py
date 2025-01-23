@@ -1,6 +1,20 @@
 import socket
 import numpy as np
 from place_visualize_obj import Scene, Packer, Bin, Item
+import os
+import matplotlib.pyplot as plt
+
+
+# Specifica il percorso del file
+file_path = "file_di_testo.txt"
+
+# Controlla se il file esiste
+if os.path.exists(file_path):
+    # Cancella il file
+    os.remove(file_path)
+    print(f"Il file '{file_path}' è stato cancellato.")
+else:
+    print(f"Il file '{file_path}' non esiste.")
 
 
 #max velocity and acceleration of the base in cm
@@ -9,13 +23,13 @@ a=10
 
 #parameters of the pso
   # Number of simulations
-Nsim = 2
+Nsim = 5
 trigger_end2 = 0
 num_particles = 5      # Number of particles
 inertia_weight = 0.5         # inertia weight
 cognitive_component = 1.5    # cognitive component
 social_component = 2.0 
-num_objects = 10 #objects in the scene
+num_objects = 1 #objects in the scene
 
 
 def send_array(sock, array):
@@ -114,6 +128,10 @@ def main():
             while c<num_objects: 
                 #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
                 if c not in pick_objects : 
+                    #clear particle_x
+                    particle_x = np.zeros(Nsim)
+                    #clear particle_y
+                    particle_y=np.zeros(Nsim)
                     #if the object has not ever been picked, then send skip=0, and perform all the computations    
                     skip=np.array([[0]], np.int32)
                     send_array(s,skip)
@@ -130,6 +148,7 @@ def main():
 
                         #send the particle positions
                         layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
+                        #layout = np.array([[int(particle_positions[0])]], dtype= np.int32)
                         # Actual send of the data (in the future: try to remove the double send and try to send just one time)
                         send_array(s,layout)
                         print(f"particle positions: {layout}")
@@ -187,8 +206,38 @@ def main():
                             # update the position of the particle
                             particle_positions[i] += particle_velocities[i]
                             particle_positions[i] = int(particle_positions[i])  # conversione a intero
+                        
+                        #save the updates of the second particle along the simulation for the second object
+                        if (c==0): 
+                            particle_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
+                            particle_y[trigger_end - 1]=fitness_Vec[1]
 
-                    
+                    #print the graph of the particle evolution considered
+                    grafico_path="grafico.txt"
+                    if os.path.exists(grafico_path):
+                    # Cancella il file
+                        os.remove(grafico_path)
+
+                    with open('grafico.txt', 'w') as f:
+                        for iter in range(len(particle_x)):
+                            # Scrittura della coppia (x, y) e collegamento al punto successivo
+                            f.write(f'{particle_x[iter]:.2f},{particle_y[iter]:.2f}')
+                            if iter < len(particle_x) - 1:
+                                f.write(' -> ')  # Collegamento tra i punti
+                            f.write('\n')
+
+                    #visualizzazione grafico
+                    plt.figure()  # Crea una nuova figura
+                    plt.plot(particle_x, particle_y, marker='o', color='r', label='Grafico 1')
+                    plt.title('Grafico 1')
+                    plt.xlabel('Asse X')
+                    plt.ylabel('Asse Y')
+                    plt.grid(True)
+                    plt.legend()
+                    plt.show()  # Mostra il primo grafico
+
+
+
                     # evaluate the time needed to move the base from the current position to the one i'm evaluating
                     d = abs(current_pos-global_best_position)
                     d_acc= pow(v_max,2)/a
@@ -222,6 +271,11 @@ def main():
             current_pos=next_position 
             print(f"object: {next_item} \n has been positioned inside the box {bin} at the position: {current_item.get_center()}")
             print(f"the optimal position of the base is: {current_pos}")
+            
+            # Creare un file e scrivere del testo
+            with open("file_di_testo.txt", "w") as File:
+                File.write(f"object: {next_item} \n has been positioned inside the box {bin} at the position: {current_item.get_center()}")
+                File.write(f"the optimal position of the base is: {current_pos}")
 
             #once chosen, add the item in the list of the objects already picked
             pick_objects.append(next_item)

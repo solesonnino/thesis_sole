@@ -34,11 +34,11 @@ class Program
         try
         {
            // Define the number of simulations
-            int Nsim = 2;
+            int Nsim = 1;
             int port = 12345;
             int particles=5;
             double[] fitness = new double[particles];
-            int num_objects=10;
+            int num_objects=1;
             int num_bins = 1;
 
             output.Write("ok iniziamo...");
