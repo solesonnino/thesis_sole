@@ -3,6 +3,7 @@ import numpy as np
 from place_visualize_obj import Scene, Packer, Bin, Item
 import os
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 
 
 # Specifica il percorso del file
@@ -11,7 +12,6 @@ file_path = "file_di_testo.txt"
 #svuoto il file se esiste
 with open(file_path, 'w') as f:
     pass
-
 
 
 #max velocity and acceleration of the base in cm
@@ -26,7 +26,7 @@ num_particles = 5      # Number of particles
 inertia_weight = 0.5         # inertia weight
 cognitive_component = 1.5    # cognitive component
 social_component = 2.0 
-num_objects = 2 #objects in the scene
+num_objects = 1 #objects in the scene
 
 
 def send_array(sock, array):
@@ -84,6 +84,7 @@ def main():
         #scene.show_scene()
     bin=0
     num_bins=1
+
     while bin<num_bins: 
        
         b = packer.bins[bin]
@@ -103,6 +104,8 @@ def main():
         pick_objects = [] #array in which i'll store the objects, pick side, that i've already picked and placed
         base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
         i=0
+
+
         while i<num_objects:
             #run the pso for all the items inside the list items --> need to pack all the items in the bin
             print(f"currently finding the item number: {i} \n")
@@ -120,15 +123,21 @@ def main():
             helper2=s.recv(1024).decode()
             c=0 #it tells me which object (pick side) i'm considering    
             min_time=10000 #arbitrarly large number
+
+            #define particle1_x
+            particle1_x = np.zeros(Nsim)
+            #define particle1_y
+            particle1_y=np.zeros(Nsim)
+
+            # inizializzo il vettore dove metto l'evoluzione delle particelle dello sciame
+            swarm_evolution = [[] for _ in range (Nsim)]
+            x_swarm= [[] for _ in range (Nsim)]
+
             
 
             while c<num_objects: 
                 #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
                 if c not in pick_objects : 
-                    #clear particle_x
-                    particle_x = np.zeros(Nsim)
-                    #clear particle_y
-                    particle_y=np.zeros(Nsim)
                     #if the object has not ever been picked, then send skip=0, and perform all the computations    
                     skip=np.array([[0]], np.int32)
                     send_array(s,skip)
@@ -165,6 +174,17 @@ def main():
                         # Receive the variable 'trigger_end' from C# code
                         trigger_end = int(s.recv(1024).decode())
                         print(f"Trigger end: {trigger_end}")
+
+                        #save the updates of the second particle along the simulation for the first object pick side
+                        if (c==0): 
+                            #save the fitness evolution
+                            particle1_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
+                            particle1_y[trigger_end - 1]=fitness_Vec[1]
+
+                            #save the swarm evolution for the first object pick side
+                            swarm_evolution[trigger_end -1] = particle_positions.copy()
+                            x_swarm[trigger_end-1] = np.zeros(num_particles)
+
 
                         #update the particles positions 
 
@@ -204,10 +224,7 @@ def main():
                             particle_positions[i] += particle_velocities[i]
                             particle_positions[i] = int(particle_positions[i])  # conversione a intero
                         
-                        #save the updates of the second particle along the simulation for the second object
-                        if (c==0): 
-                            particle_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
-                            particle_y[trigger_end - 1]=fitness_Vec[1]
+
 
                     
 
@@ -278,29 +295,56 @@ def main():
     # Close the connection
     s.close()
 
-    #print the graph of the particle evolution considered
+    #print the graph of the particle fitness evolution considered
     grafico_path="grafico.txt"
     if os.path.exists(grafico_path):
     # Cancella il file
         os.remove(grafico_path)
 
     with open('grafico.txt', 'w') as f:
-        for iter in range(len(particle_x)):
+        for iter in range(len(particle1_x)):
             # Scrittura della coppia (x, y) e collegamento al punto successivo
-            f.write(f'{particle_x[iter]:.2f},{particle_y[iter]:.2f}')
-            if iter < len(particle_x) - 1:
+            f.write(f'{particle1_x[iter]:.2f},{particle1_y[iter]:.2f}')
+            if iter < len(particle1_x) - 1:
                 f.write(' -> ')  # Collegamento tra i punti
                 f.write('\n')
 
             #visualizzazione grafico
         plt.figure()  # Crea una nuova figura
-        plt.plot(particle_x, particle_y, marker='o', color='r', label='Grafico 1')
+        plt.plot(particle1_x, particle1_y, marker='o', color='r', label='Grafico 1')
         plt.title('Grafico 1')
         plt.xlabel('Asse X')
         plt.ylabel('Asse Y')
         plt.grid(True)
         plt.legend()
-        plt.show()  # Mostra il primo grafico
+
+    # print the evolution of the swarm considered
+    fig, ax = plt.subplots()
+    scatter = ax.scatter(x_swarm[0], swarm_evolution[0], c='blue', s=50)
+    ax.set_title("Swarm evolution")
+
+    # Funzione per aggiornare il grafico in ogni frame
+    def update(frame):
+        scatter.set_offsets(np.c_[x_swarm[frame], swarm_evolution[frame]])  # Aggiorna le posizioni
+        y_positions = swarm_evolution[frame]  # Prendi le posizioni lungo y
+        y_min, y_max = y_positions.min(), y_positions.max()  # Calcola i limiti dinamici di y
+        x_positions = x_swarm[frame]  # Prendi le posizioni lungo y
+        x_min, x_max = x_positions.min(), x_positions.max()  # Calcola i limiti dinamici di y
+
+        ax.set_ylim(y_min - 5, y_max + 5)  # Aggiungi margine dinamico ai limiti di y
+        ax.set_xlim(x_min-5, x_max +5)
+
+        ax.set_title(f"Iterazione {frame + 1}/{Nsim}")
+        plt.draw()
+
+        return scatter,
+
+    # Creazione dell'animazione
+    ani = FuncAnimation(fig, update, frames=Nsim, interval=200, blit=False, repeat=False)
+
+    # Mostra tutto
+    plt.show()
+        
 
     #summarize all the choices 
     print(f"the sequence at which the objects will be taken in order to minimize the time of motion of the base is: {pick_objects} and the sequence of positions of the base is: {base_position_sequence}")
