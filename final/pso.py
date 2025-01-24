@@ -8,13 +8,10 @@ import matplotlib.pyplot as plt
 # Specifica il percorso del file
 file_path = "file_di_testo.txt"
 
-# Controlla se il file esiste
-if os.path.exists(file_path):
-    # Cancella il file
-    os.remove(file_path)
-    print(f"Il file '{file_path}' è stato cancellato.")
-else:
-    print(f"Il file '{file_path}' non esiste.")
+#svuoto il file se esiste
+with open(file_path, 'w') as f:
+    pass
+
 
 
 #max velocity and acceleration of the base in cm
@@ -29,7 +26,7 @@ num_particles = 5      # Number of particles
 inertia_weight = 0.5         # inertia weight
 cognitive_component = 1.5    # cognitive component
 social_component = 2.0 
-num_objects = 1 #objects in the scene
+num_objects = 2 #objects in the scene
 
 
 def send_array(sock, array):
@@ -212,29 +209,7 @@ def main():
                             particle_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
                             particle_y[trigger_end - 1]=fitness_Vec[1]
 
-                    #print the graph of the particle evolution considered
-                    grafico_path="grafico.txt"
-                    if os.path.exists(grafico_path):
-                    # Cancella il file
-                        os.remove(grafico_path)
-
-                    with open('grafico.txt', 'w') as f:
-                        for iter in range(len(particle_x)):
-                            # Scrittura della coppia (x, y) e collegamento al punto successivo
-                            f.write(f'{particle_x[iter]:.2f},{particle_y[iter]:.2f}')
-                            if iter < len(particle_x) - 1:
-                                f.write(' -> ')  # Collegamento tra i punti
-                            f.write('\n')
-
-                    #visualizzazione grafico
-                    plt.figure()  # Crea una nuova figura
-                    plt.plot(particle_x, particle_y, marker='o', color='r', label='Grafico 1')
-                    plt.title('Grafico 1')
-                    plt.xlabel('Asse X')
-                    plt.ylabel('Asse Y')
-                    plt.grid(True)
-                    plt.legend()
-                    plt.show()  # Mostra il primo grafico
+                    
 
 
 
@@ -273,9 +248,9 @@ def main():
             print(f"the optimal position of the base is: {current_pos}")
             
             # Creare un file e scrivere del testo
-            with open("file_di_testo.txt", "w") as File:
-                File.write(f"object: {next_item} \n has been positioned inside the box {bin} at the position: {current_item.get_center()}")
-                File.write(f"the optimal position of the base is: {current_pos}")
+            with open("file_di_testo.txt", "a") as File:
+                File.write(f"object: {next_item} \n has been positioned inside the box {bin} at the position: {current_item.get_center()}\n")
+                File.write(f"the optimal position of the base is: {current_pos} \n \n")
 
             #once chosen, add the item in the list of the objects already picked
             pick_objects.append(next_item)
@@ -302,6 +277,30 @@ def main():
 
     # Close the connection
     s.close()
+
+    #print the graph of the particle evolution considered
+    grafico_path="grafico.txt"
+    if os.path.exists(grafico_path):
+    # Cancella il file
+        os.remove(grafico_path)
+
+    with open('grafico.txt', 'w') as f:
+        for iter in range(len(particle_x)):
+            # Scrittura della coppia (x, y) e collegamento al punto successivo
+            f.write(f'{particle_x[iter]:.2f},{particle_y[iter]:.2f}')
+            if iter < len(particle_x) - 1:
+                f.write(' -> ')  # Collegamento tra i punti
+                f.write('\n')
+
+            #visualizzazione grafico
+        plt.figure()  # Crea una nuova figura
+        plt.plot(particle_x, particle_y, marker='o', color='r', label='Grafico 1')
+        plt.title('Grafico 1')
+        plt.xlabel('Asse X')
+        plt.ylabel('Asse Y')
+        plt.grid(True)
+        plt.legend()
+        plt.show()  # Mostra il primo grafico
 
     #summarize all the choices 
     print(f"the sequence at which the objects will be taken in order to minimize the time of motion of the base is: {pick_objects} and the sequence of positions of the base is: {base_position_sequence}")

@@ -1,2 +1,3 @@
 object: 0 
- has been positioned inside the box 0 at the position: [12, 12, 12]the optimal position of the base is: -556.0
+ has been positioned inside the box 0 at the position: [12, 12, 12]the optimal position of the base is: -530.0object: 1 
+ has been positioned inside the box 0 at the position: [37, 12, 12]the optimal position of the base is: -309.0
