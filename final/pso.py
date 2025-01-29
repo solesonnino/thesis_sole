@@ -23,10 +23,15 @@ a=10
 Nsim = 5
 trigger_end2 = 0
 num_particles = 5      # Number of particles
-inertia_weight = 0.5         # inertia weight
-cognitive_component = 1.5    # cognitive component
+w_0 = 0.9         # inertia weight
+w_N=0.4
+cognitive_component = 2    # cognitive component
 social_component = 2.0 
 num_objects = 1 #objects in the scene
+
+#per diminuire linearmente il peso di inerzia da 0.9 a 0.4 divido l'intervallo per il numero di simulazioni 
+#iterazione dopo iterazione vario il peso di inerzia 
+delta_w=(w_N-w_0)/Nsim
 
 
 def send_array(sock, array):
@@ -150,8 +155,12 @@ def main():
                     
                     # for each object, run the pso 
                     # --> finished this loop i know the best position of the base of the robot associated to the pick of the considered item and its placement to the position i'm considering in the bin
+                    #initialize the inertia weight
+                    w_0=0.9
                     while trigger_end<Nsim:
-
+                        #update the inertia weigth at each iteration
+                        inertia_weight=w_0+delta_w*trigger_end
+                        print(f"inertia weight: {inertia_weight}")
                         #send the particle positions
                         layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
                         #layout = np.array([[int(particle_positions[0])]], dtype= np.int32)
