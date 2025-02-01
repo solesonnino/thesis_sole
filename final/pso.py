@@ -33,6 +33,9 @@ num_objects = 1 #objects in the scene
 #iterazione dopo iterazione vario il peso di inerzia 
 delta_w=(w_N-w_0)/Nsim
 
+#upper e lower bound della linea
+upper_bound=150
+lower_bound=-150
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -55,16 +58,16 @@ def main():
 
     packer = Packer()
     packer.add_bin(Bin('small-envelope', 100, 100, 100, 20))
-    packer.add_item(Item('50g [powder 1]', 25,25,25, 1))
-    packer.add_item(Item('50g [powder 2]', 25,25,25, 1))
-    packer.add_item(Item('50g [powder 2]', 25,25,25, 1))
-    packer.add_item(Item('50g [powder 2]', 25,25,25, 1))
-    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
-    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
-    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
-    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
-    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
-    packer.add_item(Item('50g [powder 3]', 25,25,25, 1))
+    packer.add_item(Item('Type1', 25,25,25, 1))
+    packer.add_item(Item('Type1', 25,25,25, 1))
+    packer.add_item(Item('Tipe1', 25,25,25, 1))
+    packer.add_item(Item('Tipe1', 25,25,25, 1))
+    packer.add_item(Item('Type2', 25,25,25, 1))
+    packer.add_item(Item('Type2', 25,25,25, 1))
+    packer.add_item(Item('Type2', 25,25,25, 1))
+    packer.add_item(Item('Type2', 25,25,25, 1))
+    packer.add_item(Item('Type2', 25,25,25, 1))
+    packer.add_item(Item('Type2', 25,25,25, 1))
     packer.pack()
     scene = Scene()
     items=[] #array in which i'll store all the items
@@ -150,7 +153,7 @@ def main():
                     helper=s.recv(1024).decode()
                     trigger_end = 0 
                     #initialization of the pso particles 
-                    particle_positions = np.random.uniform(-100, 100, num_particles)  # initial positions
+                    particle_positions = np.random.uniform(lower_bound, upper_bound, num_particles)  # initial positions
                     particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
                     
                     # for each object, run the pso 
@@ -232,6 +235,15 @@ def main():
                             # update the position of the particle
                             particle_positions[i] += particle_velocities[i]
                             particle_positions[i] = int(particle_positions[i])  # conversione a intero
+
+                            #controllo e riposizionamento dentro i limiti
+                            if (particle_positions[i]>upper_bound):
+                                particle_positions[i]=upper_bound
+
+                            if (particle_positions[i]<lower_bound):
+                                particle_positions[i]=lower_bound    
+
+                            
                         
 
 
