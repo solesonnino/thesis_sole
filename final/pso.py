@@ -114,12 +114,15 @@ def main():
 
 
     type_obj=0
+    current_pos=0 #initialize the current position of the base of the robot in y=0
+    base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
 
     while type_obj<num_types:
         packer=packers[type_obj]
         num_bins= num_bins_array[type_obj]
         bin=0
         num_obj_pick=num_objects_array[type_obj]
+        pick_objects = [] #array in which i'll store the objects, pick side, that i've already picked and placed
 
         while bin<num_bins: 
 
@@ -149,9 +152,7 @@ def main():
             # delete current from the list of items
             # repeat until items is empty
             
-            current_pos=0 #initialize the current position of the base of the robot in y=0
-            pick_objects = [] #array in which i'll store the objects, pick side, that i've already picked and placed
-            base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
+            
             i=0
             
 
@@ -330,7 +331,7 @@ def main():
                 
                 # Creare un file e scrivere del testo
                 with open("file_di_testo.txt", "a") as File:
-                    File.write(f"object: {next_item} \n has been positioned inside the box {bin} at the position: {current_item.get_center()}\n")
+                    File.write(f" Type : {type_obj} \n bin {bin} \n object: {next_item} \n at the position: {current_item.get_center()}\n")
                     File.write(f"the optimal position of the base is: {current_pos} \n \n")
 
                 #once chosen, add the item in the list of the objects already picked

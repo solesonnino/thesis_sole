@@ -1,12 +1,18 @@
-object: 0 
- has been positioned inside the box 0 at the position: [12, 12, 12]
+ Type : 0 
+ bin 0 
+ object: 0 
+ at the position: [12, 12, 12]
 the optimal position of the base is: -150.0 
  
-object: 0 
- has been positioned inside the box 0 at the position: [12, 12, 12]
-the optimal position of the base is: 126.0 
+ Type : 1 
+ bin 0 
+ object: 1 
+ at the position: [12, 12, 12]
+the optimal position of the base is: -150.0 
  
-object: 0 
- has been positioned inside the box 1 at the position: [12, 12, 12]
+ Type : 1 
+ bin 1 
+ object: 0 
+ at the position: [12, 12, 12]
 the optimal position of the base is: -150.0 
  
