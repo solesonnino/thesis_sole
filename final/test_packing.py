@@ -12,13 +12,12 @@ packer1.add_item(Item('Type1', 25,25,25, 1))
 packer1.add_item(Item('Type1', 25,25,25, 1))
 packer1.add_item(Item('Tipe1', 25,25,25, 1))
 packer1.add_item(Item('Tipe1', 25,25,25, 1))
-packer2.add_item(Item('Type2', 25,25,25, 1))
-packer2.add_item(Item('Type2', 25,25,25, 1))
-packer2.add_item(Item('Type2', 25,25,25, 1))
-packer2.add_item(Item('Type2', 25,25,25, 1))
-packer2.add_item(Item('Type2', 25,25,25, 1))
-packer2.add_item(Item('Type2', 25,25,25, 1))
-
+#packer2.add_item(Item('Type2', 25,25,25, 1))
+packer2.add_item(Item('Type2', 125,25,25, 1))
+#packer2.add_item(Item('Type2', 25,25,25, 1))
+#packer2.add_item(Item('Type2', 25,25,25, 1))
+#packer2.add_item(Item('Type2', 25,25,25, 1))
+#packer2.add_item(Item('Type2', 25,25,25, 1))
 
 items=[] 
 
