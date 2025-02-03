@@ -29,13 +29,13 @@ cognitive_component = 2    # cognitive component
 social_component = 2.0 
 
 num_types = 2
-num_objects_1 = 2 #objects in the scene
-num_objects_2 = 2
+num_objects_0 = 1 #objects in the scene
+num_objects_1 = 2
 num_bin_0=1
-num_bin_1=1
+num_bin_1=2
 
 num_bins_array= [num_bin_0, num_bin_1]
-num_objects_array=[num_objects_1, num_objects_2]
+num_objects_array=[num_objects_0, num_objects_1]
 
 
 
@@ -72,12 +72,13 @@ def main():
     packers.append(packer1)
     packers.append(packer2)
     packer1.add_bin(Bin('small-envelope', 100, 100, 100, 20))
-    packer2.add_bin(Bin('Type2_box', 150, 200, 200, 20))
+    packer2.add_bin(Bin('Type2_box1', 25, 25, 25, 20))
+    packer2.add_bin(Bin('Type2_box2', 25, 25, 25, 20))
     packer1.add_item(Item('Type1', 25,25,25, 1))
-    packer1.add_item(Item('Type1', 25,25,25, 1))
-    packer2.add_item(Item('Tipe1', 25,25,25, 1))
-    packer2.add_item(Item('Tipe1', 25,25,25, 1))
-    packer2.add_item(Item('Type2', 25,25,25, 1))
+    #packer1.add_item(Item('Type1', 25,25,25, 1))
+    packer2.add_item(Item('Tipe1_1', 25,25,25, 1))
+    packer2.add_item(Item('Tipe1_2', 25,25,25, 1))
+    #packer2.add_item(Item('Type2', 25,25,25, 1))
     #packer.add_item(Item('Type2', 25,25,25, 1))
     #packer.add_item(Item('Type2', 25,25,25, 1))
     #packer.add_item(Item('Type2', 25,25,25, 1))
@@ -118,20 +119,22 @@ def main():
         packer=packers[type_obj]
         num_bins= num_bins_array[type_obj]
         bin=0
+        num_obj_pick=num_objects_array[type_obj]
 
         while bin<num_bins: 
 
             place_points=[]
             rotations=[]
-        
+            k=0
             b = packer.bins[bin]
             for item in b.items:
                 items.append(item) #store into an array all the items to be picked and placed in the considered bin
+                k=k+1
                 place_points.append(item.get_center()) 
                 rotations.append (item.rotation_type)
 
             print(f"the objects will be placed in the following positions: {place_points} \n")
-            num_objects = items.__len__() #number of objects inside the considered  bin
+            num_objects = k #number of objects inside the considered  bin
 
             num_objects_send= np.array ([[num_objects]], dtype=np.int32)
             send_array(s,num_objects_send)
@@ -150,7 +153,7 @@ def main():
             pick_objects = [] #array in which i'll store the objects, pick side, that i've already picked and placed
             base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
             i=0
-
+            
 
             while i<num_objects:
                 #run the pso for all the items inside the list items --> need to pack all the items in the bin
@@ -175,6 +178,7 @@ def main():
 
                 # wait for helper2, for synchronizaion purposes
                 helper2=s.recv(1024).decode()
+
                 c=0 #it tells me which object (pick side) i'm considering    
                 min_time=10000 #arbitrarly large number
 
@@ -189,7 +193,7 @@ def main():
 
                 
 
-                while c<num_objects: 
+                while c<num_obj_pick: 
                     #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
                     if c not in pick_objects : 
                         #if the object has not ever been picked, then send skip=0, and perform all the computations    

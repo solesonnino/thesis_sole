@@ -38,17 +38,22 @@ class Program
             int port = 12345;
             int particles=5;
             double[] fitness = new double[particles];
-            int num_types = 2
-            int num_objects_1 = 2 
-            int num_objects_2 = 2
-            int num_bin_0=1
-            int num_bin_1=1
-            int [] num_bins_array= [num_bin_0, num_bin_1];
-            int [] num_objects_array=[num_objects_1, num_objects_2];
+            int num_types = 2;
+            int num_objects_0 = 1;
+            int num_objects_1 = 2;
+            int num_bin_0=1;
+            int num_bin_1=2;
+            int [] num_bins_array= new int[num_types];
+            int [] num_objects_array= new int [num_types];
+
+            num_bins_array[0]= num_bin_0;
+            num_bins_array[1]=num_bin_1;
+            num_objects_array[0]=num_objects_0;
+            num_objects_array[1]=num_objects_1;
 
             int num_bins = 0;
-            int num_objects=0;
             int count= 0;
+            int num_objects_pick=0;
 
 
 
@@ -63,12 +68,12 @@ class Program
             NetworkStream stream = client.GetStream();
             for (int type_obj=0; type_obj<num_types; type_obj++)
             { 
-                num_bins= num_bins[type_obj];
+                num_bins= num_bins_array[type_obj];
                 for (int bin=0; bin<num_bins; bin++)
                 {
                     // recieve the number of objects inside the considered bin
-                    num_objects_array = ReceiveNumpyArray(stream);
-                    num_objects=num_objects_array[0,0]; 
+                    var num_objects_rec = ReceiveNumpyArray(stream);
+                    var num_objects=num_objects_rec[0,0]; 
 
                     //send something
                     string helper5= "ok";
@@ -100,9 +105,9 @@ class Program
                         byte[] helper2_vec = Encoding.ASCII.GetBytes(helper2);
                         stream.Write(helper2_vec, 0, helper2_vec.Length);
 
-                    
+                        num_objects_pick=num_objects_array[type_obj];
                         // Loop for all the objects, pick side
-                        for (int c=0; c<num_objects_1; c++)
+                        for (int c=0; c<num_objects_pick; c++)
                         { //for all the objects (pick side) perform the pso
 
                             //first of all recieve skip
