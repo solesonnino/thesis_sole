@@ -20,7 +20,7 @@ a=10
 
 #parameters of the pso
   # Number of simulations
-Nsim = 5
+Nsim = 1
 trigger_end2 = 0
 num_particles = 5      # Number of particles
 w_0 = 0.9         # inertia weight
@@ -71,9 +71,16 @@ def main():
     packer2 = Packer()
     packers.append(packer1)
     packers.append(packer2)
-    packer1.add_bin(Bin('small-envelope', 100, 100, 100, 20))
-    packer2.add_bin(Bin('Type2_box1', 25, 25, 25, 20))
-    packer2.add_bin(Bin('Type2_box2', 25, 25, 25, 20))
+    Bin_11= Bin ('Type1_box1', 100, 100, 100, 20)
+    Bin_11.set_offset(100, 100, 100)
+    packer1.add_bin(Bin_11)
+    Bin_21= Bin ('Type2_box1', 100, 100, 100, 20)
+    Bin_21.set_offset(100, 200, 100)
+    packer2.add_bin(Bin_21)
+    Bin_22= Bin ('Type2_box2', 100, 100, 100, 20)
+    Bin_11.set_offset(100, 300, 100)
+    packer2.add_bin(Bin_22)
+
     packer1.add_item(Item('Type1', 25,25,25, 1))
     #packer1.add_item(Item('Type1', 25,25,25, 1))
     packer2.add_item(Item('Tipe1_1', 25,25,25, 1))
@@ -130,6 +137,9 @@ def main():
             rotations=[]
             k=0
             b = packer.bins[bin]
+            x_offset_box, y_offset_box, z_offset_box = b.get_offset()
+
+
             for item in b.items:
                 items.append(item) #store into an array all the items to be picked and placed in the considered bin
                 k=k+1
@@ -162,9 +172,9 @@ def main():
                 current_item=items[i]
 
                 #send to c# the place position associated to the item to be packed (assume all items identical)
-                place_x = place_points [i][0]
-                place_y = place_points [i][1]
-                place_z = place_points [i][2]
+                place_x = place_points [i][0] + x_offset_box
+                place_y = place_points [i][1] + y_offset_box
+                place_z = place_points [i][2] + z_offset_box
                 # send the place point
                 place_point_send= np.array ([[place_x, place_y, place_z]], dtype=np.int32)
                 send_array(s,place_point_send)

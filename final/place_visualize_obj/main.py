@@ -19,6 +19,8 @@ class Item:
         self.position = START_POSITION
         self.number_of_decimals = DEFAULT_NUMBER_OF_DECIMALS
 
+
+
     def format_numbers(self, number_of_decimals):
         self.width = set_to_decimal(self.width, number_of_decimals)
         self.height = set_to_decimal(self.height, number_of_decimals)
@@ -88,8 +90,12 @@ class Bin:
         self.max_weight = max_weight
         self.items = []
         self.unfitted_items = []
+        self.offset=[0, 0, 0]
         self.number_of_decimals = DEFAULT_NUMBER_OF_DECIMALS
         self.position=BOX_LOWER_LEFT_CORNER
+
+    def set_offset (self, x_pos, y_pos, z_pos):
+        self.offset=[x_pos, y_pos, z_pos]
 
     def format_numbers(self, number_of_decimals):
         self.width = set_to_decimal(self.width, number_of_decimals)
@@ -175,6 +181,12 @@ class Bin:
         return[
             float(x+l/2), float(y+h/2), float(z+p/2)
         ]
+    
+    def get_offset(self):
+        return [
+            self.offset[0], self.offset[1], self.offset[2]
+        ]
+
 
 class Packer:
     def __init__(self):

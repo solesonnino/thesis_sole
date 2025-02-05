@@ -26,10 +26,6 @@ class Program
         m_output = output;
         TcpListener server = null;
 
-        //define the position of the lower left corner of the box and use it as an offset fot placing the objects
-        int box_offset_x = 80;
-        int box_offset_y = 200; 
-        int box_offset_z= 100;
 
         try
         {
@@ -69,6 +65,7 @@ class Program
             for (int type_obj=0; type_obj<num_types; type_obj++)
             { 
                 num_bins= num_bins_array[type_obj];
+                num_objects_pick=num_objects_array[type_obj];
                 for (int bin=0; bin<num_bins; bin++)
                 {
                     // recieve the number of objects inside the considered bin
@@ -105,7 +102,7 @@ class Program
                         byte[] helper2_vec = Encoding.ASCII.GetBytes(helper2);
                         stream.Write(helper2_vec, 0, helper2_vec.Length);
 
-                        num_objects_pick=num_objects_array[type_obj];
+                        
                         // Loop for all the objects, pick side
                         for (int c=0; c<num_objects_pick; c++)
                         { //for all the objects (pick side) perform the pso
@@ -226,9 +223,9 @@ class Program
                                         var pick_point = new TxVector(Cube.LocationRelativeToWorkingFrame.Translation);
 
                                         //define the place point of the object --> varies depending on the object
-                                        var place_point_x=place_position_recieved[0, 0] + box_offset_x;
-                                        var place_point_y=place_position_recieved[0, 1] + box_offset_y;
-                                        var place_point_z=place_position_recieved[0, 2] + box_offset_z;
+                                        var place_point_x=place_position_recieved[0, 0]; 
+                                        var place_point_y=place_position_recieved[0, 1]; 
+                                        var place_point_z=place_position_recieved[0, 2];
                                         var place_point = new TxVector (place_point_x, place_point_y, place_point_z);
 
                                         //define the point above the pick/place point
@@ -292,7 +289,13 @@ class Program
 
                                         // Impose a position to the sixth waypoint		
                                         double rotVal6 = Math.PI;
-                                        TxTransformation rotX6 = new TxTransformation(new TxVector(rotVal6, 0, 0), 
+                                        if (rotation ==1):
+                                        {
+                                            double rot_z_place = Math.PI/2;
+                                        }
+                                        else double rot_z_place = 0;
+                                        
+                                        TxTransformation rotX6 = new TxTransformation(new TxVector(rotVal6, 0, rot_z_place), 
                                         TxTransformation.TxRotationType.RPY_XYZ);
                                         SixthPoint.AbsoluteLocation = rotX6;
                                         
