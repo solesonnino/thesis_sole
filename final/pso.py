@@ -32,7 +32,7 @@ num_types = 2
 num_objects_0 = 1 #objects in the scene
 num_objects_1 = 2
 num_bin_0=1
-num_bin_1=2
+num_bin_1=1
 
 num_bins_array= [num_bin_0, num_bin_1]
 num_objects_array=[num_objects_0, num_objects_1]
@@ -44,8 +44,8 @@ num_objects_array=[num_objects_0, num_objects_1]
 delta_w=(w_N-w_0)/Nsim
 
 #upper e lower bound della linea
-upper_bound=150
-lower_bound=-150
+upper_bound=1500
+lower_bound=-1500
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -66,20 +66,19 @@ def main():
     s.connect((host, port))
     print("the connection has happened succesfully \n")
 
+    # small--> type 1
+    # medium --> type 2
     packers= []
     packer1 = Packer()
     packer2 = Packer()
     packers.append(packer1)
     packers.append(packer2)
-    Bin_11= Bin ('Type1_box1', 25, 100, 100, 20)
-    Bin_11.set_offset(100, 100, 100)
-    packer1.add_bin(Bin_11)
-    Bin_21= Bin ('Type2_box1', 100, 100, 100, 20)
-    Bin_21.set_offset(100, 200, 100)
-    packer2.add_bin(Bin_21)
-    Bin_22= Bin ('Type2_box2', 100, 100, 100, 20)
-    Bin_11.set_offset(100, 300, 100)
-    packer2.add_bin(Bin_22)
+    Bin_00= Bin ('Type1_box1', 300, 200, 130, 20)
+    Bin_00.set_offset(100, 100, 100)
+    packer1.add_bin(Bin_00)
+    Bin_10= Bin ('Type2_box1', 300, 200, 130, 20)
+    Bin_10.set_offset(100, 200, 100)
+    packer2.add_bin(Bin_10)
 
     packer1.add_item(Item('Type1', 100,25,25, 1))
     #packer1.add_item(Item('Type1', 25,25,25, 1))
@@ -130,6 +129,16 @@ def main():
         bin=0
         num_obj_pick=num_objects_array[type_obj]
         pick_objects = [] #array in which i'll store the objects, pick side, that i've already picked and placed
+
+        #send the zoffset of the top face wrt to the center of the object of the considered type
+        generic_bin= packer.bins[0]
+        generic_item=generic_bin.items[0]
+        z_top_face = generic_item.depth/2
+        z_top_face_send= np.array ([[z_top_face]], dtype=np.int32)
+        send_array(s,z_top_face_send)
+            
+        #recieve something
+        helper0=s.recv(1024).decode()
 
         while bin<num_bins: 
 

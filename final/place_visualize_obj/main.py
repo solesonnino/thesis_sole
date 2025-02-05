@@ -268,16 +268,14 @@ class Packer:
         )
 
         for bin in self.bins:
-            for item in self.items:
-                fitted = self.pack_to_bin(bin, item)
-                if fitted:
+            fitted=True
+            while (fitted==True and len(self.items)>0):
+                item=self.items[0]
+                fitted=self.pack_to_bin(bin, item)
+                if fitted :
                     self.items.remove(item)
                     print("item removed")
 
-
-            if distribute_items:
-                for item in bin.items:
-                    self.items.remove(item)
 
 class Scene:
     

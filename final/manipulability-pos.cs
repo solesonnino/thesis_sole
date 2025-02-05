@@ -30,7 +30,7 @@ class Program
         try
         {
            // Define the number of simulations
-            int Nsim = 5;
+            int Nsim = 1;
             int port = 12345;
             int particles=5;
             double[] fitness = new double[particles];
@@ -38,7 +38,7 @@ class Program
             int num_objects_0 = 1;
             int num_objects_1 = 2;
             int num_bin_0=1;
-            int num_bin_1=2;
+            int num_bin_1=1;
             int [] num_bins_array= new int[num_types];
             int [] num_objects_array= new int [num_types];
 
@@ -66,6 +66,18 @@ class Program
             { 
                 num_bins= num_bins_array[type_obj];
                 num_objects_pick=num_objects_array[type_obj];
+                //recieve the offset of the top face of the object of the considered type wrt the center of the object
+                var z_top_face_rec= ReceiveNumpyArray(stream);
+                var z_top_face_int= z_top_face_rec[0,0];
+
+                //transform into a vector
+                var z_top_face= new TxVector(0,0,z_top_face_int);
+
+                //send something
+                string helper0= "ok";
+                byte[] helper0_vec = Encoding.ASCII.GetBytes(helper0);
+                stream.Write(helper0_vec, 0, helper0_vec.Length);
+
                 for (int bin=0; bin<num_bins; bin++)
                 {
                     // recieve the number of objects inside the considered bin
@@ -220,13 +232,19 @@ class Program
                                         selectedObject = TxApplication.ActiveDocument.GetObjectsByName("YAOSC_cube"+type_obj.ToString()+c.ToString());
                                         var Cube = selectedObject[0] as ITxLocatableObject;
                                         var cube_name = Cube.Name; // Save the name of the object
-                                        var pick_point = new TxVector(Cube.LocationRelativeToWorkingFrame.Translation);
+                                        var pick_point_partial = new TxVector(Cube.LocationRelativeToWorkingFrame.Translation);
+                                        var pick_point= new TxVector(pick_point_partial+z_top_face);
+
+                                        
+                                        // the pick point is on the top face of the object (vacuum gripper) --> translate the pick point
+                                        
 
                                         //define the place point of the object --> varies depending on the object
                                         var place_point_x=place_position_recieved[0, 0]; 
                                         var place_point_y=place_position_recieved[0, 1]; 
                                         var place_point_z=place_position_recieved[0, 2];
-                                        var place_point = new TxVector (place_point_x, place_point_y, place_point_z);
+                                        var place_point_partial = new TxVector (place_point_x, place_point_y, place_point_z);
+                                        var place_point= new TxVector(place_point_partial+ z_top_face);
 
                                         //define the point above the pick/place point
                                         var zoffset = new TxVector(0, 0, 100);
