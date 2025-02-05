@@ -71,7 +71,7 @@ def main():
     packer2 = Packer()
     packers.append(packer1)
     packers.append(packer2)
-    Bin_11= Bin ('Type1_box1', 100, 100, 100, 20)
+    Bin_11= Bin ('Type1_box1', 25, 100, 100, 20)
     Bin_11.set_offset(100, 100, 100)
     packer1.add_bin(Bin_11)
     Bin_21= Bin ('Type2_box1', 100, 100, 100, 20)
@@ -81,7 +81,7 @@ def main():
     Bin_11.set_offset(100, 300, 100)
     packer2.add_bin(Bin_22)
 
-    packer1.add_item(Item('Type1', 25,25,25, 1))
+    packer1.add_item(Item('Type1', 100,25,25, 1))
     #packer1.add_item(Item('Type1', 25,25,25, 1))
     packer2.add_item(Item('Tipe1_1', 25,25,25, 1))
     packer2.add_item(Item('Tipe1_2', 25,25,25, 1))

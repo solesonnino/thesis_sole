@@ -279,7 +279,12 @@ class Program
 
                                         // Impose a position to the fifth waypoint		
                                         double rotVal5 = Math.PI;
-                                        TxTransformation rotX5 = new TxTransformation(new TxVector(rotVal5, 0, 0), 
+                                        double rot_z_place=0;
+                                        if (rotation ==1)
+                                        {
+                                            rot_z_place = Math.PI/2;
+                                        }
+                                        TxTransformation rotX5 = new TxTransformation(new TxVector(rotVal5, 0, rot_z_place), 
                                         TxTransformation.TxRotationType.RPY_XYZ);
                                         FifthPoint.AbsoluteLocation = rotX5;
                                         
@@ -289,13 +294,10 @@ class Program
 
                                         // Impose a position to the sixth waypoint		
                                         double rotVal6 = Math.PI;
-                                        if (rotation ==1):
-                                        {
-                                            double rot_z_place = Math.PI/2;
-                                        }
-                                        else double rot_z_place = 0;
                                         
-                                        TxTransformation rotX6 = new TxTransformation(new TxVector(rotVal6, 0, rot_z_place), 
+                                        
+                                        
+                                        TxTransformation rotX6 = new TxTransformation(new TxVector(rotVal6, 0, 0), 
                                         TxTransformation.TxRotationType.RPY_XYZ);
                                         SixthPoint.AbsoluteLocation = rotX6;
                                         

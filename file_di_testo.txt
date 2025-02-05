@@ -1,18 +1,18 @@
  Type : 0 
  bin 0 
  object: 0 
- at the position: [12, 12, 12]
-the optimal position of the base is: -98.550075367056 
+ at the position: [12, 50, 12]
+the optimal position of the base is: -91.5832985260522 
  
  Type : 1 
  bin 0 
- object: 1 
- at the position: [12, 12, 12]
-the optimal position of the base is: -127.30275584145843 
+ object: 0 
+ at the position: [12, 50, 12]
+the optimal position of the base is: -120.68223259107644 
  
  Type : 1 
  bin 1 
- object: 0 
- at the position: [12, 12, 12]
-the optimal position of the base is: -27.657338488994895 
+ object: 1 
+ at the position: [12, 50, 12]
+the optimal position of the base is: 114.50126435915234 
  
