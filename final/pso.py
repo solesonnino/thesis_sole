@@ -29,8 +29,8 @@ cognitive_component = 2    # cognitive component
 social_component = 2.0 
 
 num_types = 2
-num_objects_0 = 1 #objects in the scene
-num_objects_1 = 2
+num_objects_0 = 3 #objects in the scene
+num_objects_1 = 3
 num_bin_0=1
 num_bin_1=1
 
@@ -80,18 +80,13 @@ def main():
     Bin_10.set_offset(100, 200, 100)
     packer2.add_bin(Bin_10)
 
-    packer1.add_item(Item('Type1', 100,25,25, 1))
-    #packer1.add_item(Item('Type1', 25,25,25, 1))
-    packer2.add_item(Item('Tipe1_1', 25,25,25, 1))
-    packer2.add_item(Item('Tipe1_2', 25,25,25, 1))
-    #packer2.add_item(Item('Type2', 25,25,25, 1))
-    #packer.add_item(Item('Type2', 25,25,25, 1))
-    #packer.add_item(Item('Type2', 25,25,25, 1))
-    #packer.add_item(Item('Type2', 25,25,25, 1))
-    #packer.add_item(Item('Type2', 25,25,25, 1))
-    #packer.add_item(Item('Type2', 25,25,25, 1))
-    #packer.pack()
-    #scene = Scene()
+    packer1.add_item(Item('Cube_00', 75,150,80, 1))
+    packer1.add_item(Item('Cube_01', 75,150,80, 1))
+    packer1.add_item(Item('Cube_02', 75,150,80, 1))
+    packer2.add_item(Item('Cube_10', 100,70,80, 1))
+    packer2.add_item(Item('Cube_11', 100,70,80, 1))
+    packer2.add_item(Item('Cube_12', 100,70,80, 1))
+
     items=[] #array in which i'll store all the items
 
     for packer in packers:
