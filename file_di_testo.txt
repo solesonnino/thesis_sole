@@ -2,35 +2,35 @@
  bin 0 
  object: 0 
  at the position: [37, 75, 40]
-the optimal position of the base is: -98.86828975713047 
- 
- Type : 0 
- bin 0 
- object: 1 
- at the position: [112, 75, 40]
-the optimal position of the base is: -18.60519194318772 
+the optimal position of the base is: -619.1193168561671 
  
  Type : 0 
  bin 0 
  object: 2 
+ at the position: [112, 75, 40]
+the optimal position of the base is: -418.58278577897113 
+ 
+ Type : 0 
+ bin 0 
+ object: 1 
  at the position: [187, 75, 40]
-the optimal position of the base is: 386.2130056216788 
+the optimal position of the base is: 1161.0835403002498 
  
  Type : 1 
  bin 0 
  object: 0 
  at the position: [37, 75, 40]
-the optimal position of the base is: 306.66985924815344 
+the optimal position of the base is: 1276.1639776178095 
  
  Type : 1 
  bin 0 
  object: 1 
  at the position: [112, 75, 40]
-the optimal position of the base is: 490.85870822468314 
+the optimal position of the base is: 1202.9655855829342 
  
  Type : 1 
  bin 0 
  object: 2 
  at the position: [187, 75, 40]
-the optimal position of the base is: 609.3469689635795 
+the optimal position of the base is: 1442.542369439469 
  

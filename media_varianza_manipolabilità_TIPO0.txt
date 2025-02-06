@@ -1,0 +1,2 @@
+media manipolabilità tipo 0: 10020.604166666666 
+ varianza manipolabilità tipo 0: 7261027.757456141

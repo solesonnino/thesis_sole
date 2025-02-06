@@ -74,10 +74,10 @@ def main():
     packers.append(packer1)
     packers.append(packer2)
     Bin_00= Bin ('Type1_box1', 300, 200, 130, 20)
-    Bin_00.set_offset(100, 100, 100)
+    Bin_00.set_offset(-900,-530,-107)
     packer1.add_bin(Bin_00)
     Bin_10= Bin ('Type2_box1', 300, 200, 130, 20)
-    Bin_10.set_offset(100, 200, 100)
+    Bin_10.set_offset(-400, -530, -107)
     packer2.add_bin(Bin_10)
 
     packer1.add_item(Item('Cube_00', 75,150,80, 1))
@@ -97,7 +97,6 @@ def main():
             scene.add_object_to_scene(b, False)
             print("FITTED ITEMS:")
 
-
             for item in b.items:
                 print("====> ", item.string())
                 scene.add_object_to_scene(item, False)
@@ -111,7 +110,6 @@ def main():
             print("***************************************************")
             print("***************************************************")
             #scene.show_scene()
-
 
 
     type_obj=0
@@ -237,14 +235,14 @@ def main():
                             #layout = np.array([[int(particle_positions[0])]], dtype= np.int32)
                             # Actual send of the data (in the future: try to remove the double send and try to send just one time)
                             send_array(s,layout)
-                            #print(f"particle positions: {layout}")
+                            print(f"particle positions: {layout}")
 
                             #recieve the fitness
                             fitness = s.recv(1024).decode()
                             fitness = [int(num) for num in fitness.split(',')] # list variable
                             # Transform the data into a numpy array
                             fitness_Vec= np.array(fitness)
-                            #print(f"the fitness values are: {fitness_Vec} \n")
+                            print(f"the fitness values are: {fitness_Vec} \n")
 
                             #send something just to see
                             helper3= np.array([[0]], dtype=np.int32)
