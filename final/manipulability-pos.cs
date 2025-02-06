@@ -35,8 +35,8 @@ class Program
             int particles=5;
             double[] fitness = new double[particles];
             int num_types = 2;
-            int num_objects_0 = 1;
-            int num_objects_1 = 2;
+            int num_objects_0 = 3;
+            int num_objects_1 = 3;
             int num_bin_0=1;
             int num_bin_1=1;
             int [] num_bins_array= new int[num_types];
@@ -94,9 +94,9 @@ class Program
                     {
                         //recieve the place point for the object I'm considering
                         var place_position_recieved = ReceiveNumpyArray(stream);
-                        output.Write("la posizione di place per l'oggetto è: ");
-                        PrintArray(place_position_recieved, output);
-                        output.Write("\n");
+                        //output.Write("la posizione di place per l'oggetto è: ");
+                        //PrintArray(place_position_recieved, output);
+                        //output.Write("\n");
 
                         //send helper 4 for synchonization
                         string helper4= "ok";
@@ -137,25 +137,25 @@ class Program
                                 {
                                     // Receive positions array
                                     var layout = ReceiveNumpyArray(stream);
-                                    output.Write("positions: \n");
-                                    PrintArray(layout, output);
-                                    output.Write("\n");
+                                    //output.Write("positions: \n");
+                                    //PrintArray(layout, output);
+                                    //output.Write("\n");
                                     for (int pos=0; pos < particles; pos++)
                                     {
                                     //move the base of the robot in the defined position 
                                         int fitness_int=0;
                                         TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
-                                        selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5");
-                                        var robot = selectedObjects[1] as ITxLocatableObject;
+                                        selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
+                                        var robot = selectedObjects[0] as ITxLocatableObject;
                                         double move_Y_Val=0;
                                         move_Y_Val= layout[0,pos];	
                                         var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
                                         position.Translation = new TxVector(0, move_Y_Val, 0);
                                         robot.LocationRelativeToWorkingFrame = position;
                                         TxApplication.RefreshDisplay();
-                                        output.Write("\n the current position is: \n");
-                                        output.Write(move_Y_Val.ToString());
-                                        output.Write("\n");
+                                        //output.Write("\n the current position is: \n");
+                                        //output.Write(move_Y_Val.ToString());
+                                        //output.Write("\n");
 
                                         determinantCounter=0;
                                         determinantSum=0;
@@ -177,8 +177,8 @@ class Program
                                         bool verbose = false; // Controls some display options
                                     
                                         // Save the robot (the index may change)  	
-                                        TxObjectList objects = TxApplication.ActiveDocument.GetObjectsByName("UR5");
-                                        var robot2 = objects[1] as TxRobot;
+                                        TxObjectList objects = TxApplication.ActiveDocument.GetObjectsByName("UR5e");
+                                        var robot2 = objects[0] as TxRobot;
                                             
                                         // Create the new operation    	
                                         TxContinuousRoboticOperationCreationData data = new TxContinuousRoboticOperationCreationData(operation_name);
@@ -589,11 +589,11 @@ class Program
                                                 
                                         // Rewind the simulation
                                         player.Rewind();
-                                        output.Write("fine simulazione corrispondente alla posizione: " + pos_string + "\n");
+                                        //output.Write("fine simulazione corrispondente alla posizione: " + pos_string + "\n");
                                         double MeanDeterminant = 100000*determinantSum/determinantCounter;
-                                        output.Write("determinante medio: " + MeanDeterminant.ToString() + "\n");
+                                        //output.Write("determinante medio: " + MeanDeterminant.ToString() + "\n");
                                         string Time = op.Duration.ToString();
-                                        output.Write("tempo: " + Time + "\n");
+                                        //output.Write("tempo: " + Time + "\n");
                                         int fitness_int_partial =(int)MeanDeterminant;
                                         fitness_int= fitness_int+fitness_int_partial;
                                         MyOp.Delete();
@@ -603,7 +603,7 @@ class Program
                                     string fitnes_s = string.Join(",", fitness);
                                     byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
                                     stream.Write(fitness_Vec, 0, fitness_Vec.Length);
-                                    output.Write("\n The fitness is:\n" + fitnes_s + "\n");
+                                    //output.Write("\n The fitness is:\n" + fitnes_s + "\n");
 
                                     //recieve something just to see if it works
                                     var helper3= ReceiveNumpyArray(stream);
@@ -611,10 +611,10 @@ class Program
                                     // Send the trigger_end back to Python
 
                                     string trigger_end = (ii + 1).ToString();
-                                    output.Write(trigger_end + "\n");
+                                    output.Write( "trigger end " +trigger_end + "\n");
                                     byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end);
                                     stream.Write(byte_trigger_end, 0, byte_trigger_end.Length);
-                                    }
+                                }
 
                                 //recieve something just to see if it works
                                 var helper10= ReceiveNumpyArray(stream);
@@ -632,6 +632,7 @@ class Program
                         var helper11= ReceiveNumpyArray(stream);    
                         //send i+1 to python
                         string i_str = (i + 1).ToString();
+                        output.Write("\n i=" + i_str);
                         byte[] byte_i = Encoding.ASCII.GetBytes(i_str);
                         stream.Write(byte_i, 0, byte_i.Length);
 
@@ -642,6 +643,7 @@ class Program
 
                     //send bin+1 to python
                     string bin_str = (bin + 1).ToString();
+                    output.Write("\n bin: " + bin_str);
                     byte[] byte_bin = Encoding.ASCII.GetBytes(bin_str);
                     stream.Write(byte_bin, 0, byte_bin.Length);  
 

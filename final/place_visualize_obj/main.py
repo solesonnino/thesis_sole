@@ -275,6 +275,10 @@ class Packer:
                 if fitted :
                     self.items.remove(item)
                     print("item removed")
+                    
+            if distribute_items:
+                for item in bin.items:
+                    self.items.remove(item)
 
 
 class Scene:

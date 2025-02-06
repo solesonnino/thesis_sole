@@ -128,9 +128,12 @@ def main():
         #send the zoffset of the top face wrt to the center of the object of the considered type
         generic_bin= packer.bins[0]
         generic_item=generic_bin.items[0]
-        z_top_face = generic_item.depth/2
+        z_top_face = (generic_item.depth)/2
+        print(f"z_topface  {z_top_face}" )
         z_top_face_send= np.array ([[z_top_face]], dtype=np.int32)
         send_array(s,z_top_face_send)
+
+        print(f"type= {type_obj} \n" )
             
         #recieve something
         helper0=s.recv(1024).decode()
@@ -234,14 +237,14 @@ def main():
                             #layout = np.array([[int(particle_positions[0])]], dtype= np.int32)
                             # Actual send of the data (in the future: try to remove the double send and try to send just one time)
                             send_array(s,layout)
-                            print(f"particle positions: {layout}")
+                            #print(f"particle positions: {layout}")
 
                             #recieve the fitness
                             fitness = s.recv(1024).decode()
                             fitness = [int(num) for num in fitness.split(',')] # list variable
                             # Transform the data into a numpy array
                             fitness_Vec= np.array(fitness)
-                            print(f"the fitness values are: {fitness_Vec} \n")
+                            #print(f"the fitness values are: {fitness_Vec} \n")
 
                             #send something just to see
                             helper3= np.array([[0]], dtype=np.int32)
@@ -321,7 +324,7 @@ def main():
                         if (t < min_time): #if the current motion is better, update
                             min_time=t
                             next_position = global_best_position
-                            print(f"\npartial computation: {next_position}\n")
+                            #print(f"\npartial computation: {next_position}\n")
                             next_item=c
 
                         #send something just to see
@@ -334,14 +337,15 @@ def main():
                         send_array(s,skip)
 
 
-                    #move to the next
+                    #move to the next 
+                    # #recieve c
                     c= int(s.recv(1024).decode())
 
                 #once i've found the association between the item that i have to pick and the place position of it,
                 # i move to the next place position and look for the next item to pack
                 current_pos=next_position 
-                print(f"object: {next_item} \n has been positioned inside the box {bin} at the position: {current_item.get_center()}")
-                print(f"the optimal position of the base is: {current_pos}")
+                #print(f"object: {next_item} \n has been positioned inside the box {bin} at the position: {current_item.get_center()}")
+                #print(f"the optimal position of the base is: {current_pos}")
                 
                 # Creare un file e scrivere del testo
                 with open("file_di_testo.txt", "a") as File:
@@ -359,6 +363,7 @@ def main():
                 # Actual send of the data (in the future: try to remove the double send and try to send just one time)
                 send_array(s,helper3)
                 i= int(s.recv(1024).decode())
+                print(f"\ni= {i}\n")
                 #i've moved the base and performed the pick and place operation, so i remove:
                 # - the place point because it is taken
                 # - the item pick side because it has been placed
@@ -372,7 +377,8 @@ def main():
             bin= int(s.recv(1024).decode())       
 
         #send something
-        send_array(s,helper3)
+        helper15= np.array([[0]], dtype=np.int32)
+        send_array(s,helper15)
 
         #recieve type
         type_obj=int(s.recv(1024).decode())

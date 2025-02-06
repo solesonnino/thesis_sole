@@ -30,7 +30,7 @@ class Program
         try
         {
            // Define the number of simulations
-            int Nsim = 1;
+            int Nsim = 2;
             int port = 12345;
             int particles=5;
             double[] fitness = new double[particles];
@@ -182,7 +182,7 @@ class Program
 
                                         // Get the object to attach to the tool (and the tool)
 		                                ITxObject considered_item = TxApplication.ActiveDocument.
-		                                GetObjectsByName("Cube_"+ type_obj.ToString()+c.ToString())[0];
+		                                GetObjectsByName("Big_box_camozzi_1")[0];
 
 		                                ITxObject tool = TxApplication.ActiveDocument.
 		                                GetObjectsByName("Suction cup")[0];
