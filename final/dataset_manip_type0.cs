@@ -21,12 +21,12 @@ class Program
     {
         m_output = output;
         TcpListener server = null;
-        int N=10;
+        int N=100;
         
         try
         {
             int port = 12345;
-            output.Write("cerco il client...")
+            output.Write("cerco il client...");
             server = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
             server.Start();
             output.Write("Server started...");

@@ -1,0 +1,2 @@
+media manipolabilit� tipo 1: 11022.886363636364 
+ varianza manipolabilit� tipo 1: 2183941.917972832

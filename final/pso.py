@@ -4,6 +4,7 @@ from place_visualize_obj import Scene, Packer, Bin, Item
 import os
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+import math
 
 
 # Specifica il percorso del file
@@ -15,8 +16,8 @@ with open(file_path, 'w') as f:
 
 
 #max velocity and acceleration of the base in cm
-v_max=20
-a=10
+v_max=70 #m/s
+a=90 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
@@ -242,7 +243,7 @@ def main():
                             fitness = [int(num) for num in fitness.split(',')] # list variable
                             # Transform the data into a numpy array
                             fitness_Vec= np.array(fitness)
-                            print(f"the fitness values are: {fitness_Vec} \n")
+                            #print(f"the fitness values are: {fitness_Vec} \n")
 
                             #send something just to see
                             helper3= np.array([[0]], dtype=np.int32)
@@ -315,7 +316,7 @@ def main():
                         d_acc= pow(v_max,2)/a
                         d_cost = d-2*d_acc
                         if (d_cost <=0) : #triangular velocity profile
-                            t=v_max/a
+                            t= 2*math.sqrt(d/a)
                         else:
                             t=2*(v_max/a)+d_cost/v_max    
                         
