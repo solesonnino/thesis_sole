@@ -84,6 +84,7 @@ def main():
         place_x = place_points [0][0] + x_offset_box
         place_y = place_points [0][1] + y_offset_box
         place_z = place_points [0][2] + z_offset_box + 40
+        print(f"place: {place_x} {place_y} {place_z}")
 
         #manda la pos di place
         place_point_send= np.array ([[place_x, place_y, place_z]], dtype=np.int32)
