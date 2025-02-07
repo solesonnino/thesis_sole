@@ -1,400 +1,2400 @@
- oggetto di pick: Cube_00 
- oggetto di place: 1 
- base del manipolatore in y=-207.04421996361742 
- manipolabilita'= 9736 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1430.8147667811802 
+ manipolabilita'= -2147483648 
  oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=144.46886462919122 
- manipolabilita'= 11580 
- oggetto di pick: Cube_00 
  oggetto di place: 1 
- base del manipolatore in y=33.3480782159362 
- manipolabilita'= 11198 
- oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=-356.38123069985613 
+ base del manipolatore in y=-1459.3830181979222 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-692.3078113703792 
  manipolabilita'= -2147483648 
  oggetto di pick: Cube_02 
  oggetto di place: 0 
- base del manipolatore in y=144.15852969506682 
- manipolabilita'= 12572 
+ base del manipolatore in y=-924.3997959447361 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1210.8893439754058 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1156.7551571835872 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-851.8809865079971 
+ manipolabilita'= -2147483648 
  oggetto di pick: Cube_01 
  oggetto di place: 0 
- base del manipolatore in y=132.40180030027955 
- manipolabilita'= 12257 
+ base del manipolatore in y=-909.7003027851293 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-350.8142812025005 
+ manipolabilita'= 8618 
  oggetto di pick: Cube_00 
  oggetto di place: 2 
- base del manipolatore in y=-73.64672511802604 
- manipolabilita'= 9696 
+ base del manipolatore in y=-1245.2441685606987 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1407.3861241554698 
+ manipolabilita'= -2147483648 
  oggetto di pick: Cube_02 
  oggetto di place: 1 
- base del manipolatore in y=165.35792107725138 
- manipolabilita'= 12269 
+ base del manipolatore in y=-260.2762959656104 
+ manipolabilita'= 8907 
  oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=124.59231988650413 
- manipolabilita'= 12281 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=212.49526884538886 
- manipolabilita'= 12255 
+ oggetto di place: 2 
+ base del manipolatore in y=-297.4103760715659 
+ manipolabilita'= 8568 
  oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=32.670925341403745 
- manipolabilita'= 10991 
- oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=-412.80750469188763 
- manipolabilita'= -2147483648 
- oggetto di pick: Cube_01 
- oggetto di place: 2 
- base del manipolatore in y=-201.88915740869072 
- manipolabilita'= 9216 
- oggetto di pick: Cube_01 
  oggetto di place: 0 
- base del manipolatore in y=-353.49791600219305 
- manipolabilita'= 9184 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=47.329609324780904 
- manipolabilita'= 12166 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=158.22779174499954 
- manipolabilita'= 12283 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=458.03517574985585 
- manipolabilita'= 11415 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=-489.3816104588993 
+ base del manipolatore in y=-1336.1755710039456 
  manipolabilita'= -2147483648 
  oggetto di pick: Cube_00 
  oggetto di place: 0 
- base del manipolatore in y=363.2614801882705 
- manipolabilita'= 12151 
+ base del manipolatore in y=-633.9384282257698 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-861.8033587949416 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-335.0947648682395 
+ manipolabilita'= 9686 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-151.60903218825206 
+ manipolabilita'= 10981 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-737.03065168637 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-175.96106113171754 
+ manipolabilita'= 10837 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-958.7308812039413 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1317.8904147367207 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-316.9908316495089 
+ manipolabilita'= 9113 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1429.695666044009 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1161.6839441004934 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1178.917123194693 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-550.1785427713835 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-292.36910807052504 
+ manipolabilita'= 8992 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-874.7401304546457 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-938.5824656516802 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-1022.9247748887306 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-595.1097210534879 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-788.5882920794692 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-560.4511954641486 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-141.36559644874183 
+ manipolabilita'= 9604 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-461.9297822222252 
+ manipolabilita'= 8599 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-468.5276184872305 
+ manipolabilita'= 8152 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-490.20659757133194 
+ manipolabilita'= 7977 
  oggetto di pick: Cube_00 
  oggetto di place: 2 
- base del manipolatore in y=-146.33717465164284 
+ base del manipolatore in y=-575.4996684743478 
+ manipolabilita'= 6410 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-1124.003707428813 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-535.1239634841068 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-589.2505082629461 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-570.5834653414361 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1457.1662949158845 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-869.3389933089055 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-242.58407998081225 
+ manipolabilita'= 10499 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-396.0105234694988 
+ manipolabilita'= 7991 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1062.267536751846 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-11.151919575740521 
+ manipolabilita'= 10112 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-1479.6900110238573 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1023.7309101177896 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-827.3098510352044 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-523.6554222400008 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-427.87937426932035 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-1009.902962481794 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-49.0140322303273 
+ manipolabilita'= 11499 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-535.8914593097982 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-491.40735029132793 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-317.4182932610372 
+ manipolabilita'= 8439 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-500.6095805227508 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-988.651291539911 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1446.5194274647088 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-60.733946064581005 
+ manipolabilita'= 9767 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-483.6039130025325 
+ manipolabilita'= 8366 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-451.7263428177223 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-240.7415399003271 
+ manipolabilita'= 8547 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-553.6485085399323 
+ manipolabilita'= 7293 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1250.0019634557966 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1175.4682711178061 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-34.05283270998052 
+ manipolabilita'= 9918 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-839.6892514745205 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-127.01925148196028 
+ manipolabilita'= 9706 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1302.7286576109243 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-226.8809396284796 
+ manipolabilita'= 9639 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-694.261063857002 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-380.9194022703698 
+ manipolabilita'= 9349 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-114.59057496922446 
+ manipolabilita'= 11477 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1004.1777116376508 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-436.174052928601 
+ manipolabilita'= 7125 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-997.0985591443616 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-891.7931611222384 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1164.3677160662146 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1313.5032070366199 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-221.80943216043147 
+ manipolabilita'= 9844 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-729.2533959566138 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-264.6812456743055 
+ manipolabilita'= 9586 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1223.6135698527294 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1462.9215217107726 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-448.68069420793336 
+ manipolabilita'= 8288 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1455.7488298967467 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-769.1413994165478 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-1009.0347193305668 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1395.4711945452511 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-452.82522287194024 
+ manipolabilita'= 6509 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-1480.1512780802798 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-112.44096397234807 
+ manipolabilita'= 10654 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1001.2191840086247 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-99.62316509253674 
+ manipolabilita'= 9561 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-544.583808534424 
+ manipolabilita'= 7265 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-99.56092178934955 
+ manipolabilita'= 11569 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1295.506773045864 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-497.82951856912985 
+ manipolabilita'= 7889 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-836.1257324234743 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-1195.0267128596943 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1385.5638031460087 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-588.4589979802209 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1094.6568450691839 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-9.943899100365343 
+ manipolabilita'= 11685 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-52.46684377176507 
+ manipolabilita'= 10403 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-840.7815022343021 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1105.018517213167 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-353.94965178872235 
+ manipolabilita'= 9183 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1479.2214330653303 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-103.50072348457456 
+ manipolabilita'= 10383 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1099.8272538792553 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-765.6024614547495 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-1415.8665058226675 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1057.062644033848 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-504.90770519579246 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-41.15945115924046 
+ manipolabilita'= 12103 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-78.97442577082347 
+ manipolabilita'= 11851 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-1017.4408910934637 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1048.2614034059545 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-580.2684288561671 
+ manipolabilita'= 7500 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-1011.492350592623 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-320.0967790933885 
+ manipolabilita'= 9633 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-900.2916969399084 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-473.2260332783435 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-447.34889354650863 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1257.2110388040278 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-703.1738494165473 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-291.80128780786913 
+ manipolabilita'= 7740 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-342.23629278344924 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-826.3695256370653 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-432.3818111915141 
+ manipolabilita'= 8430 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-914.258654120034 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1285.160177998056 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-466.38984819223924 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-1305.7562363131824 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1276.6500561824641 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1494.925157073925 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-199.61727253435174 
+ manipolabilita'= 9030 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-675.9507111347639 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1246.4405740883146 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-673.318406454143 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1478.771133483968 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-615.2274308167603 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-19.46460611962243 
+ manipolabilita'= 11228 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-601.4577358984034 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-652.3092261904112 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-585.430464229649 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-451.41455630681776 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-1035.4363255200863 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-166.1780507906742 
+ manipolabilita'= 9452 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-46.271435062646106 
+ manipolabilita'= 9846 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1476.2637426130204 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1003.6665980970263 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-507.7823440520325 
+ manipolabilita'= 8065 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-2.6547730323966334 
+ manipolabilita'= 12308 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-163.34898721738955 
+ manipolabilita'= 9475 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-456.18328844598454 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-387.3301698003761 
+ manipolabilita'= 8681 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1341.9344300322346 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-542.7539894019426 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-647.7108499238963 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-947.9076449210937 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1113.3941493105272 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-910.9533326546285 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-63.03334286116956 
+ manipolabilita'= 11769 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-1443.9041332406316 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-899.3103878929824 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-765.6613101425621 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-411.53672128515586 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1133.4678644416022 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-546.6808986704272 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-150.29841549756043 
+ manipolabilita'= 11234 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-43.69518922545785 
+ manipolabilita'= 10472 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1392.460593386521 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-115.53752077725608 
+ manipolabilita'= 9737 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-509.27415600247934 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-994.7409601298001 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-1255.9505261104214 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-494.7701224045559 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-767.2452956585272 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1033.6042687470608 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-132.37722162578052 
+ manipolabilita'= 9671 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-79.96699183081 
+ manipolabilita'= 9999 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-146.2659990368029 
  manipolabilita'= 9280 
- oggetto di pick: Cube_01 
- oggetto di place: 1 
- base del manipolatore in y=-226.82674503782874 
- manipolabilita'= 9797 
  oggetto di pick: Cube_02 
- oggetto di place: 0 
- base del manipolatore in y=234.47394512306573 
- manipolabilita'= 12409 
- oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=249.4230036449586 
- manipolabilita'= 12320 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=423.4202564277483 
- manipolabilita'= 11606 
- oggetto di pick: Cube_00 
  oggetto di place: 2 
- base del manipolatore in y=484.40930780176495 
- manipolabilita'= 12954 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=-46.54464712880713 
- manipolabilita'= 11852 
- oggetto di pick: Cube_01 
- oggetto di place: 2 
- base del manipolatore in y=61.35847930201976 
- manipolabilita'= 10826 
- oggetto di pick: Cube_00 
- oggetto di place: 0 
- base del manipolatore in y=318.312079918397 
- manipolabilita'= 12211 
- oggetto di pick: Cube_00 
- oggetto di place: 2 
- base del manipolatore in y=-471.4217467146964 
- manipolabilita'= 7986 
- oggetto di pick: Cube_01 
- oggetto di place: 2 
- base del manipolatore in y=14.604328295598748 
- manipolabilita'= 10543 
- oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=294.29452132386507 
- manipolabilita'= 12320 
- oggetto di pick: Cube_00 
- oggetto di place: 0 
- base del manipolatore in y=162.4558395789211 
- manipolabilita'= 12144 
- oggetto di pick: Cube_00 
- oggetto di place: 0 
- base del manipolatore in y=205.35179321006524 
- manipolabilita'= 12193 
- oggetto di pick: Cube_00 
- oggetto di place: 2 
- base del manipolatore in y=-53.20431313727261 
- manipolabilita'= 9806 
- oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=450.99621692250685 
- manipolabilita'= 11920 
- oggetto di pick: Cube_00 
- oggetto di place: 2 
- base del manipolatore in y=-185.4620538411731 
- manipolabilita'= 9116 
- oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=-473.42145245153966 
+ base del manipolatore in y=-567.0429133819614 
  manipolabilita'= -2147483648 
  oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1202.971433105989 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-799.0208706323546 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
  oggetto di place: 2 
- base del manipolatore in y=-185.4213250937944 
- manipolabilita'= 9116 
- oggetto di pick: Cube_00 
- oggetto di place: 1 
- base del manipolatore in y=286.50711512168664 
- manipolabilita'= 12258 
- oggetto di pick: Cube_00 
- oggetto di place: 1 
- base del manipolatore in y=-375.3070565459351 
- manipolabilita'= 8778 
- oggetto di pick: Cube_02 
- oggetto di place: 0 
- base del manipolatore in y=-65.91304031867986 
- manipolabilita'= 11947 
- oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=-373.7338937139932 
+ base del manipolatore in y=-117.31498946257784 
+ manipolabilita'= 9727 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-605.2029524550319 
  manipolabilita'= -2147483648 
  oggetto di pick: Cube_02 
  oggetto di place: 0 
- base del manipolatore in y=-330.5552457083608 
- manipolabilita'= 8800 
+ base del manipolatore in y=-521.4440378357998 
+ manipolabilita'= -2147483648 
  oggetto di pick: Cube_02 
  oggetto di place: 1 
- base del manipolatore in y=-59.88193577539437 
- manipolabilita'= 11190 
+ base del manipolatore in y=-1154.994611253574 
+ manipolabilita'= -2147483648 
  oggetto di pick: Cube_01 
  oggetto di place: 1 
- base del manipolatore in y=-80.86804751142228 
+ base del manipolatore in y=-632.6080567481746 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-282.4875013720323 
+ manipolabilita'= 9321 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-80.45826131396348 
  manipolabilita'= 10862 
- oggetto di pick: Cube_00 
- oggetto di place: 1 
- base del manipolatore in y=232.56950271064954 
- manipolabilita'= 12070 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=172.09283901241224 
- manipolabilita'= 12287 
  oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=123.94613012721584 
- manipolabilita'= 12157 
- oggetto di pick: Cube_02 
- oggetto di place: 0 
- base del manipolatore in y=427.20680986150273 
- manipolabilita'= 11454 
- oggetto di pick: Cube_01 
  oggetto di place: 2 
- base del manipolatore in y=367.8760194981967 
- manipolabilita'= 12174 
- oggetto di pick: Cube_01 
- oggetto di place: 1 
- base del manipolatore in y=32.30205887722866 
- manipolabilita'= 11458 
- oggetto di pick: Cube_02 
- oggetto di place: 0 
- base del manipolatore in y=-294.7943690506635 
- manipolabilita'= 8932 
- oggetto di pick: Cube_00 
- oggetto di place: 1 
- base del manipolatore in y=-469.9004353266865 
- manipolabilita'= 8142 
- oggetto di pick: Cube_02 
- oggetto di place: 0 
- base del manipolatore in y=-456.7894858694491 
+ base del manipolatore in y=-791.7398877036071 
  manipolabilita'= -2147483648 
  oggetto di pick: Cube_01 
  oggetto di place: 0 
- base del manipolatore in y=-109.63383436359442 
- manipolabilita'= 11508 
+ base del manipolatore in y=-928.0680370198847 
+ manipolabilita'= -2147483648 
  oggetto di pick: Cube_01 
  oggetto di place: 0 
- base del manipolatore in y=117.76229821704794 
- manipolabilita'= 12275 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=-468.2111223410409 
- manipolabilita'= -2147483648 
- oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=-89.1294431089924 
- manipolabilita'= 10069 
- oggetto di pick: Cube_00 
- oggetto di place: 2 
- base del manipolatore in y=95.94052923437471 
- manipolabilita'= 10782 
- oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=-304.1657185018087 
- manipolabilita'= 7961 
- oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=330.44833146970336 
- manipolabilita'= 12144 
- oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=373.7424526560144 
- manipolabilita'= 12172 
- oggetto di pick: Cube_02 
- oggetto di place: 0 
- base del manipolatore in y=-374.3238647569861 
- manipolabilita'= -2147483648 
- oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=-336.9102121138898 
+ base del manipolatore in y=-1004.9956533487864 
  manipolabilita'= -2147483648 
  oggetto di pick: Cube_00 
- oggetto di place: 2 
- base del manipolatore in y=375.55699545903235 
- manipolabilita'= 12459 
- oggetto di pick: Cube_01 
  oggetto di place: 0 
- base del manipolatore in y=-85.09145598743595 
- manipolabilita'= 11651 
- oggetto di pick: Cube_00 
- oggetto di place: 2 
- base del manipolatore in y=-157.16911850385816 
- manipolabilita'= 9223 
+ base del manipolatore in y=-553.1295134072793 
+ manipolabilita'= 7293 
  oggetto di pick: Cube_01 
  oggetto di place: 2 
- base del manipolatore in y=342.9893654960822 
- manipolabilita'= 12082 
- oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=-388.60176340930275 
+ base del manipolatore in y=-823.3144843707762 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-895.5066368207699 
  manipolabilita'= -2147483648 
  oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-34.23548678683915 
+ manipolabilita'= 11377 
+ oggetto di pick: Cube_00 
  oggetto di place: 2 
- base del manipolatore in y=-31.064745298437174 
- manipolabilita'= 10559 
- oggetto di pick: Cube_00 
- oggetto di place: 0 
- base del manipolatore in y=-121.40536103286428 
- manipolabilita'= 11155 
- oggetto di pick: Cube_00 
- oggetto di place: 1 
- base del manipolatore in y=404.9292266381019 
- manipolabilita'= 12521 
- oggetto di pick: Cube_00 
- oggetto di place: 0 
- base del manipolatore in y=263.2761629523043 
- manipolabilita'= 12202 
+ base del manipolatore in y=-206.7819945204983 
+ manipolabilita'= 9032 
  oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-930.4751895568555 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-180.81050875606252 
+ manipolabilita'= 10807 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-10.59259570616041 
+ manipolabilita'= 10400 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1069.9692716240386 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1394.2754700559801 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
  oggetto di place: 1 
- base del manipolatore in y=-464.2551762293343 
+ base del manipolatore in y=-1058.276693514295 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-815.4753147625188 
  manipolabilita'= -2147483648 
  oggetto di pick: Cube_00 
  oggetto di place: 2 
- base del manipolatore in y=-411.485449683875 
- manipolabilita'= 8247 
+ base del manipolatore in y=-1160.8628141987474 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1394.5910259555822 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-130.2918419879445 
+ manipolabilita'= 10532 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-75.19714493502488 
+ manipolabilita'= 10210 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-1193.2997542571875 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-903.7303060165743 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-1026.0304657970742 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1096.9345100351766 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-452.67397690401276 
+ manipolabilita'= 8251 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-108.27369319507306 
+ manipolabilita'= 9516 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-649.9227073436371 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-244.361104928332 
+ manipolabilita'= 8480 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-602.2080657499454 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-33.38379524201446 
+ manipolabilita'= 11148 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-1431.6554511492182 
+ manipolabilita'= -2147483648 
  oggetto di pick: Cube_01 
  oggetto di place: 0 
- base del manipolatore in y=-208.21926275934078 
+ base del manipolatore in y=-906.4040234328749 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-248.7467785762003 
+ manipolabilita'= 10321 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1426.401384534802 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1479.9116080700771 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-647.0810127067354 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-230.33087788009402 
+ manipolabilita'= 9759 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-721.3862443653337 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-1275.6739922732809 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-115.46791474959764 
+ manipolabilita'= 11470 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-934.0753491167079 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-663.5267013251122 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-1037.3132354967677 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-205.96203108665668 
+ manipolabilita'= 9745 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-434.48737884971 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-319.71337905625273 
+ manipolabilita'= 9647 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-283.25637765380066 
+ manipolabilita'= 8441 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-947.8109755307268 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-377.2701693353622 
+ manipolabilita'= 9381 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-912.8288608890119 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-908.7083167377411 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-2.8737365518829847 
+ manipolabilita'= 403309 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-702.2579180324132 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1310.4284176607948 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-788.7606687089701 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-570.476267845107 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1418.8213205334084 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-528.389657528289 
+ manipolabilita'= 7443 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-208.93154443523508 
+ manipolabilita'= 9700 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-707.5664042917816 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-956.3298945322241 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-971.430514808058 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-1111.1517291190971 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-673.0674710983188 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-60.17755227202633 
+ manipolabilita'= 10343 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-1018.391297883993 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-409.58902178936364 
+ manipolabilita'= 7726 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-722.5371367255141 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-1211.4745399848193 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-633.242510631133 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1203.1416654285233 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-476.62365438209065 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-702.9199760471431 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-887.0156480856638 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-267.9943450830099 
+ manipolabilita'= 9422 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-1407.256668194058 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-607.2209690536489 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-601.2715055863222 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1497.7828091860886 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-808.3217419908078 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-755.7807713042006 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-1119.8207788794743 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-1027.235004434474 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1109.677452027912 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-452.2890951387253 
+ manipolabilita'= 6334 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1315.9951180769367 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1456.9748707528247 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-116.56300721319008 
+ manipolabilita'= 10697 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-934.4781678818168 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-988.4823852398765 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-1008.2700206254353 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-167.64029021290276 
+ manipolabilita'= 10175 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-1471.2906412704817 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-551.6981373319358 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-1145.828512130778 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-430.85938449582227 
+ manipolabilita'= 7317 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1164.8022349637638 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1499.8383169132028 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-329.60716804622734 
+ manipolabilita'= 6933 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-1406.0398678109816 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-398.7651866189103 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-166.80364741068342 
+ manipolabilita'= 9451 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1242.6299222134494 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-398.01650551004684 
+ manipolabilita'= 8493 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-302.59109360247965 
+ manipolabilita'= 9877 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-319.55137605614834 
+ manipolabilita'= 9648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-360.119477112649 
+ manipolabilita'= 9123 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-218.6163247928612 
+ manipolabilita'= 8958 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-218.28709809682775 
+ manipolabilita'= 8825 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-116.92594431787722 
+ manipolabilita'= 11182 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-310.6536189270944 
+ manipolabilita'= 9031 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-355.00833431710754 
+ manipolabilita'= 8097 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-359.88436004898824 
+ manipolabilita'= 9508 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-26.101438778694728 
+ manipolabilita'= 10596 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-388.7509515187225 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-264.0552863414887 
+ manipolabilita'= 10247 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-384.4948666079061 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-168.1113431525226 
+ manipolabilita'= 10006 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-290.8349639559728 
+ manipolabilita'= 10034 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-359.31262809665594 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-280.59336149545334 
+ manipolabilita'= 10107 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-66.76665892511829 
+ manipolabilita'= 11754 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-36.96120009918286 
+ manipolabilita'= 10789 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-239.65790863488058 
+ manipolabilita'= 8565 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-297.8292179684909 
+ manipolabilita'= 9199 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-316.58679610671055 
+ manipolabilita'= 7570 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-257.32562477207085 
+ manipolabilita'= 8967 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-208.8987680259614 
  manipolabilita'= 10784 
  oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=259.92404122108064 
- manipolabilita'= 12004 
- oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=32.395978614193496 
- manipolabilita'= 10991 
- oggetto di pick: Cube_01 
  oggetto di place: 1 
- base del manipolatore in y=63.93080324486482 
- manipolabilita'= 11614 
- oggetto di pick: Cube_02 
- oggetto di place: 1 
- base del manipolatore in y=113.43623820267862 
- manipolabilita'= 12121 
- oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=-80.05256313522182 
- manipolabilita'= 10161 
- oggetto di pick: Cube_01 
- oggetto di place: 2 
- base del manipolatore in y=-450.9300936789349 
- manipolabilita'= 6459 
- oggetto di pick: Cube_00 
- oggetto di place: 0 
- base del manipolatore in y=303.85076122187195 
- manipolabilita'= 12202 
- oggetto di pick: Cube_00 
- oggetto di place: 0 
- base del manipolatore in y=-492.03617197876446 
- manipolabilita'= 8293 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=86.49857258267173 
- manipolabilita'= 12225 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=218.92717158023243 
- manipolabilita'= 12251 
- oggetto di pick: Cube_01 
- oggetto di place: 0 
- base del manipolatore in y=-10.350757767412688 
- manipolabilita'= 11972 
- oggetto di pick: Cube_02 
- oggetto di place: 2 
- base del manipolatore in y=-228.33402680619838 
- manipolabilita'= 8733 
+ base del manipolatore in y=-324.2112947222615 
+ manipolabilita'= 7227 
  oggetto di pick: Cube_02 
  oggetto di place: 0 
- base del manipolatore in y=494.0641242782385 
- manipolabilita'= 10872 
- oggetto di pick: Cube_00 
- oggetto di place: 0 
- base del manipolatore in y=496.9385097047898 
- manipolabilita'= 11739 
- oggetto di pick: Cube_00 
- oggetto di place: 1 
- base del manipolatore in y=249.9178131864038 
- manipolabilita'= 12143 
+ base del manipolatore in y=-123.82502500668039 
+ manipolabilita'= 11507 
  oggetto di pick: Cube_01 
- oggetto di place: 2 
- base del manipolatore in y=-440.7123226167648 
- manipolabilita'= 6767 
+ oggetto di place: 0 
+ base del manipolatore in y=-162.74068828730339 
+ manipolabilita'= 11146 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-311.2831339113447 
+ manipolabilita'= 9758 
  oggetto di pick: Cube_02 
  oggetto di place: 1 
- base del manipolatore in y=-342.4929264891383 
+ base del manipolatore in y=-252.54633449349745 
+ manipolabilita'= 9009 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-125.3643022907201 
+ manipolabilita'= 10254 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-122.42217954847996 
+ manipolabilita'= 10587 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-6.0630843689680205 
+ manipolabilita'= 11988 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-193.61668732865857 
+ manipolabilita'= 9060 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-237.00293089885963 
+ manipolabilita'= 9288 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-176.24933950478004 
+ manipolabilita'= 9962 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-251.44112337622892 
+ manipolabilita'= 8821 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-197.02613971819162 
+ manipolabilita'= 9251 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-167.59399245659168 
+ manipolabilita'= 9173 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-61.76476093745748 
+ manipolabilita'= 9761 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-31.244711127250355 
+ manipolabilita'= 11919 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-380.7342552312593 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-396.84434001521464 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-271.52347005807064 
+ manipolabilita'= 9348 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-224.83861987940742 
+ manipolabilita'= 8918 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-50.01520304131736 
+ manipolabilita'= 9823 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-386.3650305245375 
+ manipolabilita'= 8689 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-213.6403322081021 
+ manipolabilita'= 9863 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-298.2807905297763 
+ manipolabilita'= 9962 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-10.635109514503256 
+ manipolabilita'= 11680 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-279.75032063147177 
+ manipolabilita'= 8731 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-41.269548327200084 
+ manipolabilita'= 11539 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-32.792260047785646 
+ manipolabilita'= 11391 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-121.69273094846301 
+ manipolabilita'= 10638 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-238.46795363468956 
+ manipolabilita'= 10436 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-326.8909323173423 
+ manipolabilita'= 8350 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-298.9302454700153 
+ manipolabilita'= 9876 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-187.51044685882562 
+ manipolabilita'= 10763 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-29.881308133737264 
+ manipolabilita'= 10288 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-379.4990787645315 
+ manipolabilita'= 8746 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-201.70070541250124 
+ manipolabilita'= 10843 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-66.9951556326057 
+ manipolabilita'= 10073 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-190.1375418419172 
+ manipolabilita'= 9884 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-318.2667646668197 
+ manipolabilita'= 8589 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-86.23357995046746 
+ manipolabilita'= 10101 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-84.20663763910164 
+ manipolabilita'= 10497 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-176.59936381434656 
+ manipolabilita'= 10831 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-125.55195864391794 
+ manipolabilita'= 11490 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-199.51822094232799 
+ manipolabilita'= 10687 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-115.57682280112283 
+ manipolabilita'= 10634 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-4.686751301556342 
+ manipolabilita'= 11705 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-89.66591073385473 
+ manipolabilita'= 11765 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-2.7459513203902475 
+ manipolabilita'= 12308 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-370.5431422148255 
  manipolabilita'= -2147483648 
  oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-288.23574677682814 
+ manipolabilita'= 10006 
+ oggetto di pick: Cube_00 
  oggetto di place: 1 
- base del manipolatore in y=-41.359707900908234 
- manipolabilita'= 11102 
+ base del manipolatore in y=-296.7211396409893 
+ manipolabilita'= 9206 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-320.9492205014378 
+ manipolabilita'= 6921 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-340.80583728934613 
+ manipolabilita'= 9697 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-312.6001043012104 
+ manipolabilita'= 7669 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-17.838394017674375 
+ manipolabilita'= 11650 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-390.94629696725775 
+ manipolabilita'= 8362 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-332.01315944329446 
+ manipolabilita'= 9515 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-196.3847844545302 
+ manipolabilita'= 10707 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-89.85867189505433 
+ manipolabilita'= 10069 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-198.71735064957846 
+ manipolabilita'= 9045 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-150.85845600523632 
+ manipolabilita'= 10339 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-240.10815732985841 
+ manipolabilita'= 9538 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-165.44036242203455 
+ manipolabilita'= 11125 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-242.2449490545886 
+ manipolabilita'= 8872 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-227.78748573588706 
+ manipolabilita'= 8899 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-154.6239812857588 
+ manipolabilita'= 9491 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-145.54462718991812 
+ manipolabilita'= 10138 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-354.1179568580786 
+ manipolabilita'= 8473 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-272.00823837322577 
+ manipolabilita'= 10203 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-198.71761100478187 
+ manipolabilita'= 10857 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-139.5408601222743 
+ manipolabilita'= 9620 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-130.84597586278682 
+ manipolabilita'= 9353 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-135.52176838267303 
+ manipolabilita'= 9328 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-195.34107868542884 
+ manipolabilita'= 9855 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-71.82505969357192 
+ manipolabilita'= 9706 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-171.7381351039977 
+ manipolabilita'= 11080 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-199.0685986717482 
+ manipolabilita'= 9780 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-318.54648809144635 
+ manipolabilita'= 9097 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-359.06486918217644 
+ manipolabilita'= 8450 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-256.1774363762532 
+ manipolabilita'= 8339 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-255.74630642608037 
+ manipolabilita'= 8881 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-254.49070578372533 
+ manipolabilita'= 8373 
  oggetto di pick: Cube_02 
  oggetto di place: 0 
- base del manipolatore in y=-39.32496611825064 
- manipolabilita'= 12114 
+ base del manipolatore in y=-375.6525250322854 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-137.5767523499958 
+ manipolabilita'= 10502 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-114.61350127025429 
+ manipolabilita'= 11477 
  oggetto di pick: Cube_01 
  oggetto di place: 1 
- base del manipolatore in y=-2.052697744052466 
- manipolabilita'= 11323 
+ base del manipolatore in y=-285.3819885065758 
+ manipolabilita'= 9274 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-35.099155040141625 
+ manipolabilita'= 10796 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-165.19751234780293 
+ manipolabilita'= 10201 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-131.66573462748892 
+ manipolabilita'= 11365 
  oggetto di pick: Cube_02 
  oggetto di place: 0 
- base del manipolatore in y=478.0056445317025 
- manipolabilita'= 11002 
- oggetto di pick: Cube_00 
+ base del manipolatore in y=-109.29627070527295 
+ manipolabilita'= 11596 
+ oggetto di pick: Cube_01 
  oggetto di place: 2 
- base del manipolatore in y=204.84514546815012 
- manipolabilita'= 11504 
- oggetto di pick: Cube_00 
+ base del manipolatore in y=-330.1480459946697 
+ manipolabilita'= 8308 
+ oggetto di pick: Cube_02 
  oggetto di place: 0 
- base del manipolatore in y=-243.19258846624592 
- manipolabilita'= 10355 
+ base del manipolatore in y=-177.1749379521525 
+ manipolabilita'= 10908 
  oggetto di pick: Cube_02 
  oggetto di place: 2 
- base del manipolatore in y=316.0797782319355 
- manipolabilita'= 12115 
+ base del manipolatore in y=-247.33402225255415 
+ manipolabilita'= 8429 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-381.8015315991216 
+ manipolabilita'= 8730 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-194.18445565709916 
+ manipolabilita'= 10900 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-174.794270888375 
+ manipolabilita'= 10950 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-307.6266916364405 
+ manipolabilita'= 9938 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-305.3781462752762 
+ manipolabilita'= 7417 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-264.940147198707 
+ manipolabilita'= 9585 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-175.43396657439794 
+ manipolabilita'= 10065 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-161.6220439511025 
+ manipolabilita'= 11112 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-360.78409240343825 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-76.3696331114167 
+ manipolabilita'= 10015 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-97.04511288575657 
+ manipolabilita'= 9571 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-350.8987624711324 
+ manipolabilita'= 8154 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-197.49783644889453 
+ manipolabilita'= 10702 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-1.5543048813095766 
+ manipolabilita'= 12009 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-265.73410548416587 
+ manipolabilita'= 10211 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-174.31078880610502 
+ manipolabilita'= 11057 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-67.81301170439934 
+ manipolabilita'= 11932 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-369.9045346393832 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-4.651884847714598 
+ manipolabilita'= 11582 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-94.55316469050564 
+ manipolabilita'= 10772 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-351.09835737636746 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-333.25788282290966 
+ manipolabilita'= 8640 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-253.91026172815145 
+ manipolabilita'= 8898 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-394.70157947762056 
+ manipolabilita'= 7692 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-34.7961959283636 
+ manipolabilita'= 10802 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-355.5217824669369 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-197.92913999340422 
+ manipolabilita'= 10876 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-311.39569225416443 
+ manipolabilita'= 7221 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-346.69417882968247 
+ manipolabilita'= 8199 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-95.79382398218667 
+ manipolabilita'= 10432 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-196.5370772402398 
+ manipolabilita'= 9827 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-0.12163345412335502 
+ manipolabilita'= 11333 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-389.8636680435094 
+ manipolabilita'= 8724 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-242.60875382806435 
+ manipolabilita'= 9987 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-42.905530132993704 
+ manipolabilita'= 11319 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-168.2741835649988 
+ manipolabilita'= 11029 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-179.1673376415719 
+ manipolabilita'= 9236 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-242.15844660514998 
+ manipolabilita'= 10362 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-167.38123886172178 
+ manipolabilita'= 11110 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-362.69725014384323 
+ manipolabilita'= 8443 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-128.89930555966828 
+ manipolabilita'= 9699 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-118.91669290803793 
+ manipolabilita'= 9467 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-311.4838853469137 
+ manipolabilita'= 9153 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-139.0454336805991 
+ manipolabilita'= 11311 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-360.5365103294008 
+ manipolabilita'= 8890 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-346.2487176143938 
+ manipolabilita'= 9643 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-85.03678217236609 
+ manipolabilita'= 11797 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-22.755167400277287 
+ manipolabilita'= 10328 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-222.882298049544 
+ manipolabilita'= 10301 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-193.48178728121547 
+ manipolabilita'= 9867 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-267.8177041791679 
+ manipolabilita'= 9515 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-396.56411950993356 
+ manipolabilita'= 8670 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-333.9866675950792 
+ manipolabilita'= 9041 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-5.493205510784833 
+ manipolabilita'= 11702 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-286.6393491419116 
+ manipolabilita'= 9100 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-280.2009015465035 
+ manipolabilita'= 8723 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-385.2072042924324 
+ manipolabilita'= 8131 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-240.28903316571143 
+ manipolabilita'= 8548 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-218.37665851371418 
+ manipolabilita'= 10566 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-298.10421146224746 
+ manipolabilita'= 8808 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-91.04337629132687 
+ manipolabilita'= 11616 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-160.77121941388845 
+ manipolabilita'= 10928 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-117.04739871705829 
+ manipolabilita'= 11177 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-109.65815758111972 
+ manipolabilita'= 9511 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-96.62586530318669 
+ manipolabilita'= 10425 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-138.37948196017322 
+ manipolabilita'= 9314 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-144.40405030807054 
+ manipolabilita'= 11023 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-29.654151914521037 
+ manipolabilita'= 10832 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-130.09882402654773 
+ manipolabilita'= 10532 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-109.64735280522194 
+ manipolabilita'= 11596 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-73.24644026795488 
+ manipolabilita'= 10564 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-48.74720479592179 
+ manipolabilita'= 10435 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-56.182114009906286 
+ manipolabilita'= 11213 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-382.39994307590615 
+ manipolabilita'= 9328 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-148.02564107569162 
+ manipolabilita'= 11000 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-305.4663813203231 
+ manipolabilita'= 7928 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-13.47097887293802 
+ manipolabilita'= 10382 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-21.974081317482558 
+ manipolabilita'= 12217 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-130.82840171278076 
+ manipolabilita'= 11441 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-301.70486741570517 
+ manipolabilita'= 8708 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-45.77531849464782 
+ manipolabilita'= 12078 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-59.72536737810589 
+ manipolabilita'= 10992 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-232.06589755393478 
+ manipolabilita'= 9740 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-322.828835975384 
+ manipolabilita'= 8935 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-297.9467724805438 
+ manipolabilita'= 9970 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-276.98714152088326 
+ manipolabilita'= 10156 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-22.672719728028085 
+ manipolabilita'= 12211 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-375.41902786547337 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-300.7806679155576 
+ manipolabilita'= 7658 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-57.503790617254424 
+ manipolabilita'= 11205 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-44.90316772374598 
+ manipolabilita'= 11083 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-87.4578933710452 
+ manipolabilita'= 9953 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-17.780283140944903 
+ manipolabilita'= 12236 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-75.13472898868093 
+ manipolabilita'= 10021 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-300.68596711024617 
+ manipolabilita'= 8024 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-268.4689140576337 
+ manipolabilita'= 9409 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-8.43071972046448 
+ manipolabilita'= 10132 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-255.8299756388073 
+ manipolabilita'= 8797 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-140.9960074523177 
+ manipolabilita'= 11304 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-264.8607734774078 
+ manipolabilita'= 8744 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-132.89023153167363 
+ manipolabilita'= 11092 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-322.11121424548367 
+ manipolabilita'= 9603 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-90.09811608623505 
+ manipolabilita'= 9935 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-107.6968490472218 
+ manipolabilita'= 10688 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-341.36055993586933 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-187.78662569023905 
+ manipolabilita'= 9102 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-45.02392455943618 
+ manipolabilita'= 10457 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-259.75240506388167 
+ manipolabilita'= 9513 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-171.82110270327016 
+ manipolabilita'= 10862 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-386.2080813618579 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-287.9210835812565 
+ manipolabilita'= 9281 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-7.247713763907825 
+ manipolabilita'= 11295 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-319.487335710871 
+ manipolabilita'= 8421 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-289.0578800086029 
+ manipolabilita'= 9265 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-389.64103430984864 
+ manipolabilita'= 8623 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-332.2565612536664 
+ manipolabilita'= 9048 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-170.049621162582 
+ manipolabilita'= 9419 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-37.362959500905504 
+ manipolabilita'= 11558 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-290.19583924053507 
+ manipolabilita'= 9980 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-97.76800788709352 
+ manipolabilita'= 11580 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-216.6221401985353 
+ manipolabilita'= 10403 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-190.56153926244951 
+ manipolabilita'= 10745 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-227.82922650109683 
+ manipolabilita'= 9402 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-239.66084994822188 
+ manipolabilita'= 9670 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-183.82848353117055 
+ manipolabilita'= 9362 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-136.77706435180056 
+ manipolabilita'= 9641 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-223.72337048117808 
+ manipolabilita'= 10535 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-76.86340817266569 
+ manipolabilita'= 10546 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-330.40614480725696 
+ manipolabilita'= 8800 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-252.31263060976792 
+ manipolabilita'= 8406 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-109.39259867234227 
+ manipolabilita'= 9512 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-200.5773202277138 
+ manipolabilita'= 9767 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-273.85105566070456 
+ manipolabilita'= 9390 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-123.0580990634192 
+ manipolabilita'= 9681 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-31.103939689963113 
+ manipolabilita'= 10276 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-384.5973795429788 
+ manipolabilita'= 8150 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-190.1157923536423 
+ manipolabilita'= 9914 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-284.5180378441654 
+ manipolabilita'= 9306 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-248.56036857984716 
+ manipolabilita'= 9534 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-351.0438975322885 
+ manipolabilita'= 8142 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-236.72721429433187 
+ manipolabilita'= 8905 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-14.618620240431142 
+ manipolabilita'= 11516 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-174.78149442513774 
+ manipolabilita'= 9974 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-302.63345541051615 
+ manipolabilita'= 7443 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-76.4303589069944 
+ manipolabilita'= 10546 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-322.14197349114954 
+ manipolabilita'= 8571 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-249.19092649654485 
+ manipolabilita'= 9527 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-174.1845906150112 
+ manipolabilita'= 10950 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-397.9643988817711 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-149.75733138537822 
+ manipolabilita'= 10993 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-394.47281139919005 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-201.70209117299814 
+ manipolabilita'= 10843 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-171.033071346967 
+ manipolabilita'= 10120 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-307.1852861121704 
+ manipolabilita'= 7859 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-57.13703952690048 
+ manipolabilita'= 11004 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-5.015284982513435 
+ manipolabilita'= 10745 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-301.78602861944194 
+ manipolabilita'= 8611 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-141.93154673068267 
+ manipolabilita'= 10456 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-62.78152226354291 
+ manipolabilita'= 10975 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-216.80797038177465 
+ manipolabilita'= 9582 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-223.68408515955701 
+ manipolabilita'= 10535 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-221.60291292605643 
+ manipolabilita'= 10547 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-41.36572142719126 
+ manipolabilita'= 12103 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-72.45735386711215 
+ manipolabilita'= 11896 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-362.71863292523017 
+ manipolabilita'= -2147483648 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-89.83657098689093 
+ manipolabilita'= 9612 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-151.5873945775639 
+ manipolabilita'= 10328 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-152.12876283433846 
+ manipolabilita'= 9510 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-147.82177395053617 
+ manipolabilita'= 9577 
+ oggetto di pick: Cube_00 
+ oggetto di place: 0 
+ base del manipolatore in y=-253.7128423018371 
+ manipolabilita'= 10288 
+ oggetto di pick: Cube_01 
+ oggetto di place: 2 
+ base del manipolatore in y=-33.65389848590672 
+ manipolabilita'= 10265 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-153.3694184606341 
+ manipolabilita'= 10324 
+ oggetto di pick: Cube_00 
+ oggetto di place: 2 
+ base del manipolatore in y=-66.82522478123678 
+ manipolabilita'= 9734 
+ oggetto di pick: Cube_02 
+ oggetto di place: 2 
+ base del manipolatore in y=-52.6045005931133 
+ manipolabilita'= 10404 
+ oggetto di pick: Cube_02 
+ oggetto di place: 1 
+ base del manipolatore in y=-263.32451696996793 
+ manipolabilita'= 8845 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-173.3024487604077 
+ manipolabilita'= 10182 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-222.6324820318743 
+ manipolabilita'= 9659 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-265.59700235388016 
+ manipolabilita'= 9445 
+ oggetto di pick: Cube_02 
+ oggetto di place: 0 
+ base del manipolatore in y=-114.63763060495597 
+ manipolabilita'= 11591 
+ oggetto di pick: Cube_00 
+ oggetto di place: 1 
+ base del manipolatore in y=-344.22361724592105 
+ manipolabilita'= 8957 
+ oggetto di pick: Cube_01 
+ oggetto di place: 1 
+ base del manipolatore in y=-273.3576622719644 
+ manipolabilita'= 9408 
+ oggetto di pick: Cube_01 
+ oggetto di place: 0 
+ base del manipolatore in y=-38.2392231185251 
+ manipolabilita'= 11888 

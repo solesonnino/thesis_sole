@@ -35,31 +35,32 @@ def main():
 
 
     # Specifica il percorso del file
-    file_path = "dataset_manipolabilità_type1.txt"
-    file_path2= "media_varianza_manipolabilità_TIPO1.txt"
-    file_path3="unusable_type1.txt"
+    file_path3="single_object_upper_bound.txt"
+
+    #svuoto il file se esiste
+    with open(file_path3, 'w') as f:
+        pass
 
 
 
 
-    Nset=300
+
+    Nset=10
     i=0
-    lower_bound=-400
-    upper_bound=0
+    lower_bound=300
+    upper_bound=310
 
     items=[]
     place_points=[]
     dati=[]
     unusable=[]
 
-    packer2 = Packer()
-    b=Bin('Type2_box1', 300, 200, 130, 20)
-    b.set_offset(-400, -530, -107)
-    packer2.add_bin(b)
-    packer2.add_item(Item('Cube_10', 100,70,80, 1))
-    packer2.add_item(Item('Cube_11', 100,70,80, 1))
-    packer2.add_item(Item('Cube_12', 100,70,80, 1))
-    packer2.pack()
+    packer1 = Packer()
+    b=Bin ('Type1_box1', 300, 200, 130, 20)
+    b.set_offset(-900,-530,-107)
+    packer1.add_bin(b)
+    packer1.add_item(Item('Cube_00', 75,150,80, 1))
+    packer1.pack()
 
     x_offset_box, y_offset_box, z_offset_box = b.get_offset()
     for item in b.items:
@@ -80,11 +81,9 @@ def main():
         #ricevi qualcosa
         helper1=s.recv(1024).decode()
 
-        #scelgo casualmente una pos di place tra le 3 che ho
-        rand1= random.choice([0,1,2]) 
-        place_x = place_points [rand1][0] + x_offset_box
-        place_y = place_points [rand1][1] + y_offset_box
-        place_z = place_points [rand1][2] + z_offset_box + 40
+        place_x = place_points [0][0] + x_offset_box
+        place_y = place_points [0][1] + y_offset_box
+        place_z = place_points [0][2] + z_offset_box + 40
 
         #manda la pos di place
         place_point_send= np.array ([[place_x, place_y, place_z]], dtype=np.int32)
@@ -94,7 +93,7 @@ def main():
         i= int(s.recv(1024).decode())
 
         #manda info sull'ogg di pick
-        pick= random.choice([0,1,2])
+        pick=0
         pick_send= np.array ([[pick]], dtype=np.int32)
         send_array(s,pick_send)
 
@@ -105,6 +104,12 @@ def main():
         if Mean_determinant!= -2147483648:
             dati.append(Mean_determinant)
 
+
+        #inserisci nel file di testo
+        with open("single_object.txt", "a") as File:
+            File.write(f" oggetto di pick: Cube_0{pick}  \n base del manipolatore in y={base} \n manipolabilita'= {Mean_determinant} \n")
+
+
         if Mean_determinant== -2147483648:
             unusable.append(base)
 
@@ -113,28 +118,14 @@ def main():
                 File.write(f" \n se la base è in posizione: {base} non si può fare l'operazione \n") 
 
 
-      
-
-        
-
-        #inserisci nel file di testo
-        with open("dataset_manipolabilità_type1.txt", "a") as File:
-            File.write(f" oggetto di pick: Cube_0{pick} \n oggetto di place: {rand1} \n base del manipolatore in y={base} \n manipolabilita'= {Mean_determinant} \n")
-
 
 
     #chiudi connessione
     s.close()
 
-    #calcola media e varianza dei dati
-    media=statistics.mean(dati)
-    varianza=statistics.variance(dati,media)
-
-    with open(file_path2, "a") as File:
-        File.write(f"\n dato: {i} \n media manipolabilità tipo 1: {media} \n varianza manipolabilità tipo 1: {varianza}")
-
     min_ok= min(unusable)
     max_ok= max(unusable)
+
     #inserisci nel file di testo
     with open(file_path3, "a") as File:
         File.write(f" \n\n minimo: {min_ok} \n massimo:{max_ok} \n") 
