@@ -1,7 +1,5 @@
-
+media manipolabilità tipo 1: 10979.224080267559 
+ varianza manipolabilità tipo 1: 1276617.8388812821
  dato: 300 
- media manipolabilità tipo 1: 13590.147368421052 
- varianza manipolabilità tipo 1: 1634832937.5525196
- dato: 300 
- media manipolabilità tipo 1: 9941.876325088338 
- varianza manipolabilità tipo 1: 1277762.0307495678
+ media manipolabilità tipo 1: 10979.224080267559 
+ varianza manipolabilità tipo 1: 1276617.8388812821

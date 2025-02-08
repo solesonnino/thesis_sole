@@ -1,0 +1,444 @@
+ 
+ se la base è in posizione: -1253.0792733096075 non si può fare l'operazione 
+ 
+ se la base è in posizione: -871.1784029874186 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1349.2346385379167 non si può fare l'operazione 
+ 
+ se la base è in posizione: -527.206482967127 non si può fare l'operazione 
+ 
+ se la base è in posizione: -844.1510173410712 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1233.0427663967225 non si può fare l'operazione 
+ 
+ se la base è in posizione: -800.8249297016521 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1363.54411695619 non si può fare l'operazione 
+ 
+ se la base è in posizione: -653.9303703648957 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1020.0381634740097 non si può fare l'operazione 
+ 
+ se la base è in posizione: -828.6701121249602 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1008.2180314896003 non si può fare l'operazione 
+ 
+ se la base è in posizione: -599.6220708813016 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1173.0127268235046 non si può fare l'operazione 
+ 
+ se la base è in posizione: -702.2048744680808 non si può fare l'operazione 
+ 
+ se la base è in posizione: -524.1364207962399 non si può fare l'operazione 
+ 
+ se la base è in posizione: -660.1448509172945 non si può fare l'operazione 
+ 
+ se la base è in posizione: -646.3116181257893 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1278.7863958854828 non si può fare l'operazione 
+ 
+ se la base è in posizione: -505.14137951434714 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1020.809811355554 non si può fare l'operazione 
+ 
+ se la base è in posizione: -904.3360093645418 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1224.0337591185694 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1249.2809273314615 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1332.6885814658567 non si può fare l'operazione 
+ 
+ se la base è in posizione: -999.7075165002406 non si può fare l'operazione 
+ 
+ se la base è in posizione: -593.2549437412889 non si può fare l'operazione 
+ 
+ se la base è in posizione: -665.2079557634996 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1276.5964757375787 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1057.0093293243533 non si può fare l'operazione 
+ 
+ se la base è in posizione: -473.82140982211513 non si può fare l'operazione 
+ 
+ se la base è in posizione: -765.109346318633 non si può fare l'operazione 
+ 
+ se la base è in posizione: -565.2715977339744 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1007.5660130598151 non si può fare l'operazione 
+ 
+ se la base è in posizione: -807.4538849194546 non si può fare l'operazione 
+ 
+ se la base è in posizione: -840.5949704293852 non si può fare l'operazione 
+ 
+ se la base è in posizione: -916.8193164321118 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1153.1335037456436 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1460.4018583618913 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1350.1468962597796 non si può fare l'operazione 
+ 
+ se la base è in posizione: -545.4871688207841 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1474.9396068288327 non si può fare l'operazione 
+ 
+ se la base è in posizione: -966.8579141921792 non si può fare l'operazione 
+ 
+ se la base è in posizione: -489.88944584219666 non si può fare l'operazione 
+ 
+ se la base è in posizione: -879.3770918190214 non si può fare l'operazione 
+ 
+ se la base è in posizione: -823.6074427343373 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1196.564124882962 non si può fare l'operazione 
+ 
+ se la base è in posizione: -999.3197962748159 non si può fare l'operazione 
+ 
+ se la base è in posizione: -888.3498631870283 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1287.797992694425 non si può fare l'operazione 
+ 
+ se la base è in posizione: -983.0835604510413 non si può fare l'operazione 
+ 
+ se la base è in posizione: -606.8320710482792 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1052.1171091885283 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1233.5999623610705 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1309.5474293935533 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1323.2014981303282 non si può fare l'operazione 
+ 
+ se la base è in posizione: -661.2629385292875 non si può fare l'operazione 
+ 
+ se la base è in posizione: -804.5004570906601 non si può fare l'operazione 
+ 
+ se la base è in posizione: -977.7836903483754 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1150.761670664062 non si può fare l'operazione 
+ 
+ se la base è in posizione: -921.4133071554832 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1335.6587235086201 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1397.425321464523 non si può fare l'operazione 
+ 
+ se la base è in posizione: -531.6002081959524 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1421.1675498223335 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1269.1462426037874 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1110.8006348804986 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1030.4262790887344 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1054.0579844619404 non si può fare l'operazione 
+ 
+ se la base è in posizione: -905.0684915108429 non si può fare l'operazione 
+ 
+ se la base è in posizione: -970.6266090193989 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1366.9362939560315 non si può fare l'operazione 
+ 
+ se la base è in posizione: -881.9227983230146 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1305.9084713363084 non si può fare l'operazione 
+ 
+ se la base è in posizione: -867.210105212566 non si può fare l'operazione 
+ 
+ se la base è in posizione: -542.9904259939127 non si può fare l'operazione 
+ 
+ se la base è in posizione: -539.9786101866541 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1456.098342048492 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1277.9742920690196 non si può fare l'operazione 
+ 
+ se la base è in posizione: -963.6966601881957 non si può fare l'operazione 
+ 
+ se la base è in posizione: -499.8868024706047 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1491.4857980364789 non si può fare l'operazione 
+ 
+ se la base è in posizione: -520.4694569605009 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1372.2991742333704 non si può fare l'operazione 
+ 
+ se la base è in posizione: -524.6463363150417 non si può fare l'operazione 
+ 
+ se la base è in posizione: -924.4793392991375 non si può fare l'operazione 
+ 
+ se la base è in posizione: -717.9030186704523 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1369.2393135389302 non si può fare l'operazione 
+ 
+ se la base è in posizione: -871.362453366845 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1476.104554494929 non si può fare l'operazione 
+ 
+ se la base è in posizione: -992.3654317425792 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1231.3441656613643 non si può fare l'operazione 
+ 
+ se la base è in posizione: -504.38686936629574 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1375.4140342466112 non si può fare l'operazione 
+ 
+ se la base è in posizione: -918.6454309193249 non si può fare l'operazione 
+ 
+ se la base è in posizione: -518.7060624308956 non si può fare l'operazione 
+ 
+ se la base è in posizione: -708.3852296627491 non si può fare l'operazione 
+ 
+ se la base è in posizione: -911.4422610963284 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1078.5190848747984 non si può fare l'operazione 
+ 
+ se la base è in posizione: -579.6187026880917 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1192.182052776903 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1317.349463144375 non si può fare l'operazione 
+ 
+ se la base è in posizione: -574.7493861490691 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1237.4180521367275 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1455.7697619905057 non si può fare l'operazione 
+ 
+ se la base è in posizione: -908.6645426852537 non si può fare l'operazione 
+ 
+ se la base è in posizione: -540.4679676211902 non si può fare l'operazione 
+ 
+ se la base è in posizione: -903.9327799508167 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1331.6431676808127 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1478.4828383461222 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1085.3890050856146 non si può fare l'operazione 
+ 
+ se la base è in posizione: -757.8492178468715 non si può fare l'operazione 
+ 
+ se la base è in posizione: -881.7591222866079 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1204.585755955893 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1144.9369356497914 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1159.1875678400788 non si può fare l'operazione 
+ 
+ se la base è in posizione: -566.0610054703336 non si può fare l'operazione 
+ 
+ se la base è in posizione: -584.5697999808648 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1343.127635334618 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1204.1909524248867 non si può fare l'operazione 
+ 
+ se la base è in posizione: -920.7214433882208 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1368.4969435337512 non si può fare l'operazione 
+ 
+ se la base è in posizione: -608.2207938904876 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1435.0777817353855 non si può fare l'operazione 
+ 
+ se la base è in posizione: -506.4633998278898 non si può fare l'operazione 
+ 
+ se la base è in posizione: -671.6515302739496 non si può fare l'operazione 
+ 
+ se la base è in posizione: -526.4023915427149 non si può fare l'operazione 
+ 
+ se la base è in posizione: -874.4754039338178 non si può fare l'operazione 
+ 
+ se la base è in posizione: -450.20923465453916 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1141.3266392866894 non si può fare l'operazione 
+ 
+ se la base è in posizione: -545.9174436392628 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1072.426883208113 non si può fare l'operazione 
+ 
+ se la base è in posizione: -851.4377386046232 non si può fare l'operazione 
+ 
+ se la base è in posizione: -760.7313389323884 non si può fare l'operazione 
+ 
+ se la base è in posizione: -896.1608249714869 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1377.341169938029 non si può fare l'operazione 
+ 
+ se la base è in posizione: -695.3727016098375 non si può fare l'operazione 
+ 
+ se la base è in posizione: -734.9660905758747 non si può fare l'operazione 
+ 
+ se la base è in posizione: -550.5478839268603 non si può fare l'operazione 
+ 
+ se la base è in posizione: -757.0158835547995 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1179.8441515904597 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1028.5396614849415 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1134.5847701611476 non si può fare l'operazione 
+ 
+ se la base è in posizione: -669.8982883411713 non si può fare l'operazione 
+ 
+ se la base è in posizione: -932.3012908430086 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1483.7048354421727 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1183.314969604082 non si può fare l'operazione 
+ 
+ se la base è in posizione: -594.3966518644302 non si può fare l'operazione 
+ 
+ se la base è in posizione: -642.7829278636087 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1476.0227100618756 non si può fare l'operazione 
+ 
+ se la base è in posizione: -460.1984960694481 non si può fare l'operazione 
+ 
+ se la base è in posizione: -764.3706888551206 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1435.575710903007 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1229.5239996992905 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1071.3426748388924 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1186.2337286633217 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1288.8054398970703 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1418.024220151642 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1393.20617488835 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1466.61687666768 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1249.794932273886 non si può fare l'operazione 
+ 
+ se la base è in posizione: -884.2303456059994 non si può fare l'operazione 
+ 
+ se la base è in posizione: -810.4340860932323 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1418.715675259034 non si può fare l'operazione 
+ 
+ se la base è in posizione: -458.96775927007684 non si può fare l'operazione 
+ 
+ se la base è in posizione: -827.5127237676955 non si può fare l'operazione 
+ 
+ se la base è in posizione: -465.25753233495834 non si può fare l'operazione 
+ 
+ se la base è in posizione: -678.626998517503 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1334.4302255585599 non si può fare l'operazione 
+ 
+ se la base è in posizione: -529.6545375340571 non si può fare l'operazione 
+ 
+ se la base è in posizione: -568.436031648129 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1182.884797679852 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1345.0565053006944 non si può fare l'operazione 
+ 
+ se la base è in posizione: -992.1201340862317 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1273.1514966458392 non si può fare l'operazione 
+ 
+ se la base è in posizione: -938.1392265553817 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1056.3118581104118 non si può fare l'operazione 
+ 
+ se la base è in posizione: -541.3795863270593 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1287.5658493379 non si può fare l'operazione 
+ 
+ se la base è in posizione: -869.5806212815482 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1193.27318652366 non si può fare l'operazione 
+ 
+ se la base è in posizione: -656.0744236544849 non si può fare l'operazione 
+ 
+ se la base è in posizione: -658.6969643275194 non si può fare l'operazione 
+ 
+ se la base è in posizione: -990.062057964644 non si può fare l'operazione 
+ 
+ se la base è in posizione: -466.97537188874026 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1398.8238446952264 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1097.8075169295007 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1215.415025427865 non si può fare l'operazione 
+ 
+ se la base è in posizione: -703.9804349551262 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1259.9279247432853 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1354.4516435524195 non si può fare l'operazione 
+ 
+ se la base è in posizione: -636.5251061587586 non si può fare l'operazione 
+ 
+ se la base è in posizione: -653.4899706851272 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1488.70248940526 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1325.9535917492733 non si può fare l'operazione 
+ 
+ se la base è in posizione: -930.6902000926411 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1316.1835126608862 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1153.452451874789 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1223.3845205662608 non si può fare l'operazione 
+ 
+ se la base è in posizione: -553.7765160222789 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1076.0700455798828 non si può fare l'operazione 
+ 
+ se la base è in posizione: -688.439926672186 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1407.302562402861 non si può fare l'operazione 
+ 
+ se la base è in posizione: -928.1885513864812 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1345.1656532078446 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1420.2388570956268 non si può fare l'operazione 
+ 
+ se la base è in posizione: -933.8976390900467 non si può fare l'operazione 
+ 
+ se la base è in posizione: -850.0644971781404 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1106.3403174172524 non si può fare l'operazione 
+ 
+ se la base è in posizione: -849.1526981718063 non si può fare l'operazione 
+ 
+ se la base è in posizione: -953.0592164984096 non si può fare l'operazione 
+ 
+ se la base è in posizione: -643.6966339010513 non si può fare l'operazione 
+ 
+ se la base è in posizione: -473.0180328021072 non si può fare l'operazione 
+ 
+ se la base è in posizione: -915.1812491505457 non si può fare l'operazione 
+ 
+ se la base è in posizione: -755.2918445106652 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1254.666269742863 non si può fare l'operazione 
+ 
+ se la base è in posizione: -656.201374454732 non si può fare l'operazione 
+ 
+ se la base è in posizione: -568.138927404009 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1407.7784525955685 non si può fare l'operazione 
+ 
+ se la base è in posizione: -1166.9957121259608 non si può fare l'operazione 
+ 
+
+ minimo: -1491.4857980364789 
+ massimo:-450.20923465453916 

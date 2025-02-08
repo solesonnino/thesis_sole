@@ -37,6 +37,7 @@ def main():
     # Specifica il percorso del file
     file_path = "dataset_manipolabilità_type0.txt"
     file_path2= "media_varianza_manipolabilità_TIPO0.txt"
+    file_path3="unusable_type0.txt"
 
     #svuoto il file se esiste
     with open(file_path, 'w') as f:
@@ -48,14 +49,16 @@ def main():
 
 
 
-    Nset=100
+    Nset=300
     i=0
-    lower_bound=-500
-    upper_bound=+500
+    lower_bound=-300
+    upper_bound=290
 
     items=[]
     place_points=[]
     dati=[]
+    unusable=[]
+   
 
     packer1 = Packer()
     b=Bin ('Type1_box1', 300, 200, 130, 20)
@@ -85,7 +88,7 @@ def main():
         helper1=s.recv(1024).decode()
 
         #scelgo casualmente una pos di place tra le 3 che ho
-        rand1= random.choice([0,1,2]) 
+        rand1= random.choice([0,1,2])
         place_x = place_points [rand1][0] + x_offset_box
         place_y = place_points [rand1][1] + y_offset_box
         place_z = place_points [rand1][2] + z_offset_box + 40
@@ -106,8 +109,18 @@ def main():
         Mean_determinant = int(s.recv(1024).decode())
 
         #salva la manipolabilità
-        if Mean_determinant!= -2147483648:
+        if Mean_determinant!= -2147483648 and Mean_determinant<99999:
             dati.append(Mean_determinant)
+
+            
+
+        if Mean_determinant== -2147483648 or Mean_determinant>99999:
+            unusable.append(base)
+
+            #inserisci nel file di testo
+            with open(file_path3, "a") as File:
+                File.write(f" \n se la base è in posizione: {base} non si può fare l'operazione \n") 
+
 
         
 
@@ -124,6 +137,12 @@ def main():
 
     with open(file_path2, "a") as File:
         File.write(f"media manipolabilità tipo 0: {media} \n varianza manipolabilità tipo 0: {varianza}")
+
+    min_ok= min(unusable)
+    max_ok= max(unusable)
+    #inserisci nel file di testo
+    with open(file_path3, "a") as File:
+        File.write(f" \n\n minimo: {min_ok} \n massimo:{max_ok} \n") 
 
 if __name__ == "__main__":
 

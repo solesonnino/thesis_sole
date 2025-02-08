@@ -38,7 +38,18 @@ num_bin_1=1
 num_bins_array= [num_bin_0, num_bin_1]
 num_objects_array=[num_objects_0, num_objects_1]
 
+mean_man1=
+mean_man2=
+mean_man_vec=[mean_man1, mean_man2]
 
+var_man1=
+var_man2=
+var_man_vec=[var_man1, var_man2]
+
+mean_t=
+var_t=
+
+best_tradeoff=0
 
 #per diminuire linearmente il peso di inerzia da 0.9 a 0.4 divido l'intervallo per il numero di simulazioni 
 #iterazione dopo iterazione vario il peso di inerzia 
@@ -124,6 +135,8 @@ def main():
         num_obj_pick=num_objects_array[type_obj]
         pick_objects = [] #array in which i'll store the objects, pick side, that i've already picked and placed
 
+        var_man=var_man_vec[type_obj]
+        mean_man=mean_man_vec[type_obj]
         #send the zoffset of the top face wrt to the center of the object of the considered type
         generic_bin= packer.bins[0]
         generic_item=generic_bin.items[0]
@@ -133,6 +146,8 @@ def main():
         send_array(s,z_top_face_send)
 
         print(f"type= {type_obj} \n" )
+
+
             
         #recieve something
         helper0=s.recv(1024).decode()
@@ -245,6 +260,10 @@ def main():
                             fitness_Vec= np.array(fitness)
                             #print(f"the fitness values are: {fitness_Vec} \n")
 
+                            for l in range(num_particles):
+                                if fitness_Vec[l]>99999:
+                                    fitness_Vec[l]=0
+
                             #send something just to see
                             helper3= np.array([[0]], dtype=np.int32)
                             # Actual send of the data (in the future: try to remove the double send and try to send just one time)
@@ -318,11 +337,17 @@ def main():
                         if (d_cost <=0) : #triangular velocity profile
                             t= 2*math.sqrt(d/a)
                         else:
-                            t=2*(v_max/a)+d_cost/v_max    
+                            t=2*(v_max/a)+d_cost/v_max   
+
+                        man = global_best_score
+
+                        tradeoff= ((man-mean_man)/var_man)+(1/((t-mean_t)/var_t))    
                         
-                        if (t < min_time): #if the current motion is better, update
-                            min_time=t
+                        if (tradeoff > best_tradeoff): #if the current motion is better, update
+                            best_tradeoff=tradeoff
                             next_position = global_best_position
+                            next_manip= global_best_score
+                            next_time=t
                             #print(f"\npartial computation: {next_position}\n")
                             next_item=c
 
@@ -349,7 +374,7 @@ def main():
                 # Creare un file e scrivere del testo
                 with open("file_di_testo.txt", "a") as File:
                     File.write(f" Type : {type_obj} \n bin {bin} \n object: {next_item} \n at the position: {current_item.get_center()}\n")
-                    File.write(f"the optimal position of the base is: {current_pos} \n \n")
+                    File.write(f"the optimal position of the base is: {current_pos} \n  with manipulsbility: {next_manip} and time needed to reach it: {next_time}\n")
 
                 #once chosen, add the item in the list of the objects already picked
                 pick_objects.append(next_item)

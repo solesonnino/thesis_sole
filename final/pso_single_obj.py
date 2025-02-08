@@ -25,7 +25,7 @@ a=90 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
-Nsim = 100
+Nsim = 1
 trigger_end2 = 0
 num_particles = 20      # Number of particles
 w_0 = 0.9         # inertia weight
@@ -49,8 +49,8 @@ num_objects_array=[num_objects_0, num_objects_1]
 delta_w=(w_N-w_0)/Nsim
 
 #upper e lower bound della linea
-upper_bound=290
-lower_bound=-630
+upper_bound= 290
+lower_bound= -300
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -220,7 +220,6 @@ def main():
                         #initialization of the pso particles 
                         particle_positions = np.random.uniform(lower_bound, upper_bound, num_particles)  # initial positions
                         particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
-                        
                         # for each object, run the pso 
                         # --> finished this loop i know the best position of the base of the robot associated to the pick of the considered item and its placement to the position i'm considering in the bin
                         #initialize the inertia weight
@@ -245,6 +244,9 @@ def main():
                             # Transform the data into a numpy array
                             fitness_Vec= np.array(fitness)
                             #print(f"the fitness values are: {fitness_Vec} \n")
+                            for l in range (num_particles):
+                                if fitness_Vec[i]>99999:
+                                    fitness_Vec[i]=0
 
                             with open(file_path2, "a") as File:
                                 File.write(f"fitness: {fitness_Vec} \n\n")

@@ -21,7 +21,7 @@ class Program
     {
         m_output = output;
         TcpListener server = null;
-        int N=100;
+        int N=300;
         
         try
         {

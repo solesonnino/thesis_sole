@@ -1,7 +1,3 @@
-/*
-Test1: more than one array is sent to C# (in sequence)
-*/
-
 using System;
 using System.Net;
 using System.Net.Sockets;
@@ -17,7 +13,7 @@ using System.Collections;
 
 class Program
 {
-     static StringWriter m_output;
+    static StringWriter m_output;
 
     static double determinantSum = 0;
     static double determinantCounter = 0;
@@ -25,137 +21,35 @@ class Program
     {
         m_output = output;
         TcpListener server = null;
-
-
+        int N=15;
+        
         try
         {
-           // Define the number of simulations
-            int Nsim = 2;
-            int port = 12345;
-            int particles=5;
-            double[] fitness = new double[particles];
-            int num_types = 2;
-            int num_objects_0 = 3;
-            int num_objects_1 = 3;
-            int num_bin_0=1;
-            int num_bin_1=1;
-            int [] num_bins_array= new int[num_types];
-            int [] num_objects_array= new int [num_types];
+            
 
-            num_bins_array[0]= num_bin_0;
-            num_bins_array[1]=num_bin_1;
-            num_objects_array[0]=num_objects_0;
-            num_objects_array[1]=num_objects_1;
+            for (int i=0; i<N; i++)
+            {
+                
+             
 
-            int num_bins = 0;
-            int count= 0;
-            int num_objects_pick=0;
+                //ricevi pos place
 
 
-
-            output.Write("ok iniziamo...");
-            // Start listening for incoming connections
-            server = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
-            server.Start();
-            output.Write("Server started...");
-
-            // Accept a client connection
-            TcpClient client = server.AcceptTcpClient();
-            NetworkStream stream = client.GetStream();
-            for (int type_obj=0; type_obj<num_types; type_obj++)
-            { 
-                num_bins= num_bins_array[type_obj];
-                num_objects_pick=num_objects_array[type_obj];
-                //recieve the offset of the top face of the object of the considered type wrt the center of the object
-                var z_top_face_rec= ReceiveNumpyArray(stream);
-                var z_top_face_int= z_top_face_rec[0,0];
-
-                //transform into a vector
-                var z_top_face= new TxVector(0,0,z_top_face_int);
-
-                //send something
-                string helper0= "ok";
-                byte[] helper0_vec = Encoding.ASCII.GetBytes(helper0);
-                stream.Write(helper0_vec, 0, helper0_vec.Length);
-
-                for (int bin=0; bin<num_bins; bin++)
-                {
-                    // recieve the number of objects inside the considered bin
-                    var num_objects_rec = ReceiveNumpyArray(stream);
-                    var num_objects=num_objects_rec[0,0]; 
-
-                    //send something
-                    string helper5= "ok";
-                    byte[] helper5_vec = Encoding.ASCII.GetBytes(helper5);
-                    stream.Write(helper5_vec, 0, helper5_vec.Length);           
-
-                    // Loop for all the objects place side
-                    for (int i=0; i<num_objects; i++)
-                    {
-                        //recieve the place point for the object I'm considering
-                        var place_position_recieved = ReceiveNumpyArray(stream);
-                        output.Write("la posizione di place per l'oggetto è: ");
-                        PrintArray(place_position_recieved, output);
-                        output.Write("\n");
-
-                        //send helper 4 for synchonization
-                        string helper4= "ok";
-                        byte[] helper4_vec = Encoding.ASCII.GetBytes(helper4);
-                        stream.Write(helper4_vec, 0, helper4_vec.Length);
-
-                        //recieve the rotation associated to the object
-                        var rotation_array = ReceiveNumpyArray(stream);
-                        var rotation=rotation_array[0,0];
-
-
-
-                        //send helper2 for synchronization puposes
-                        string helper2= "ok";
-                        byte[] helper2_vec = Encoding.ASCII.GetBytes(helper2);
-                        stream.Write(helper2_vec, 0, helper2_vec.Length);
-
-                        
-                        // Loop for all the objects, pick side
-                        for (int c=0; c<num_objects_pick; c++)
-                        { //for all the objects (pick side) perform the pso
-
-                            //first of all recieve skip
-                            var skip = ReceiveNumpyArray(stream);
-
-                            //if it is 0 then perform all the operations, otherwise
-                            //move to the next pick object
-                        
-                            if (skip[0,0]==0)
-                            {
-                                //send something for synchronization purposes
-                                string helper= "ok";
-                                byte[] helper_vec = Encoding.ASCII.GetBytes(helper);
-                                stream.Write(helper_vec, 0, helper_vec.Length);
-
-                                //run the pso
-                                for (int ii = 0; ii < Nsim ; ii++)    
-                                {
-                                    // Receive positions array
-                                    var layout = ReceiveNumpyArray(stream);
-                                    output.Write("positions: \n");
-                                    PrintArray(layout, output);
-                                    output.Write("\n");
-                                    for (int pos=0; pos < particles; pos++)
-                                    {
-                                    //move the base of the robot in the defined position 
+                //ricevi pick
+                var pick= 0;
+                           
+                //fai calcoli 
+                //move the base of the robot in the defined position 
                                         int fitness_int=0;
                                         TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
                                         selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("GoFa12");
                                         var robot = selectedObjects[0] as ITxLocatableObject;
-                                        double move_X_Val=0;
-                                        move_X_Val= layout[0,pos];	
+                                        double move_X_Val=-153;
+                                        
                                         var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
                                         position.Translation = new TxVector(move_X_Val, 0, 0);
                                         robot.LocationRelativeToWorkingFrame = position;
                                         TxApplication.RefreshDisplay();
-                                        output.Write("\n the current position is: \n");
-                                        output.Write(move_X_Val.ToString());
-                                        output.Write("\n");
 
                                         determinantCounter=0;
                                         determinantSum=0;
@@ -163,8 +57,8 @@ class Program
                                         // move along x axis 
                                         
                                         // Define some variables
-                                        string pos_string = pos.ToString();    
-                                        string operation_name = "RoboticProgram_" +i.ToString()+ pos_string ;
+                           
+                                        string operation_name = "RoboticProgram" ;
 
                                         
                                         string new_tcp = "tgripper_tf";
@@ -182,7 +76,7 @@ class Program
 
                                         // Get the object to attach to the tool (and the tool)
 		                                ITxObject considered_item = TxApplication.ActiveDocument.
-		                                GetObjectsByName("Cube_"+type_obj.ToString()+c.ToString())[0];
+		                                GetObjectsByName("Cube_0"+pick.ToString())[0];
 
 		                                ITxObject tool = TxApplication.ActiveDocument.
 		                                GetObjectsByName("Suction cup")[0];
@@ -236,22 +130,20 @@ class Program
                                         
                                         // define the to be picked and the pick point
                                         TxObjectList selectedObject = TxApplication.ActiveSelection.GetItems();
-                                        selectedObject = TxApplication.ActiveDocument.GetObjectsByName("Cube_"+type_obj.ToString()+c.ToString());
+                                        selectedObject = TxApplication.ActiveDocument.GetObjectsByName("Cube_0"+pick.ToString());
                                         var Cube = selectedObject[0] as ITxLocatableObject;
                                         var cube_name = Cube.Name; // Save the name of the object
 
                                         // the pick point is on the top face of the object (vacuum gripper) --> translate the pick point
-                                        var pick_point_partial = new TxVector(Cube.LocationRelativeToWorkingFrame.Translation);
-                                        var pick_point= new TxVector(pick_point_partial+z_top_face);
+                                        var pick_point = new TxVector(Cube.LocationRelativeToWorkingFrame.Translation);
 
                                         
 
                                         //define the place point of the object --> varies depending on the object
-                                        var place_point_x=place_position_recieved[0, 0]; 
-                                        var place_point_y=place_position_recieved[0, 1]; 
-                                        var place_point_z=place_position_recieved[0, 2];
-                                        var place_point_partial = new TxVector (place_point_x, place_point_y, place_point_z);
-                                        var place_point= new TxVector(place_point_partial+ z_top_face);
+                                        var place_point_x=-863; 
+                                        var place_point_y=-455; 
+                                        var place_point_z=-47;
+                                        var place_point = new TxVector (place_point_x, place_point_y, place_point_z);
 
                                         //define the point above the pick/place point
                                         var zoffset = new TxVector(0, 0, 100);
@@ -305,10 +197,7 @@ class Program
                                         // Impose a position to the fifth waypoint		
                                         double rotVal5 = Math.PI;
                                         double rot_z_place=0;
-                                        if (rotation ==1)
-                                        {
-                                            rot_z_place = Math.PI/2;
-                                        }
+                                        
                                         TxTransformation rotX5 = new TxTransformation(new TxVector(rotVal5, 0, rot_z_place), 
                                         TxTransformation.TxRotationType.RPY_XYZ);
                                         FifthPoint.AbsoluteLocation = rotX5;
@@ -437,7 +326,7 @@ class Program
 
                                         foreach (var descendant in descendants)
                                         {
-                                            if (descendant.Name.Equals("RoboticProgram_"+ i.ToString()+ pos_string))
+                                            if (descendant.Name.Equals("RoboticProgram"))
                                             {
                                                 op = descendant as TxContinuousRoboticOperation;
                                                 break; // Exit loop after finding the first match
@@ -458,87 +347,21 @@ class Program
                                                 
                                         // Rewind the simulation
                                         player.Rewind();
-                                        output.Write("fine simulazione corrispondente alla posizione: " + pos_string + "\n");
+                                       
                                         double MeanDeterminant = 100000000000000000*determinantSum/determinantCounter;
                                         if (MeanDeterminant<0)
                                         {
                                             MeanDeterminant= - MeanDeterminant;
                                         }
 
-                                        output.Write("determinante medio: " + MeanDeterminant.ToString() + "\n");
-                                        string Time = op.Duration.ToString();
-                                        output.Write("tempo: " + Time + "\n");
                                         int fitness_int_partial =(int)MeanDeterminant;
                                         fitness_int= fitness_int+fitness_int_partial;
+                                        output.Write(fitness_int.ToString() + "\n");
                                         MyOp.Delete();
-                                        fitness[pos]=fitness_int;
-                                    }
-                                    //send fitness values
-                                    string fitnes_s = string.Join(",", fitness);
-                                    byte[] fitness_Vec = Encoding.ASCII.GetBytes(fitnes_s);
-                                    stream.Write(fitness_Vec, 0, fitness_Vec.Length);
-                                    output.Write("\n The fitness is:\n" + fitnes_s + "\n");
 
-                                    //recieve something just to see if it works
-                                    var helper3= ReceiveNumpyArray(stream);
-
-                                    // Send the trigger_end back to Python
-
-                                    string trigger_end = (ii + 1).ToString();
-                                    output.Write(trigger_end + "\n");
-                                    byte[] byte_trigger_end = Encoding.ASCII.GetBytes(trigger_end);
-                                    stream.Write(byte_trigger_end, 0, byte_trigger_end.Length);
-                                    }
-
-                                //recieve something just to see if it works
-                                var helper10= ReceiveNumpyArray(stream);
-                            }
-
-                            //send c+1 to python
-                            string c_str = (c + 1).ToString();
-                            output.Write("c  "+ c_str+ "\n");
-                            byte[] byte_c = Encoding.ASCII.GetBytes(c_str);
-                            stream.Write(byte_c, 0, byte_c.Length);
-
-                        }
-
-                        //recieve something just to see if it works
-                        var helper11= ReceiveNumpyArray(stream);    
-                        //send i+1 to python
-                        string i_str = (i + 1).ToString();
-                        byte[] byte_i = Encoding.ASCII.GetBytes(i_str);
-                        stream.Write(byte_i, 0, byte_i.Length);
-
-                    }  
-
-                    //recieve something just to see if it works
-                    var helper12= ReceiveNumpyArray(stream);
-
-                    //send bin+1 to python
-                    string bin_str = (bin + 1).ToString();
-                    byte[] byte_bin = Encoding.ASCII.GetBytes(bin_str);
-                    stream.Write(byte_bin, 0, byte_bin.Length);  
-
-                }
-
-                //recieve something
-                var helper13= ReceiveNumpyArray(stream);
-
-                //send
-                string type_obj_s = (type_obj + 1).ToString();
-                byte[] byte_type = Encoding.ASCII.GetBytes(type_obj_s);
-                stream.Write(byte_type, 0, byte_type.Length);  
 
             }
 
-
-
-
-        
-            // Close all the instances
-            stream.Close();
-            client.Close();
-            server.Stop();
         }
         catch (Exception e)
         {
@@ -758,17 +581,17 @@ class Program
 
         // Calculate the determinant by calling the custom method 'CalculateDeterminant'
         double determinant = CalculateDeterminant(matrixData);
-
         if (determinant<0)
         {
             determinant=-determinant;
         }
+
         determinantSum = determinantSum + determinant;
         determinantCounter = determinantCounter + 1;
 
         // Display the current value of the determinant
         // m_output.Write(determinant.ToString() + m_output.NewLine);
 
-
     }
+
 }
