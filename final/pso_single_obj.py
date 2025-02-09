@@ -245,8 +245,8 @@ def main():
                             fitness_Vec= np.array(fitness)
                             #print(f"the fitness values are: {fitness_Vec} \n")
                             for l in range (num_particles):
-                                if fitness_Vec[i]>99999:
-                                    fitness_Vec[i]=0
+                                if fitness_Vec[l]>99999:
+                                    fitness_Vec[l]=0
 
                             with open(file_path2, "a") as File:
                                 File.write(f"fitness: {fitness_Vec} \n\n")
@@ -377,6 +377,10 @@ def main():
     # Close the connection
     s.close()
 
+    with open(file_path2, "a") as File:
+        File.write(f"global best: {global_best_position} \n manipulability {global_best_score}\n")
+
+
     #print the graph of the particle fitness evolution considered
     grafico_path="grafico.txt"
     if os.path.exists(grafico_path):
@@ -424,12 +428,12 @@ def main():
     # Creazione dell'animazione
     ani = FuncAnimation(fig, update, frames=Nsim, interval=200, blit=False, repeat=False)
 
+    #summarize all the choices 
+    print(f"the global best is: {global_best_position} \n manipulability: {global_best_score}")
+
     # Mostra tutto
     plt.show()
         
-
-    #summarize all the choices 
-    print(f"the global best is: {global_best_position} \n manipulability: {global_best_score}")
 
 
 if __name__ == "__main__":

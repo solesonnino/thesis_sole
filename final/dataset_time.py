@@ -11,11 +11,11 @@ import math
 
 def main():
 
-    Ndat=10
+    Ndat=300
     i=0
     dati = []
-    upper_bound=500
-    lower_bound=-500
+    upper_bound=290
+    lower_bound=-300
     v_max= 70 #mm/s
     a_max= 90 #mm/s^2
 
