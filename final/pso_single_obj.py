@@ -25,7 +25,7 @@ a=90 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
-Nsim = 150
+Nsim = 1
 trigger_end2 = 0
 num_particles = 20      # Number of particles
 w_0 = 0.9         # inertia weight

@@ -7,11 +7,15 @@ from matplotlib.animation import FuncAnimation
 import math
 
 
-# Specifica il percorso del file
-file_path = "file_di_testo.txt"
+
+file_path = "final_packing.txt"
+file_path2= "evoluzione_particelle_pso.txt"
 
 #svuoto il file se esiste
 with open(file_path, 'w') as f:
+    pass
+
+with open(file_path2, 'w') as f:
     pass
 
 
@@ -21,9 +25,9 @@ a=900 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
-Nsim = 2
+Nsim = 1
 trigger_end2 = 0
-num_particles = 5      # Number of particles
+num_particles = 20      # Number of particles
 w_0 = 0.9         # inertia weight
 w_N=0.4
 cognitive_component = 2    # cognitive component
@@ -101,6 +105,12 @@ def main():
 
     items=[] #array in which i'll store all the items
 
+    overall_path= "all_data_file.txt"
+    with open(overall_path, 'w') as f:
+        pass
+
+
+
     for packer in packers:
         packer.pack()
         for b in packer.bins:
@@ -128,7 +138,8 @@ def main():
     current_pos=0 #initialize the current position of the base of the robot in y=0
     base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
     
-
+    
+        
     while type_obj<num_types:
         packer=packers[type_obj]
         num_bins= num_bins_array[type_obj]
@@ -148,7 +159,10 @@ def main():
 
         print(f"type= {type_obj} \n" )
 
+        with open (overall_path, 'a') as f:
+            f.write(f"Type: {type_obj} \n")
 
+        
             
         #recieve something
         helper0=s.recv(1024).decode()
@@ -187,11 +201,16 @@ def main():
             
             i=0
             
+            with open (overall_path, 'a') as f:
+                f.write(f"Bin: {bin} \n")
 
             while i<num_objects:
                 #run the pso for all the items inside the list items --> need to pack all the items in the bin
                 print(f"currently finding the item number: {i} \n")
                 current_item=items[i]
+
+                with open (overall_path, 'a') as f:
+                    f.write(f"place side object: {i} \n")
 
                 #send to c# the place position associated to the item to be packed (assume all items identical)
                 place_x = place_points [i][0] + x_offset_box
@@ -220,6 +239,31 @@ def main():
                 #define particle1_y
                 particle1_y=np.zeros(Nsim)
 
+                #define particle2_x
+                particle2_x = np.zeros(Nsim)
+                #define particle1_y
+                particle2_y=np.zeros(Nsim)
+
+                #define particle1_x
+                particle3_x = np.zeros(Nsim)
+                #define particle1_y
+                particle3_y=np.zeros(Nsim)
+
+                #define particle1_x
+                particle11_x = np.zeros(Nsim)
+                #define particle1_y
+                particle11_y=np.zeros(Nsim)
+
+                #define particle1_x
+                particle12_x = np.zeros(Nsim)
+                #define particle1_y
+                particle12_y=np.zeros(Nsim)
+
+                #define particle1_x
+                particle13_x = np.zeros(Nsim)
+                #define particle1_y
+                particle13_y=np.zeros(Nsim)
+
                 # inizializzo il vettore dove metto l'evoluzione delle particelle dello sciame
                 swarm_evolution = [[] for _ in range (Nsim)]
                 x_swarm= [[] for _ in range (Nsim)]
@@ -241,20 +285,30 @@ def main():
                         particle_positions = np.random.uniform(lower_bound, upper_bound, num_particles)  # initial positions
                         particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
                         
+                        with open(overall_path, 'a') as f:
+                            f.write(f"Object: {c} \n")
+                        
                         # for each object, run the pso 
                         # --> finished this loop i know the best position of the base of the robot associated to the pick of the considered item and its placement to the position i'm considering in the bin
                         #initialize the inertia weight
                         w_0=0.9
                         while trigger_end<Nsim:
+
+                            with open(overall_path, 'a') as f:
+                                f.write(f"Iteration: {trigger_end} \n")
+
                             #update the inertia weigth at each iteration
                             inertia_weight=w_0+delta_w*trigger_end
                             print(f"inertia weight: {inertia_weight}")
                             #send the particle positions
-                            layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4])]], dtype= np.int32)
+                            layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4]),  int(particle_positions[5]), int(particle_positions[6]), int(particle_positions[7]), int(particle_positions[8]), int(particle_positions[9]), int(particle_positions[10]), int(particle_positions[11]), int(particle_positions[12]), int(particle_positions[13]), int(particle_positions[14]), int(particle_positions[15]), int(particle_positions[16]), int(particle_positions[17]), int(particle_positions[18]), int(particle_positions[19]),]], dtype= np.int32)
                             #layout = np.array([[int(particle_positions[0])]], dtype= np.int32)
                             # Actual send of the data (in the future: try to remove the double send and try to send just one time)
                             send_array(s,layout)
                             print(f"particle positions: {layout}")
+
+                            with open (overall_path, 'a') as f:
+                                f.write(f"Particle positions: {layout} \n")
 
                             #recieve the fitness
                             fitness = s.recv(1024).decode()
@@ -267,6 +321,9 @@ def main():
                                 if fitness_Vec[l]>30000:
                                     fitness_Vec[l]=0
 
+                            with open (overall_path, 'a') as f:
+                                f.write(f"Fitness: {fitness_Vec} \n")
+
                             #send something just to see
                             helper3= np.array([[0]], dtype=np.int32)
                             # Actual send of the data (in the future: try to remove the double send and try to send just one time)
@@ -277,14 +334,34 @@ def main():
                             print(f"Trigger end: {trigger_end}")
 
                             #save the updates of the second particle along the simulation for the first object pick side
-                            if (c==0): 
+                            if (type_obj==0 and c==0 and i==0): 
                                 #save the fitness evolution
                                 particle1_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
                                 particle1_y[trigger_end - 1]=fitness_Vec[1]
 
+                                particle2_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
+                                particle2_y[trigger_end - 1]=fitness_Vec[2]
+
+                                particle3_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
+                                particle3_y[trigger_end - 1]=fitness_Vec[3]
+                                
+
                                 #save the swarm evolution for the first object pick side
                                 swarm_evolution[trigger_end -1] = particle_positions.copy()
                                 x_swarm[trigger_end-1] = np.zeros(num_particles)
+
+                            if (type_obj==0 and c==0 and i==0):
+                                particle11_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
+                                particle11_y[trigger_end - 1]=fitness_Vec[2]
+
+                                particle12_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
+                                particle12_y[trigger_end - 1]=fitness_Vec[2]
+
+                                particle13_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
+                                particle13_y[trigger_end - 1]=fitness_Vec[3]
+
+                            
+
 
 
                             #update the particles positions 
@@ -375,9 +452,9 @@ def main():
                 #print(f"the optimal position of the base is: {current_pos}")
                 
                 # Creare un file e scrivere del testo
-                with open("file_di_testo.txt", "a") as File:
+                with open(file_path, "a") as File:
                     File.write(f" Type : {type_obj} \n bin {bin} \n object: {next_item} \n at the position: {current_item.get_center()}\n")
-                    File.write(f"the optimal position of the base is: {current_pos} \n  with manipulsbility: {next_manip} and time needed to reach it: {next_time}\n")
+                    File.write(f"the optimal position of the base is: {current_pos} \n  with manipulability: {next_manip} and time needed to reach it: {next_time}\n")
 
                 #once chosen, add the item in the list of the objects already picked
                 pick_objects.append(next_item)
@@ -415,12 +492,40 @@ def main():
     s.close()
 
     #print the graph of the particle fitness evolution considered
-    grafico_path="grafico.txt"
+        #print the graph of the particle fitness evolution considered
+    grafico_path="grafico_part1_type0_obj0.txt"
+    grafico2_path="grafico_part2_type0_obj0.txt"
+    grafico3_path="grafico_part3_type0_obj0.txt"
+    grafico4_path="grafico_part1_type1_obj0.txt"
+    grafico5_path="grafico_part2_type1_obj0.txt"
+    grafico6_path="grafico_part3_type1_obj0.txt"
+
+
     if os.path.exists(grafico_path):
     # Cancella il file
         os.remove(grafico_path)
 
-    with open('grafico.txt', 'w') as f:
+    if os.path.exists(grafico2_path):
+    # Cancella il file
+        os.remove(grafico2_path)
+
+    if os.path.exists(grafico3_path):
+    # Cancella il file
+        os.remove(grafico3_path)
+
+    if os.path.exists(grafico4_path):
+    # Cancella il file
+        os.remove(grafico4_path)
+
+    if os.path.exists(grafico5_path):
+    # Cancella il file
+        os.remove(grafico5_path)
+
+    if os.path.exists(grafico6_path):
+    # Cancella il file
+        os.remove(grafico6_path)
+
+    with open(grafico_path, 'w') as f:
         for iter in range(len(particle1_x)):
             # Scrittura della coppia (x, y) e collegamento al punto successivo
             f.write(f'{particle1_x[iter]:.2f},{particle1_y[iter]:.2f}')
@@ -437,6 +542,92 @@ def main():
         plt.grid(True)
         plt.legend()
 
+    with open(grafico2_path, 'w') as f:
+        for iter in range(len(particle2_x)):
+            # Scrittura della coppia (x, y) e collegamento al punto successivo
+            f.write(f'{particle2_x[iter]:.2f},{particle2_y[iter]:.2f}')
+            if iter < len(particle2_x) - 1:
+                f.write(' -> ')  # Collegamento tra i punti
+                f.write('\n')
+
+            #visualizzazione grafico
+        plt.figure()  # Crea una nuova figura
+        plt.plot(particle2_x, particle2_y, marker='o', color='r', label='Grafico 2')
+        plt.title('Grafico 2')
+        plt.xlabel('Asse X')
+        plt.ylabel('Asse Y')
+        plt.grid(True)
+        plt.legend()
+
+    with open(grafico3_path, 'w') as f:
+        for iter in range(len(particle3_x)):
+            # Scrittura della coppia (x, y) e collegamento al punto successivo
+            f.write(f'{particle3_x[iter]:.2f},{particle3_y[iter]:.2f}')
+            if iter < len(particle3_x) - 1:
+                f.write(' -> ')  # Collegamento tra i punti
+                f.write('\n')
+
+            #visualizzazione grafico
+        plt.figure()  # Crea una nuova figura
+        plt.plot(particle3_x, particle3_y, marker='o', color='r', label='Grafico 2')
+        plt.title('Grafico 3')
+        plt.xlabel('Asse X')
+        plt.ylabel('Asse Y')
+        plt.grid(True)
+        plt.legend()
+
+    with open(grafico4_path, 'w') as f:
+        for iter in range(len(particle11_x)):
+            # Scrittura della coppia (x, y) e collegamento al punto successivo
+            f.write(f'{particle11_x[iter]:.2f},{particle11_y[iter]:.2f}')
+            if iter < len(particle11_x) - 1:
+                f.write(' -> ')  # Collegamento tra i punti
+                f.write('\n')
+
+            #visualizzazione grafico
+        plt.figure()  # Crea una nuova figura
+        plt.plot(particle11_x, particle11_y, marker='o', color='r', label='Grafico 2')
+        plt.title('Grafico 2')
+        plt.xlabel('Asse X')
+        plt.ylabel('Asse Y')
+        plt.grid(True)
+        plt.legend()
+    
+    with open(grafico5_path, 'w') as f:
+        for iter in range(len(particle12_x)):
+            # Scrittura della coppia (x, y) e collegamento al punto successivo
+            f.write(f'{particle12_x[iter]:.2f},{particle12_y[iter]:.2f}')
+            if iter < len(particle12_x) - 1:
+                f.write(' -> ')  # Collegamento tra i punti
+                f.write('\n')
+
+            #visualizzazione grafico
+        plt.figure()  # Crea una nuova figura
+        plt.plot(particle12_x, particle12_y, marker='o', color='r', label='Grafico 2')
+        plt.title('Grafico 2')
+        plt.xlabel('Asse X')
+        plt.ylabel('Asse Y')
+        plt.grid(True)
+        plt.legend()
+    
+    with open(grafico6_path, 'w') as f:
+        for iter in range(len(particle13_x)):
+            # Scrittura della coppia (x, y) e collegamento al punto successivo
+            f.write(f'{particle13_x[iter]:.2f},{particle13_y[iter]:.2f}')
+            if iter < len(particle13_x) - 1:
+                f.write(' -> ')  # Collegamento tra i punti
+                f.write('\n')
+
+            #visualizzazione grafico
+        plt.figure()  # Crea una nuova figura
+        plt.plot(particle13_x, particle13_y, marker='o', color='r', label='Grafico 2')
+        plt.title('Grafico 2')
+        plt.xlabel('Asse X')
+        plt.ylabel('Asse Y')
+        plt.grid(True)
+        plt.legend()
+
+
     # print the evolution of the swarm considered
     fig, ax = plt.subplots()
     scatter = ax.scatter(x_swarm[0], swarm_evolution[0], c='blue', s=50)
@@ -446,9 +637,9 @@ def main():
     def update(frame):
         scatter.set_offsets(np.c_[x_swarm[frame], swarm_evolution[frame]])  # Aggiorna le posizioni
         y_positions = swarm_evolution[frame]  # Prendi le posizioni lungo y
-        y_min, y_max = y_positions.min(), y_positions.max()  # Calcola i limiti dinamici di y
+        y_min, y_max = lower_bound, upper_bound  # Calcola i limiti dinamici di y
         x_positions = x_swarm[frame]  # Prendi le posizioni lungo y
-        x_min, x_max = x_positions.min(), x_positions.max()  # Calcola i limiti dinamici di y
+        x_min, x_max = -1, 1  # Calcola i limiti dinamici di y
 
         ax.set_ylim(y_min - 5, y_max + 5)  # Aggiungi margine dinamico ai limiti di y
         ax.set_xlim(x_min-5, x_max +5)

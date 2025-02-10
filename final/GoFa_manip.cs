@@ -30,9 +30,9 @@ class Program
         try
         {
            // Define the number of simulations
-            int Nsim = 2;
+            int Nsim = 1;
             int port = 12345;
-            int particles=5;
+            int particles=20;
             double[] fitness = new double[particles];
             int num_types = 2;
             int num_objects_0 = 3;
