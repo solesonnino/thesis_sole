@@ -109,12 +109,12 @@ def main():
         Mean_determinant = int(s.recv(1024).decode())
 
         #salva la manipolabilità
-        if Mean_determinant!= -2147483648 and Mean_determinant<99999:
+        if Mean_determinant!= -2147483648 and Mean_determinant<30000:
             dati.append(Mean_determinant)
 
             
 
-        if Mean_determinant== -2147483648 or Mean_determinant>99999:
+        if Mean_determinant== -2147483648 or Mean_determinant>30000:
             unusable.append(base)
 
             #inserisci nel file di testo

@@ -16,8 +16,8 @@ def main():
     dati = []
     upper_bound=290
     lower_bound=-300
-    v_max= 70 #mm/s
-    a_max= 90 #mm/s^2
+    v_max= 700 #mm/s
+    a_max= 900 #mm/s^2
 
     file_path1="dataset_time.txt"
     file_path2= "media_varianza_time.txt"
@@ -38,7 +38,7 @@ def main():
         #compute the time needed 
         d = abs(start_pos-end_pos)
         d_acc= pow(v_max,2)/a_max
-        d_cost = d-2*d_acc
+        d_cost = d-d_acc
         if (d_cost <=0) : #triangular velocity profile
             t= 2*math.sqrt(d/a_max)
         else:

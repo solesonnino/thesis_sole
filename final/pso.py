@@ -38,16 +38,16 @@ num_bin_1=1
 num_bins_array= [num_bin_0, num_bin_1]
 num_objects_array=[num_objects_0, num_objects_1]
 
-mean_man1=
-mean_man2=
+mean_man1= 10523.872909698997
+mean_man2= 10979.224080267559
 mean_man_vec=[mean_man1, mean_man2]
 
-var_man1=
-var_man2=
+var_man1= 4262714.748894526
+var_man2= 1276617.8388812821
 var_man_vec=[var_man1, var_man2]
 
-mean_t=
-var_t=
+mean_t= 0.8504154353582923 
+var_t= 0.126730866728932
 
 best_tradeoff=0
 
@@ -333,7 +333,7 @@ def main():
                         # evaluate the time needed to move the base from the current position to the one i'm evaluating
                         d = abs(current_pos-global_best_position)
                         d_acc= pow(v_max,2)/a
-                        d_cost = d-2*d_acc
+                        d_cost = d-d_acc
                         if (d_cost <=0) : #triangular velocity profile
                             t= 2*math.sqrt(d/a)
                         else:

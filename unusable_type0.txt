@@ -1,0 +1,6 @@
+ 
+ se la base è in posizione: 13.72797227124056 non si può fare l'operazione 
+ 
+
+ minimo: 13.72797227124056 
+ massimo:13.72797227124056 
