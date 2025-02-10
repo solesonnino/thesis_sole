@@ -16,12 +16,12 @@ with open(file_path, 'w') as f:
 
 
 #max velocity and acceleration of the base in cm
-v_max=70 #m/s
-a=90 #mm/s^2
+v_max=700 #mm/s
+a=900 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
-Nsim = 1
+Nsim = 50
 trigger_end2 = 0
 num_particles = 5      # Number of particles
 w_0 = 0.9         # inertia weight
