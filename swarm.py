@@ -4,7 +4,7 @@ from matplotlib.animation import FuncAnimation
 
 # Simulazione di dati dello sciame
 num_points = 50
-num_frames = 100
+num_frames = 5
 
 # Generazione dei dati dello sciame
 x_data = np.cumsum(np.random.uniform(-0.5, 0.5, (num_frames, num_points)), axis=0)

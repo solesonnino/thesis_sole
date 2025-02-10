@@ -25,7 +25,7 @@ a=90 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
-Nsim = 1
+Nsim = 150
 trigger_end2 = 0
 num_particles = 20      # Number of particles
 w_0 = 0.9         # inertia weight
@@ -50,7 +50,7 @@ delta_w=(w_N-w_0)/Nsim
 
 #upper e lower bound della linea
 upper_bound= 290
-lower_bound= -300
+lower_bound= -630
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -202,6 +202,17 @@ def main():
                 #define particle1_y
                 particle1_y=np.zeros(Nsim)
 
+                #define particle2_x
+                particle2_x = np.zeros(Nsim)
+                #define particle2_y
+                particle2_y=np.zeros(Nsim)
+
+                #define particle3_x
+                particle3_x = np.zeros(Nsim)
+                #define particle3_y
+                particle3_y=np.zeros(Nsim)
+
+
                 # inizializzo il vettore dove metto l'evoluzione delle particelle dello sciame
                 swarm_evolution = [[] for _ in range (Nsim)]
                 x_swarm= [[] for _ in range (Nsim)]
@@ -245,7 +256,7 @@ def main():
                             fitness_Vec= np.array(fitness)
                             #print(f"the fitness values are: {fitness_Vec} \n")
                             for l in range (num_particles):
-                                if fitness_Vec[l]>99999:
+                                if fitness_Vec[l]>30000:
                                     fitness_Vec[l]=0
 
                             with open(file_path2, "a") as File:
@@ -265,6 +276,13 @@ def main():
                                 #save the fitness evolution
                                 particle1_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
                                 particle1_y[trigger_end - 1]=fitness_Vec[1]
+
+                                particle2_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
+                                particle2_y[trigger_end - 1]=fitness_Vec[2]
+
+                                particle3_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
+                                particle3_y[trigger_end - 1]=fitness_Vec[3]
+                                
 
                                 #save the swarm evolution for the first object pick side
                                 swarm_evolution[trigger_end -1] = particle_positions.copy()
@@ -315,10 +333,6 @@ def main():
 
                                 if (particle_positions[i]<lower_bound):
                                     particle_positions[i]=lower_bound    
-
-
-
-
 
 
                         #send something just to see
@@ -382,12 +396,23 @@ def main():
 
 
     #print the graph of the particle fitness evolution considered
-    grafico_path="grafico.txt"
+    grafico_path="grafico_part1.txt"
+    grafico2_path="grafico_part2.txt"
+    grafico3_path="grafico_part3.txt"
+
     if os.path.exists(grafico_path):
     # Cancella il file
         os.remove(grafico_path)
 
-    with open('grafico.txt', 'w') as f:
+    if os.path.exists(grafico2_path):
+    # Cancella il file
+        os.remove(grafico_path)
+
+    if os.path.exists(grafico3_path):
+    # Cancella il file
+        os.remove(grafico_path)
+
+    with open(grafico_path, 'w') as f:
         for iter in range(len(particle1_x)):
             # Scrittura della coppia (x, y) e collegamento al punto successivo
             f.write(f'{particle1_x[iter]:.2f},{particle1_y[iter]:.2f}')
@@ -399,6 +424,40 @@ def main():
         plt.figure()  # Crea una nuova figura
         plt.plot(particle1_x, particle1_y, marker='o', color='r', label='Grafico 1')
         plt.title('Grafico 1')
+        plt.xlabel('Asse X')
+        plt.ylabel('Asse Y')
+        plt.grid(True)
+        plt.legend()
+
+    with open(grafico2_path, 'w') as f:
+        for iter in range(len(particle2_x)):
+            # Scrittura della coppia (x, y) e collegamento al punto successivo
+            f.write(f'{particle2_x[iter]:.2f},{particle2_y[iter]:.2f}')
+            if iter < len(particle2_x) - 1:
+                f.write(' -> ')  # Collegamento tra i punti
+                f.write('\n')
+
+            #visualizzazione grafico
+        plt.figure()  # Crea una nuova figura
+        plt.plot(particle2_x, particle2_y, marker='o', color='r', label='Grafico 2')
+        plt.title('Grafico 2')
+        plt.xlabel('Asse X')
+        plt.ylabel('Asse Y')
+        plt.grid(True)
+        plt.legend()
+
+    with open(grafico3_path, 'w') as f:
+        for iter in range(len(particle3_x)):
+            # Scrittura della coppia (x, y) e collegamento al punto successivo
+            f.write(f'{particle3_x[iter]:.2f},{particle3_y[iter]:.2f}')
+            if iter < len(particle3_x) - 1:
+                f.write(' -> ')  # Collegamento tra i punti
+                f.write('\n')
+
+            #visualizzazione grafico
+        plt.figure()  # Crea una nuova figura
+        plt.plot(particle3_x, particle3_y, marker='o', color='r', label='Grafico 2')
+        plt.title('Grafico 3')
         plt.xlabel('Asse X')
         plt.ylabel('Asse Y')
         plt.grid(True)

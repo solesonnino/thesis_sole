@@ -367,6 +367,7 @@ class Program
                                         player.Rewind();
                                        
                                         double MeanDeterminant = 100000000000000000*determinantSum/determinantCounter;
+                                        output.Write("determinante medio: " + MeanDeterminant.ToString() + "\n");
                                         if (MeanDeterminant<0)
                                         {
                                             MeanDeterminant= - MeanDeterminant;

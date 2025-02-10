@@ -44,7 +44,7 @@ class Program
                                         TxObjectList selectedObjects = TxApplication.ActiveSelection.GetItems();
                                         selectedObjects = TxApplication.ActiveDocument.GetObjectsByName("GoFa12");
                                         var robot = selectedObjects[0] as ITxLocatableObject;
-                                        double move_X_Val=-153;
+                                        double move_X_Val=227;
                                         
                                         var position = new TxTransformation(robot.LocationRelativeToWorkingFrame);
                                         position.Translation = new TxVector(move_X_Val, 0, 0);
@@ -80,7 +80,7 @@ class Program
 
 		                                ITxObject tool = TxApplication.ActiveDocument.
 		                                GetObjectsByName("Suction cup")[0];
-                                            
+                                    
                                         // Create the new operation    	
                                         TxContinuousRoboticOperationCreationData data = new TxContinuousRoboticOperationCreationData(operation_name);
                                         TxApplication.ActiveDocument.OperationRoot.CreateContinuousRoboticOperation(data);

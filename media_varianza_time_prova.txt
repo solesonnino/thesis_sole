@@ -1,2 +1,0 @@
-media tempo: 5.319933836902484 
- varianza tempo: 17.66390735490744
