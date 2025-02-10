@@ -1,19 +1,28 @@
 import matplotlib.pyplot as plt
+import csv
 
 # 1️⃣ Leggere il file di testo e pulire i dati
-dati = []
-with open("prova_grafico.txt", "r") as file:
-    for riga in file:
-        riga = riga.strip().replace(" ->", "")  # Rimuove '->'
-        valori = riga.split(",")  # Divide i numeri
-        if len(valori) == 2:  # Verifica che ci siano due valori
-            dati.append((float(valori[0]), float(valori[1])))
+
+            
+
+data = []
+with open("prova_grafico.txt", "r") as f:
+    for line in f:
+        line = line.strip()  # Rimuove spazi bianchi e newline
+        if "->" in line:  
+            line = line.split("->")[0]  # Se c'è " ->", prendiamo solo la parte prima
+        values = line.split(",")  # Divide la stringa usando la virgola
+        if len(values) == 2:  # Verifica che ci siano effettivamente due numeri
+            x, y = map(float, values)
+            data.append((x, y))
+
+print(data)
 
 # 2️⃣ Separare i dati in due liste (X e Y)
-x_values, y_values = zip(*dati)  # Divide tuple in due liste separate
+x_values, y_values = zip(*data)  # Divide tuple in due liste separate
 
 # 3️⃣ Creare il grafico
-plt.plot(x_values, y_values, marker='o', linestyle='-', color='b', label="Dati")
+plt.plot(x_values, y_values, marker='o', linestyle='-', color='r', label="Dati")
 
 # 4️⃣ Personalizzare il grafico
 plt.xlabel("Tempo")
