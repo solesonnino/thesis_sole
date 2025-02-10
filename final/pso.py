@@ -21,7 +21,7 @@ a=900 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
-Nsim = 50
+Nsim = 2
 trigger_end2 = 0
 num_particles = 5      # Number of particles
 w_0 = 0.9         # inertia weight
@@ -49,15 +49,15 @@ var_man_vec=[var_man1, var_man2]
 mean_t= 0.8504154353582923 
 var_t= 0.126730866728932
 
-best_tradeoff=0
+best_tradeoff = -999999999
 
 #per diminuire linearmente il peso di inerzia da 0.9 a 0.4 divido l'intervallo per il numero di simulazioni 
 #iterazione dopo iterazione vario il peso di inerzia 
 delta_w=(w_N-w_0)/Nsim
 
 #upper e lower bound della linea
-upper_bound=1500
-lower_bound=-1500
+upper_bound=290
+lower_bound=-300
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -127,6 +127,7 @@ def main():
     type_obj=0
     current_pos=0 #initialize the current position of the base of the robot in y=0
     base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
+    
 
     while type_obj<num_types:
         packer=packers[type_obj]
@@ -223,6 +224,8 @@ def main():
                 swarm_evolution = [[] for _ in range (Nsim)]
                 x_swarm= [[] for _ in range (Nsim)]
 
+                best_tradeoff = -9999999999 #se cambio oggetto di place azzer il tradeoff
+
                 
 
                 while c<num_obj_pick: 
@@ -261,7 +264,7 @@ def main():
                             #print(f"the fitness values are: {fitness_Vec} \n")
 
                             for l in range(num_particles):
-                                if fitness_Vec[l]>99999:
+                                if fitness_Vec[l]>30000:
                                     fitness_Vec[l]=0
 
                             #send something just to see
