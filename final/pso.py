@@ -234,35 +234,8 @@ def main():
                 c=0 #it tells me which object (pick side) i'm considering    
                 min_time=10000 #arbitrarly large number
 
-                #define particle1_x
-                particle1_x = np.zeros(Nsim)
-                #define particle1_y
-                particle1_y=np.zeros(Nsim)
+                
 
-                #define particle2_x
-                particle2_x = np.zeros(Nsim)
-                #define particle1_y
-                particle2_y=np.zeros(Nsim)
-
-                #define particle1_x
-                particle3_x = np.zeros(Nsim)
-                #define particle1_y
-                particle3_y=np.zeros(Nsim)
-
-                #define particle1_x
-                particle11_x = np.zeros(Nsim)
-                #define particle1_y
-                particle11_y=np.zeros(Nsim)
-
-                #define particle1_x
-                particle12_x = np.zeros(Nsim)
-                #define particle1_y
-                particle12_y=np.zeros(Nsim)
-
-                #define particle1_x
-                particle13_x = np.zeros(Nsim)
-                #define particle1_y
-                particle13_y=np.zeros(Nsim)
 
                 # inizializzo il vettore dove metto l'evoluzione delle particelle dello sciame
                 swarm_evolution = [[] for _ in range (Nsim)]
@@ -334,7 +307,40 @@ def main():
                             print(f"Trigger end: {trigger_end}")
 
                             #save the updates of the second particle along the simulation for the first object pick side
-                            if (type_obj==0 and c==0 and i==0): 
+                            if type_obj==0 and c==0 and i==0 and trigger_end==0: 
+
+                                #define particle1_x
+                                particle1_x = np.zeros(Nsim)
+                                #define particle1_y
+                                particle1_y=np.zeros(Nsim)
+
+                                #define particle2_x
+                                particle2_x = np.zeros(Nsim)
+                                #define particle1_y
+                                particle2_y=np.zeros(Nsim)
+
+                                #define particle1_x
+                                particle3_x = np.zeros(Nsim)
+                                #define particle1_y
+                                particle3_y=np.zeros(Nsim)
+
+                            if type_obj==1 and c==0 and i==0 and trigger_end==0: 
+                                #define particle1_x
+                                particle11_x = np.zeros(Nsim)
+                                #define particle1_y
+                                particle11_y=np.zeros(Nsim)
+
+                                #define particle1_x
+                                particle12_x = np.zeros(Nsim)
+                                #define particle1_y
+                                particle12_y=np.zeros(Nsim)
+
+                                #define particle1_x
+                                particle13_x = np.zeros(Nsim)
+                                #define particle1_y
+                                particle13_y=np.zeros(Nsim)
+
+                            if type_obj==0 and c==0 and i==0: 
                                 #save the fitness evolution
                                 particle1_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
                                 particle1_y[trigger_end - 1]=fitness_Vec[1]
@@ -350,7 +356,7 @@ def main():
                                 swarm_evolution[trigger_end -1] = particle_positions.copy()
                                 x_swarm[trigger_end-1] = np.zeros(num_particles)
 
-                            if (type_obj==0 and c==0 and i==0):
+                            if type_obj==1 and c==0 and i==0:
                                 particle11_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
                                 particle11_y[trigger_end - 1]=fitness_Vec[2]
 
@@ -361,6 +367,8 @@ def main():
                                 particle13_y[trigger_end - 1]=fitness_Vec[3]
 
                             
+                
+
 
 
 

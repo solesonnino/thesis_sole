@@ -1,25 +1,23 @@
 from place_visualize_obj import Scene, Packer, Bin, Item
 
-packers=[]
-
+packers= []
 packer1 = Packer()
-packer2=Packer()
+packer2 = Packer()
 packers.append(packer1)
 packers.append(packer2)
-packer1.add_bin(Bin('small-envelope', 100, 100, 100, 20))
-packer2.add_bin(Bin('Type2_box1', 50, 25, 25, 20))
-packer2.add_bin(Bin('Type2_box2', 50, 25, 25, 20))
+Bin_00= Bin ('Type1_box1', 300, 200, 130, 20)
+Bin_00.set_offset(-900,-530,-107)
+packer1.add_bin(Bin_00)
+Bin_10= Bin ('Type2_box1', 300, 200, 130, 20)
+Bin_10.set_offset(-400, -530, -107)
+packer2.add_bin(Bin_10)
 
-packer1.add_item(Item('Type1', 25,25,25, 1))
-
-#packer2.add_item(Item('Type2', 25,25,25, 1))
-packer2.add_item(Item('Type2_1', 25,25,25, 1))
-packer2.add_item(Item('Type2_2', 25,25,25, 1))
-packer2.add_item(Item('Type2_3', 25,25,25, 1))
-#packer2.add_item(Item('Type2', 25,25,25, 1))
-#packer2.add_item(Item('Type2', 25,25,25, 1))
-#packer2.add_item(Item('Type2', 25,25,25, 1))
-#packer2.add_item(Item('Type2', 25,25,25, 1))
+packer1.add_item(Item('Cube_00', 75,150,80, 1))
+packer1.add_item(Item('Cube_01', 75,150,80, 1))
+packer1.add_item(Item('Cube_02', 75,150,80, 1))
+packer2.add_item(Item('Cube_10', 100,70,80, 1))
+packer2.add_item(Item('Cube_11', 100,70,80, 1))
+packer2.add_item(Item('Cube_12', 100,70,80, 1))
 
 items=[] 
 
