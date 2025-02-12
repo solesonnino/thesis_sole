@@ -1,0 +1,6 @@
+ Type : 1 
+ bin 0 
+ object: 0 
+ at the position: [250, 35, 40]
+the optimal position of the base is: 290.0 
+  with manipulability: 12071 and time needed to reach it: 1.2110601416389966

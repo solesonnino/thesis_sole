@@ -27,16 +27,16 @@ a=900 #mm/s^2
   # Number of simulations
 Nsim = 20
 trigger_end2 = 0
-num_particles = 20      # Number of particles
+num_particles = 20    # Number of particles
 w_0 = 0.9         # inertia weight
 w_N=0.4
 cognitive_component = 2    # cognitive component
 social_component = 2.0 
 
 num_types = 2
-num_objects_0 = 3 #objects in the scene
+num_objects_0 = 0 #objects in the scene
 num_objects_1 = 3
-num_bin_0=1
+num_bin_0=0
 num_bin_1=1
 
 num_bins_array= [num_bin_0, num_bin_1]
@@ -46,12 +46,12 @@ mean_man1= 10523.872909698997
 mean_man2= 10979.224080267559
 mean_man_vec=[mean_man1, mean_man2]
 
-var_man1= 4262714.748894526
-var_man2= 1276617.8388812821
+var_man1= math.sqrt(4262714.748894526)
+var_man2= math.sqrt(1276617.8388812821)
 var_man_vec=[var_man1, var_man2]
 
 mean_t= 0.8504154353582923 
-var_t= 0.126730866728932
+var_t= math.sqrt(0.126730866728932)
 
 best_tradeoff = -999999999
 
@@ -89,16 +89,16 @@ def main():
     packer2 = Packer()
     packers.append(packer1)
     packers.append(packer2)
-    Bin_00= Bin ('Type1_box1', 300, 200, 130, 20)
-    Bin_00.set_offset(-900,-530,-107)
-    packer1.add_bin(Bin_00)
+    #Bin_00= Bin ('Type1_box1', 300, 200, 130, 20)
+    #Bin_00.set_offset(-900,-530,-107)
+    #packer1.add_bin(Bin_00)
     Bin_10= Bin ('Type2_box1', 300, 200, 130, 20)
     Bin_10.set_offset(-400, -530, -107)
     packer2.add_bin(Bin_10)
 
-    packer1.add_item(Item('Cube_00', 75,150,80, 1))
-    packer1.add_item(Item('Cube_01', 75,150,80, 1))
-    packer1.add_item(Item('Cube_02', 75,150,80, 1))
+    #packer1.add_item(Item('Cube_00', 75,150,80, 1))
+    #packer1.add_item(Item('Cube_01', 75,150,80, 1))
+    #packer1.add_item(Item('Cube_02', 75,150,80, 1))
     packer2.add_item(Item('Cube_10', 100,70,80, 1))
     packer2.add_item(Item('Cube_11', 100,70,80, 1))
     packer2.add_item(Item('Cube_12', 100,70,80, 1))
@@ -134,8 +134,8 @@ def main():
             #scene.show_scene()
 
 
-    type_obj=0
-    current_pos=0 #initialize the current position of the base of the robot in y=0
+    type_obj=1
+    current_pos= -278 #initialize the current position of the base of the robot in y=0
     base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
     
     
@@ -291,7 +291,7 @@ def main():
                             #print(f"the fitness values are: {fitness_Vec} \n")
 
                             for l in range(num_particles):
-                                if fitness_Vec[l]>30000:
+                                if fitness_Vec[l]>13000:
                                     fitness_Vec[l]=0
 
                             with open (overall_path, 'a') as f:
@@ -307,7 +307,7 @@ def main():
                             print(f"Trigger end: {trigger_end}")
 
                             #save the updates of the second particle along the simulation for the first object pick side
-                            if type_obj==0 and c==0 and i==0 and trigger_end==0: 
+                            if type_obj==0 and c==0 and i==0 and trigger_end==1: 
 
                                 #define particle1_x
                                 particle1_x = np.zeros(Nsim)
@@ -324,7 +324,7 @@ def main():
                                 #define particle1_y
                                 particle3_y=np.zeros(Nsim)
 
-                            if type_obj==1 and c==0 and i==0 and trigger_end==0: 
+                            if type_obj==1 and c==0 and i==0 and trigger_end==1: 
                                 #define particle1_x
                                 particle11_x = np.zeros(Nsim)
                                 #define particle1_y
@@ -358,7 +358,7 @@ def main():
 
                             if type_obj==1 and c==0 and i==0:
                                 particle11_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
-                                particle11_y[trigger_end - 1]=fitness_Vec[2]
+                                particle11_y[trigger_end - 1]=fitness_Vec[1]
 
                                 particle12_x[trigger_end - 1]= trigger_end - 1 #sottraggo 1 perche l'ho già ricevuto
                                 particle12_y[trigger_end - 1]=fitness_Vec[2]

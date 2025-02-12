@@ -30,14 +30,14 @@ class Program
         try
         {
            // Define the number of simulations
-            int Nsim = 1;
+            int Nsim = 20;
             int port = 12345;
             int particles=20;
             double[] fitness = new double[particles];
             int num_types = 2;
-            int num_objects_0 = 3;
+            int num_objects_0 = 0;
             int num_objects_1 = 3;
-            int num_bin_0=1;
+            int num_bin_0=0;
             int num_bin_1=1;
             int [] num_bins_array= new int[num_types];
             int [] num_objects_array= new int [num_types];
@@ -62,7 +62,7 @@ class Program
             // Accept a client connection
             TcpClient client = server.AcceptTcpClient();
             NetworkStream stream = client.GetStream();
-            for (int type_obj=0; type_obj<num_types; type_obj++)
+            for (int type_obj=1; type_obj<num_types; type_obj++)
             { 
                 num_bins= num_bins_array[type_obj];
                 num_objects_pick=num_objects_array[type_obj];

@@ -33,11 +33,11 @@ w_N=0.4
 cognitive_component = 2    # cognitive component
 social_component = 2.0 
 
-num_types = 1
-num_objects_0 = 1 #objects in the scene
-num_objects_1 = 0
-num_bin_0=1
-num_bin_1=0
+num_types = 2
+num_objects_0 = 0 #objects in the scene
+num_objects_1 = 1
+num_bin_0=0
+num_bin_1=1
 
 num_bins_array= [num_bin_0, num_bin_1]
 num_objects_array=[num_objects_0, num_objects_1]
@@ -50,7 +50,7 @@ delta_w=(w_N-w_0)/Nsim
 
 #upper e lower bound della linea
 upper_bound= 290
-lower_bound= -630
+lower_bound= -300
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -75,18 +75,25 @@ def main():
 
     # small--> type 1
     # medium --> type 2
+
     packers= []
-    packer1 = Packer()
+    packer1=Packer()
     packers.append(packer1)
-    Bin_00= Bin ('Type1_box1', 300, 200, 130, 20)
-    Bin_00.set_offset(-900,-530,-107)
-    packer1.add_bin(Bin_00)
+    packer2 = Packer()
+    packers.append(packer2)
+    Bin_10= Bin ('Type2_box1', 300, 200, 130, 20)
+    Bin_10.set_offset(-400, -530, -107)
+    packer2.add_bin(Bin_10)
 
-
-    packer1.add_item(Item('Cube_00', 75,150,80, 1))
-
+    packer2.add_item(Item('Cube_10', 100,70,80, 1))
+    packer2.add_item(Item('Cube_11', 100,70,80, 1))
+    packer2.add_item(Item('Cube_12', 100,70,80, 1))
 
     items=[] #array in which i'll store all the items
+
+
+
+    
 
     for packer in packers:
         packer.pack()
@@ -111,11 +118,11 @@ def main():
             #scene.show_scene()
 
 
-    type_obj=0
-    current_pos=0 #initialize the current position of the base of the robot in y=0
+    type_obj=1
+    current_pos= 257.0 #initialize the current position of the base of the robot in y=0
     base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
 
-    while type_obj<num_types:
+    while type_obj<2:
         packer=packers[type_obj]
         num_bins= num_bins_array[type_obj]
         bin=0
@@ -167,10 +174,10 @@ def main():
             # repeat until items is empty
             
             
-            i=0
+            i=2
             
 
-            while i<num_objects:
+            while i<3:
                 #run the pso for all the items inside the list items --> need to pack all the items in the bin
                 print(f"currently finding the item number: {i} \n")
                 current_item=items[i]
@@ -219,7 +226,7 @@ def main():
 
                 
 
-                while c<num_obj_pick: 
+                while c<1: 
                     #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
                     if c not in pick_objects : 
                         #if the object has not ever been picked, then send skip=0, and perform all the computations    
@@ -256,7 +263,7 @@ def main():
                             fitness_Vec= np.array(fitness)
                             #print(f"the fitness values are: {fitness_Vec} \n")
                             for l in range (num_particles):
-                                if fitness_Vec[l]>30000:
+                                if fitness_Vec[l]>14000:
                                     fitness_Vec[l]=0
 
                             with open(file_path2, "a") as File:
@@ -333,6 +340,20 @@ def main():
 
                                 if (particle_positions[i]<lower_bound):
                                     particle_positions[i]=lower_bound    
+
+                        # evaluate the time needed to move the base from the current position to the one i'm evaluating
+                        d = abs(current_pos-global_best_position)
+                        d_acc= pow(v_max,2)/a
+                        d_cost = d-d_acc
+                        if (d_cost <=0) : #triangular velocity profile
+                            t= 2*math.sqrt(d/a)
+                        else:
+                            t=2*(v_max/a)+d_cost/v_max 
+
+                        with open(file_path, "a") as File:
+                            File.write(f" Type : {type_obj} \n bin {bin} \n object: {c} \n at the position: {current_item.get_center()}\n")
+                            File.write(f"the optimal position of the base is: {global_best_position} \n  with manipulability: {global_best_score} and time needed to reach it: {t}\n")
+
 
 
                         #send something just to see
