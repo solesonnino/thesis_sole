@@ -22,12 +22,12 @@ print(data)
 x_values, y_values = zip(*data)  # Divide tuple in due liste separate
 
 # 3️⃣ Creare il grafico
-plt.plot(x_values, y_values, marker='o', linestyle='-', color='r', label="Dati")
+plt.plot(x_values, y_values, marker='o', linestyle='-', color='r', label="Data")
 
 # 4️⃣ Personalizzare il grafico
-plt.xlabel("Tempo")
-plt.ylabel("Valore")
-plt.title("Grafico dei dati estratti")
+plt.xlabel("Iteration")
+plt.ylabel("Fitness")
+plt.title("Particle 3 fitness evolution with 150 iterations")
 plt.legend()
 plt.grid(True)
 

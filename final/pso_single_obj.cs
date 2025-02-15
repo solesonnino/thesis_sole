@@ -34,11 +34,11 @@ class Program
             int port = 12345;
             int particles=20;
             double[] fitness = new double[particles];
-            int num_types = 2;
-            int num_objects_0 = 0;
-            int num_objects_1 = 1;
-            int num_bin_0=0;
-            int num_bin_1=1;
+            int num_types = 1;
+            int num_objects_0 = 1;
+            int num_objects_1 = 0;
+            int num_bin_0=1;
+            int num_bin_1=0;
             int [] num_bins_array= new int[num_types];
             int [] num_objects_array= new int [num_types];
 
@@ -62,7 +62,7 @@ class Program
             // Accept a client connection
             TcpClient client = server.AcceptTcpClient();
             NetworkStream stream = client.GetStream();
-            for (int type_obj=1; type_obj<2; type_obj++)
+            for (int type_obj=0; type_obj<num_types; type_obj++)
             { 
                 num_bins= num_bins_array[type_obj];
                 num_objects_pick=num_objects_array[type_obj];
@@ -90,8 +90,9 @@ class Program
                     stream.Write(helper5_vec, 0, helper5_vec.Length);           
 
                     // Loop for all the objects place side
-                    for (int i=2; i<3; i++)
-                    {
+                    for (int i=2; i<num_objects; i++)
+                        {
+                    
                         //recieve the place point for the object I'm considering
                         var place_position_recieved = ReceiveNumpyArray(stream);
                         output.Write("la posizione di place per l'oggetto è: ");
@@ -116,7 +117,7 @@ class Program
 
                         
                         // Loop for all the objects, pick side
-                        for (int c=2; c<3; c++)
+                        for (int c=0; c<num_objects_pick; c++)
                         { //for all the objects (pick side) perform the pso
 
                             //first of all recieve skip
@@ -530,9 +531,6 @@ class Program
                 stream.Write(byte_type, 0, byte_type.Length);  
 
             }
-
-
-
 
         
             // Close all the instances

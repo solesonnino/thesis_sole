@@ -20,8 +20,8 @@ with open(file_path2, 'w') as f:
 
 
 #max velocity and acceleration of the base in cm
-v_max=70 #m/s
-a=90 #mm/s^2
+v_max=700 #m/s
+a=900 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
@@ -34,10 +34,10 @@ cognitive_component = 2    # cognitive component
 social_component = 2.0 
 
 num_types = 2
-num_objects_0 = 0 #objects in the scene
-num_objects_1 = 1
-num_bin_0=0
-num_bin_1=1
+num_objects_0 = 1 #objects in the scene
+num_objects_1 = 0
+num_bin_0=1
+num_bin_1=0
 
 num_bins_array= [num_bin_0, num_bin_1]
 num_objects_array=[num_objects_0, num_objects_1]
@@ -50,7 +50,7 @@ delta_w=(w_N-w_0)/Nsim
 
 #upper e lower bound della linea
 upper_bound= 290
-lower_bound= -300
+lower_bound= -630
 
 def send_array(sock, array):
     # Send the shape and type of the array first
@@ -81,13 +81,13 @@ def main():
     packers.append(packer1)
     packer2 = Packer()
     packers.append(packer2)
-    Bin_10= Bin ('Type2_box1', 300, 200, 130, 20)
-    Bin_10.set_offset(-400, -530, -107)
-    packer2.add_bin(Bin_10)
 
-    packer2.add_item(Item('Cube_10', 100,70,80, 1))
-    packer2.add_item(Item('Cube_11', 100,70,80, 1))
-    packer2.add_item(Item('Cube_12', 100,70,80, 1))
+    Bin_00= Bin ('Type1_box1', 300, 200, 130, 20)
+    Bin_00.set_offset(-900,-530,-107)
+    packer1.add_bin(Bin_00)
+
+    packer1.add_item(Item('Cube_00', 75,150,80, 1))
+
 
     items=[] #array in which i'll store all the items
 
@@ -118,11 +118,11 @@ def main():
             #scene.show_scene()
 
 
-    type_obj=1
-    current_pos= 257.0 #initialize the current position of the base of the robot in y=0
+    type_obj=0
+    current_pos= 0 #initialize the current position of the base of the robot in y=0
     base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
 
-    while type_obj<2:
+    while type_obj<num_types:
         packer=packers[type_obj]
         num_bins= num_bins_array[type_obj]
         bin=0
@@ -174,10 +174,10 @@ def main():
             # repeat until items is empty
             
             
-            i=2
+            i=0
             
 
-            while i<3:
+            while i<num_objects:
                 #run the pso for all the items inside the list items --> need to pack all the items in the bin
                 print(f"currently finding the item number: {i} \n")
                 current_item=items[i]
@@ -226,7 +226,7 @@ def main():
 
                 
 
-                while c<1: 
+                while c<num_obj_pick: 
                     #for all the items that i have to pack (pick side), run the pso --> choose which item pick in order to place in the prescribed position
                     if c not in pick_objects : 
                         #if the object has not ever been picked, then send skip=0, and perform all the computations    
@@ -262,9 +262,9 @@ def main():
                             # Transform the data into a numpy array
                             fitness_Vec= np.array(fitness)
                             #print(f"the fitness values are: {fitness_Vec} \n")
-                            for l in range (num_particles):
-                                if fitness_Vec[l]>14000:
-                                    fitness_Vec[l]=0
+                            #for l in range (num_particles):
+                             #   if fitness_Vec[l]>30000:
+                              #      fitness_Vec[l]=0
 
                             with open(file_path2, "a") as File:
                                 File.write(f"fitness: {fitness_Vec} \n\n")

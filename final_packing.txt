@@ -1,0 +1,18 @@
+ Type : 1 
+ bin 0 
+ object: 2 
+ at the position: [50, 35, 40]
+the optimal position of the base is: 148.0 
+  with manipulability: 12694 and time needed to reach it: 1.3743685418725535
+ Type : 1 
+ bin 0 
+ object: 0 
+ at the position: [150, 35, 40]
+the optimal position of the base is: 286.0 
+  with manipulability: 12350 and time needed to reach it: 0.7831560082980487
+ Type : 1 
+ bin 0 
+ object: 1 
+ at the position: [250, 35, 40]
+the optimal position of the base is: 290.0 
+  with manipulability: 12011 and time needed to reach it: 0.13333333333333333

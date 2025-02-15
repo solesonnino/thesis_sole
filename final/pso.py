@@ -25,7 +25,7 @@ a=900 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
-Nsim = 20
+Nsim = 50
 trigger_end2 = 0
 num_particles = 20    # Number of particles
 w_0 = 0.9         # inertia weight
@@ -135,7 +135,7 @@ def main():
 
 
     type_obj=1
-    current_pos= -278 #initialize the current position of the base of the robot in y=0
+    current_pos= -277.0 #initialize the current position of the base of the robot in y=0
     base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
     
     
@@ -291,7 +291,7 @@ def main():
                             #print(f"the fitness values are: {fitness_Vec} \n")
 
                             for l in range(num_particles):
-                                if fitness_Vec[l]>13000:
+                                if fitness_Vec[l]>30000:
                                     fitness_Vec[l]=0
 
                             with open (overall_path, 'a') as f:
