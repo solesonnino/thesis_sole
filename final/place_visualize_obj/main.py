@@ -318,7 +318,7 @@ class Scene:
         """
         Mostra la scena 3D con tutti i cubi aggiunti.
         """
-        self.ax.set_xlabel('Asse X')
-        self.ax.set_ylabel('Asse Y')
-        self.ax.set_zlabel('Asse Z')
+        self.ax.set_xlabel('X [mm]')
+        self.ax.set_ylabel('Y [mm]')
+        self.ax.set_zlabel('Z [mm]')
         plt.show()
