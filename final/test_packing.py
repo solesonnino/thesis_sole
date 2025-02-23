@@ -1,5 +1,7 @@
 from place_visualize_obj import Scene, Packer, Bin, Item
+import time
 
+start = time.time()
 packers= []
 packer1 = Packer()
 packer2 = Packer()
@@ -44,3 +46,8 @@ for packer in packers:
             print("***************************************************")
             print("***************************************************")
             scene.show_scene()
+
+    end = time.time()
+    difference = end-start
+
+    print(f"{end} \n {start} \n {difference}")

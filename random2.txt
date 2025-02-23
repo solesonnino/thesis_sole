@@ -1,0 +1,7 @@
+Base positions: [-95, -192, 116, -288, -202, 23] 
+ Fitness values:[12145 12838  9674  9100  9890 10753]time to move: 0.6497862896539309 
+time to move: 0.6565905201197403 
+time to move: 1.169995251652283 
+time to move: 1.339983416149452 
+time to move: 0.6182412330330469 
+time to move: 1.0 

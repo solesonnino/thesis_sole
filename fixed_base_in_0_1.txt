@@ -1,0 +1,7 @@
+Base positions: [0, 0, 0, 0, 0, 0] 
+ Fitness values:[10945 11122 11016 12395 11104 10526]time to move: 0.0 
+time to move: 0.0 
+time to move: 0.0 
+time to move: 0.0 
+time to move: 0.0 
+time to move: 0.0 

@@ -5,8 +5,10 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import math
+import time
 
 
+start_time= time.time()
 
 file_path = "final_packing.txt"
 file_path2= "evoluzione_particelle_pso.txt"
@@ -18,6 +20,10 @@ with open(file_path, 'w') as f:
 with open(file_path2, 'w') as f:
     pass
 
+with open(file_path, 'a') as f:
+    f.write(f"inizio tempo: {start_time} \n \n")
+
+
 
 #max velocity and acceleration of the base in cm
 v_max=700 #mm/s
@@ -25,7 +31,7 @@ a=900 #mm/s^2
 
 #parameters of the pso
   # Number of simulations
-Nsim = 50
+Nsim = 20
 trigger_end2 = 0
 num_particles = 20    # Number of particles
 w_0 = 0.9         # inertia weight
@@ -34,9 +40,9 @@ cognitive_component = 2    # cognitive component
 social_component = 2.0 
 
 num_types = 2
-num_objects_0 = 0 #objects in the scene
+num_objects_0 = 3 #objects in the scene
 num_objects_1 = 3
-num_bin_0=0
+num_bin_0=1
 num_bin_1=1
 
 num_bins_array= [num_bin_0, num_bin_1]
@@ -54,6 +60,8 @@ mean_t= 0.8504154353582923
 var_t= math.sqrt(0.126730866728932)
 
 best_tradeoff = -999999999
+
+
 
 #per diminuire linearmente il peso di inerzia da 0.9 a 0.4 divido l'intervallo per il numero di simulazioni 
 #iterazione dopo iterazione vario il peso di inerzia 
@@ -89,16 +97,16 @@ def main():
     packer2 = Packer()
     packers.append(packer1)
     packers.append(packer2)
-    #Bin_00= Bin ('Type1_box1', 300, 200, 130, 20)
-    #Bin_00.set_offset(-900,-530,-107)
-    #packer1.add_bin(Bin_00)
+    Bin_00= Bin ('Type1_box1', 300, 200, 130, 20)
+    Bin_00.set_offset(-900,-530,-107)
+    packer1.add_bin(Bin_00)
     Bin_10= Bin ('Type2_box1', 300, 200, 130, 20)
     Bin_10.set_offset(-400, -530, -107)
     packer2.add_bin(Bin_10)
 
-    #packer1.add_item(Item('Cube_00', 75,150,80, 1))
-    #packer1.add_item(Item('Cube_01', 75,150,80, 1))
-    #packer1.add_item(Item('Cube_02', 75,150,80, 1))
+    packer1.add_item(Item('Cube_00', 75,150,80, 1))
+    packer1.add_item(Item('Cube_01', 75,150,80, 1))
+    packer1.add_item(Item('Cube_02', 75,150,80, 1))
     packer2.add_item(Item('Cube_10', 100,70,80, 1))
     packer2.add_item(Item('Cube_11', 100,70,80, 1))
     packer2.add_item(Item('Cube_12', 100,70,80, 1))
@@ -134,8 +142,8 @@ def main():
             #scene.show_scene()
 
 
-    type_obj=1
-    current_pos= -277.0 #initialize the current position of the base of the robot in y=0
+    type_obj=0
+    current_pos= 0 #initialize the current position of the base of the robot in y=0
     base_position_sequence= [] #array in which i'll store all the optimal positions of the base for each object
     
     
@@ -158,6 +166,13 @@ def main():
         send_array(s,z_top_face_send)
 
         print(f"type= {type_obj} \n" )
+
+        #if type_obj==1:
+        #    treshold=12800
+
+        #if type_obj==0:
+        #    treshold= 14000
+
 
         with open (overall_path, 'a') as f:
             f.write(f"Type: {type_obj} \n")
@@ -258,6 +273,16 @@ def main():
                         particle_positions = np.random.uniform(lower_bound, upper_bound, num_particles)  # initial positions
                         particle_velocities = np.random.uniform(-1, 1, num_particles)   # initial velocities
                         
+                        #if  c==0:
+                        #    treshold=12500
+
+                        #if c==1:
+                        #    treshold=12500
+
+                        #if c==2:
+                        #    treshold=12800    
+
+                        
                         with open(overall_path, 'a') as f:
                             f.write(f"Object: {c} \n")
                         
@@ -274,7 +299,7 @@ def main():
                             inertia_weight=w_0+delta_w*trigger_end
                             print(f"inertia weight: {inertia_weight}")
                             #send the particle positions
-                            layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4]),  int(particle_positions[5]), int(particle_positions[6]), int(particle_positions[7]), int(particle_positions[8]), int(particle_positions[9]), int(particle_positions[10]), int(particle_positions[11]), int(particle_positions[12]), int(particle_positions[13]), int(particle_positions[14]), int(particle_positions[15]), int(particle_positions[16]), int(particle_positions[17]), int(particle_positions[18]), int(particle_positions[19]),]], dtype= np.int32)
+                            layout = np.array([[int(particle_positions[0]), int(particle_positions[1]), int(particle_positions[2]),int(particle_positions[3]),int(particle_positions[4]),  int(particle_positions[5]), int(particle_positions[6]), int(particle_positions[7]), int(particle_positions[8]), int(particle_positions[9]), int(particle_positions[10]), int(particle_positions[11]), int(particle_positions[12]), int(particle_positions[13]), int(particle_positions[14]), int(particle_positions[15]), int(particle_positions[16]), int(particle_positions[17]), int(particle_positions[18]), int(particle_positions[19])]], dtype= np.int32)
                             #layout = np.array([[int(particle_positions[0])]], dtype= np.int32)
                             # Actual send of the data (in the future: try to remove the double send and try to send just one time)
                             send_array(s,layout)
@@ -290,9 +315,9 @@ def main():
                             fitness_Vec= np.array(fitness)
                             #print(f"the fitness values are: {fitness_Vec} \n")
 
-                            for l in range(num_particles):
-                                if fitness_Vec[l]>30000:
-                                    fitness_Vec[l]=0
+                            #for l in range(num_particles):
+                            #    if fitness_Vec[l]>treshold:
+                            #        fitness_Vec[l]=0
 
                             with open (overall_path, 'a') as f:
                                 f.write(f"Fitness: {fitness_Vec} \n")
@@ -429,7 +454,7 @@ def main():
 
                         man = global_best_score
 
-                        tradeoff= ((man-mean_man)/var_man)+(1/((t-mean_t)/var_t))    
+                        tradeoff= ((man-mean_man)/var_man)-(((t-mean_t)/var_t))    
                         
                         if (tradeoff > best_tradeoff): #if the current motion is better, update
                             best_tradeoff=tradeoff
@@ -498,6 +523,12 @@ def main():
 
     # Close the connection
     s.close()
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    with open(file_path, 'a') as f:
+        f.write(f"inizio tempo: {end_time} \n \n tempo necessario tot: {elapsed_time}")
+
+
 
     #print the graph of the particle fitness evolution considered
         #print the graph of the particle fitness evolution considered
