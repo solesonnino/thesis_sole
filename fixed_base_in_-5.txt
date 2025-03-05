@@ -1,0 +1,55 @@
+Base positions: [-5, -5, -5, -5, -5, -5] 
+ Fitness values:[11125 11328 11217 12427 11483 10334]
+ 
+time to move: 0.14907119849998599 
+time to move: 0.0 
+time to move: 0.0 
+time to move: 0.0 
+time to move: 0.0 
+time to move: 0.0 
+
+
+ seleziono pick
+ the current position is: 
+-5
+fine simulazione 
+determinante medio: 11125,2004656042
+tempo: 9,20955157743763
+metto in fitnessfatto
+ seleziono pick
+ the current position is: 
+-5
+fine simulazione 
+determinante medio: 11328,7154287099
+tempo: 9,21393617247324
+metto in fitnessfatto
+ seleziono pick
+ the current position is: 
+-5
+fine simulazione 
+determinante medio: 11217,694189737
+tempo: 9,25845033731757
+metto in fitnessfatto
+ seleziono pick
+ the current position is: 
+-5
+fine simulazione 
+determinante medio: 12427,8703829185
+tempo: 9,07277004554088
+metto in fitnessfatto
+ seleziono pick
+ the current position is: 
+-5
+fine simulazione 
+determinante medio: 11483,4494567678
+tempo: 9,06448802249495
+metto in fitnessfatto
+ seleziono pick
+ the current position is: 
+-5
+fine simulazione 
+determinante medio: 10334,9854542008
+tempo: 8,98641215494714
+metto in fitnessfatto
+ The fitness is:
+11125,11328,11217,12427,11483,10334

@@ -148,7 +148,7 @@ def main():
     helper4=s.recv(1024).decode()
 
     #send pick objects sequence
-    pick_objects=[2,1,0,2,0,1]
+    pick_objects=[2,1,0,2,1,0]
     pick_obj_send= np.array([[pick_objects[0]],[pick_objects[1]],[pick_objects[2]],[pick_objects[3]],[pick_objects[4]],[pick_objects[5]]], dtype=np.int32)
     send_array(s, pick_obj_send)
 

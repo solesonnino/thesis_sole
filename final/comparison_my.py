@@ -138,7 +138,7 @@ def main():
 
     
     current_pos= 0 #initialize the current position of the base of the robot in y=0
-    layout= [-272,-286,-278,147,286,288] #array in which i'll store all the optimal positions of the base for each object
+    layout= [-250,-269,-270,150,262,290] #array in which i'll store all the optimal positions of the base for each object
     
     #send the place points
     place_point_send=np.array(place_points, dtype=np.int32)
@@ -148,7 +148,7 @@ def main():
     helper4=s.recv(1024).decode()
 
     #send pick objects sequence
-    pick_objects=[2,1,0,2,0,1]
+    pick_objects=[2,1,0,2,1,0]
     pick_obj_send= np.array([[pick_objects[0]],[pick_objects[1]],[pick_objects[2]],[pick_objects[3]],[pick_objects[4]],[pick_objects[5]]], dtype=np.int32)
     send_array(s, pick_obj_send)
 
